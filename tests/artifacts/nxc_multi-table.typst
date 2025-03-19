@@ -1,0 +1,23 @@
+#set page(flipped: true)
+
+#table(
+  columns: (3),
+  [*192.168.56.10*], [*kingslanding*], [*windows*],
+  [445/tcp], [smb], []
+)
+
+#pagebreak()
+
+#table(
+  columns: (3),
+  [*192.168.56.11*], [*winterfell*], [*windows*],
+  [445/tcp], [smb], []
+)
+
+#pagebreak()
+
+#table(
+  columns: (3),
+  [*192.168.56.22*], [*castelblack*], [*windows*],
+  [445/tcp], [smb], [SMB Signing disabled!]
+)

@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="192.168.56.10">
+    <hostnames>
+      <hostname>kingslanding</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="445">
+        <services>
+          <service>smb</service>
+        </services>
+        <banners/>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.11">
+    <hostnames>
+      <hostname>winterfell</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="445">
+        <services>
+          <service>smb</service>
+        </services>
+        <banners/>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.22">
+    <hostnames>
+      <hostname>castelblack</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="445">
+        <services>
+          <service>smb</service>
+        </services>
+        <banners>
+          <banner>SMB Signing disabled!</banner>
+        </banners>
+      </port>
+    </tcp_ports>
+  </host>
+</infrastructure>

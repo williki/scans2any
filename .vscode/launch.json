@@ -1,0 +1,36 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+
+    // Der Trick um das hier zu benutzen ist VSCode aus der poetry shell heraus
+    // starten
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "demo",
+            "request": "launch",
+            "program": "src/scans2any/main.py",
+            "console": "integratedTerminal",
+            "type": "debugpy",
+            "args": [
+                "--aquatone",
+                "tests/data/aquatone/goad-light-aquatone_session.json",
+                "--bloodhound",
+                "tests/data/bloodhound/goad-light-sevenkingdoms_computers.json",
+                "--bloodhound",
+                "tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json",
+                "--nessus",
+                "tests/data/nessus/goad-light.nessus",
+                "--nmap",
+                "tests/data/nmap/goad-light.xml",
+                "--nxc",
+                "tests/data/netexec/goad-light-smb.db",
+                "--masscan",
+                "tests/data/masscan/goad-light.json",
+                "--txt",
+                "tests/data/txt/goad-light.txt"
+            ]
+        }
+    ]
+}

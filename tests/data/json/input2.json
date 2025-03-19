@@ -1,0 +1,10 @@
+{
+  "2.2.2.2": {
+    "hostnames": ["host2.example.com"],
+    "tcp_ports": {
+      "80": {
+        "service_names": ["http"]
+      }
+    }
+  }
+}

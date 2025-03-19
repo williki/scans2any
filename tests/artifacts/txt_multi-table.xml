@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="192.168.56.10">
+    <hostnames>
+      <hostname>kingslanding.sevenkingdoms.local</hostname>
+    </hostnames>
+  </host>
+  <host ip="192.168.56.11">
+    <hostnames>
+      <hostname>winterfell.north.sevenkingdoms.local</hostname>
+    </hostnames>
+  </host>
+  <host ip="192.168.56.22">
+    <hostnames>
+      <hostname>castelblack.north.sevenkingdoms.local</hostname>
+    </hostnames>
+  </host>
+</infrastructure>

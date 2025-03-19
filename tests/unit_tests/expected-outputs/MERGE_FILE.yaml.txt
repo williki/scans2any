@@ -1,0 +1,46 @@
+
+1.1.1.1
+~ Hostnames:
+    []
+~ OS:
+    []
+~ Services:
+    1111/tcp - ['']
+        ['No service name found for this port']
+
+3.3.3.3
+~ Hostnames:
+    []
+~ OS:
+    []
+~ Services:
+    3333/tcp - ['service without banner']
+
+192.168.1.10
+~ Hostnames:
+    []
+~ OS:
+    ['ubuntu']
+~ Services:
+    1/udp - ['whatever']
+    443/tcp - []
+        ['product: Apache httpd']
+
+192.168.1.11
+~ Hostnames:
+    []
+~ OS:
+    ['ubuntu']
+~ Services:
+    443/tcp - []
+        ['File Browser']
+    9999/tcp - ['http']
+
+192.168.1.12
+~ Hostnames:
+    []
+~ OS:
+    []
+~ Services:
+    443/tcp - []
+        ['sAURier – acme's AUR Repository']

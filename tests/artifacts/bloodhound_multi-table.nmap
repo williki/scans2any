@@ -1,0 +1,4 @@
+#!/bin/sh
+
+nmap castelblack.north.sevenkingdoms.local -sS -A -Pn -n -T4 -oA castelblack.north.sevenkingdoms.local --top-ports 1000
+nmap winterfell.north.sevenkingdoms.local -sS -A -Pn -n -T4 -oA winterfell.north.sevenkingdoms.local --top-ports 1000

@@ -1,0 +1,8 @@
+#set page(flipped: true)
+
+#table(
+  columns: (6),
+  [*IP-Addresses*], [*Hostnames*], [*Ports*], [*Services*], [*Banners*], [*OS*],
+  [], [castelblack.north.sevenkingdoms.local], [], [], [], [windows],
+  [], [winterfell.north.sevenkingdoms.local], [], [], [], [windows]
+)

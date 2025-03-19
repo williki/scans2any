@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.95 scan initiated Fri Mar  7 13:21:59 2025 as: nmap -A -oA GOAD-Mini 192.168.56.0/24 -->
+<nmaprun scanner="nmap" args="nmap -A -oA GOAD-Mini 192.168.56.0/24" start="1741350119" startstr="Fri Mar  7 13:21:59 2025" version="7.95" xmloutputversion="1.05">
+<scaninfo type="syn" protocol="tcp" numservices="1000" services="1,3-4,6-7,9,13,17,19-26,30,32-33,37,42-43,49,53,70,79-85,88-90,99-100,106,109-111,113,119,125,135,139,143-144,146,161,163,179,199,211-212,222,254-256,259,264,280,301,306,311,340,366,389,406-407,416-417,425,427,443-445,458,464-465,481,497,500,512-515,524,541,543-545,548,554-555,563,587,593,616-617,625,631,636,646,648,666-668,683,687,691,700,705,711,714,720,722,726,749,765,777,783,787,800-801,808,843,873,880,888,898,900-903,911-912,981,987,990,992-993,995,999-1002,1007,1009-1011,1021-1100,1102,1104-1108,1110-1114,1117,1119,1121-1124,1126,1130-1132,1137-1138,1141,1145,1147-1149,1151-1152,1154,1163-1166,1169,1174-1175,1183,1185-1187,1192,1198-1199,1201,1213,1216-1218,1233-1234,1236,1244,1247-1248,1259,1271-1272,1277,1287,1296,1300-1301,1309-1311,1322,1328,1334,1352,1417,1433-1434,1443,1455,1461,1494,1500-1501,1503,1521,1524,1533,1556,1580,1583,1594,1600,1641,1658,1666,1687-1688,1700,1717-1721,1723,1755,1761,1782-1783,1801,1805,1812,1839-1840,1862-1864,1875,1900,1914,1935,1947,1971-1972,1974,1984,1998-2010,2013,2020-2022,2030,2033-2035,2038,2040-2043,2045-2049,2065,2068,2099-2100,2103,2105-2107,2111,2119,2121,2126,2135,2144,2160-2161,2170,2179,2190-2191,2196,2200,2222,2251,2260,2288,2301,2323,2366,2381-2383,2393-2394,2399,2401,2492,2500,2522,2525,2557,2601-2602,2604-2605,2607-2608,2638,2701-2702,2710,2717-2718,2725,2800,2809,2811,2869,2875,2909-2910,2920,2967-2968,2998,3000-3001,3003,3005-3006,3011,3017,3030-3031,3052,3071,3077,3128,3168,3211,3221,3260-3261,3268-3269,3283,3300-3301,3306,3322-3325,3333,3351,3367,3369-3372,3389-3390,3404,3476,3493,3517,3527,3546,3551,3580,3659,3689-3690,3703,3737,3766,3784,3800-3801,3809,3814,3826-3828,3851,3869,3871,3878,3880,3889,3905,3914,3918,3920,3945,3971,3986,3995,3998,4000-4006,4045,4111,4125-4126,4129,4224,4242,4279,4321,4343,4443-4446,4449,4550,4567,4662,4848,4899-4900,4998,5000-5004,5009,5030,5033,5050-5051,5054,5060-5061,5080,5087,5100-5102,5120,5190,5200,5214,5221-5222,5225-5226,5269,5280,5298,5357,5405,5414,5431-5432,5440,5500,5510,5544,5550,5555,5560,5566,5631,5633,5666,5678-5679,5718,5730,5800-5802,5810-5811,5815,5822,5825,5850,5859,5862,5877,5900-5904,5906-5907,5910-5911,5915,5922,5925,5950,5952,5959-5963,5985-5989,5998-6007,6009,6025,6059,6100-6101,6106,6112,6123,6129,6156,6346,6389,6502,6510,6543,6547,6565-6567,6580,6646,6666-6669,6689,6692,6699,6779,6788-6789,6792,6839,6881,6901,6969,7000-7002,7004,7007,7019,7025,7070,7100,7103,7106,7200-7201,7402,7435,7443,7496,7512,7625,7627,7676,7741,7777-7778,7800,7911,7920-7921,7937-7938,7999-8002,8007-8011,8021-8022,8031,8042,8045,8080-8090,8093,8099-8100,8180-8181,8192-8194,8200,8222,8254,8290-8292,8300,8333,8383,8400,8402,8443,8500,8600,8649,8651-8652,8654,8701,8800,8873,8888,8899,8994,9000-9003,9009-9011,9040,9050,9071,9080-9081,9090-9091,9099-9103,9110-9111,9200,9207,9220,9290,9415,9418,9485,9500,9502-9503,9535,9575,9593-9595,9618,9666,9876-9878,9898,9900,9917,9929,9943-9944,9968,9998-10004,10009-10010,10012,10024-10025,10082,10180,10215,10243,10566,10616-10617,10621,10626,10628-10629,10778,11110-11111,11967,12000,12174,12265,12345,13456,13722,13782-13783,14000,14238,14441-14442,15000,15002-15004,15660,15742,16000-16001,16012,16016,16018,16080,16113,16992-16993,17877,17988,18040,18101,18988,19101,19283,19315,19350,19780,19801,19842,20000,20005,20031,20221-20222,20828,21571,22939,23502,24444,24800,25734-25735,26214,27000,27352-27353,27355-27356,27715,28201,30000,30718,30951,31038,31337,32768-32785,33354,33899,34571-34573,35500,38292,40193,40911,41511,42510,44176,44442-44443,44501,45100,48080,49152-49161,49163,49165,49167,49175-49176,49400,49999-50003,50006,50300,50389,50500,50636,50800,51103,51493,52673,52822,52848,52869,54045,54328,55055-55056,55555,55600,56737-56738,57294,57797,58080,60020,60443,61532,61900,62078,63331,64623,64680,65000,65129,65389"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.56.10" addrtype="ipv4"/>
+<address addr="08:00:27:E6:37:B2" addrtype="mac" vendor="PCS Systemtechnik/Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<hosthint><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.56.100" addrtype="ipv4"/>
+<address addr="08:00:27:99:ED:9C" addrtype="mac" vendor="PCS Systemtechnik/Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+</hosthint>
+<host starttime="1741350121" endtime="1741350179"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.56.10" addrtype="ipv4"/>
+<address addr="08:00:27:E6:37:B2" addrtype="mac" vendor="PCS Systemtechnik/Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="985">
+<extrareasons reason="reset" count="985" proto="tcp" ports="1,3-4,6-7,9,13,17,19-26,30,32-33,37,42-43,49,70,79,81-85,89-90,99-100,106,109-111,113,119,125,143-144,146,161,163,179,199,211-212,222,254-256,259,264,280,301,306,311,340,366,406-407,416-417,425,427,443-444,458,465,481,497,500,512-515,524,541,543-545,548,554-555,563,587,616-617,625,631,646,648,666-668,683,687,691,700,705,711,714,720,722,726,749,765,777,783,787,800-801,808,843,873,880,888,898,900-903,911-912,981,987,990,992-993,995,999-1002,1007,1009-1011,1021-1100,1102,1104-1108,1110-1114,1117,1119,1121-1124,1126,1130-1132,1137-1138,1141,1145,1147-1149,1151-1152,1154,1163-1166,1169,1174-1175,1183,1185-1187,1192,1198-1199,1201,1213,1216-1218,1233-1234,1236,1244,1247-1248,1259,1271-1272,1277,1287,1296,1300-1301,1309-1311,1322,1328,1334,1352,1417,1433-1434,1443,1455,1461,1494,1500-1501,1503,1521,1524,1533,1556,1580,1583,1594,1600,1641,1658,1666,1687-1688,1700,1717-1721,1723,1755,1761,1782-1783,1801,1805,1812,1839-1840,1862-1864,1875,1900,1914,1935,1947,1971-1972,1974,1984,1998-2010,2013,2020-2022,2030,2033-2035,2038,2040-2043,2045-2049,2065,2068,2099-2100,2103,2105-2107,2111,2119,2121,2126,2135,2144,2160-2161,2170,2179,2190-2191,2196,2200,2222,2251,2260,2288,2301,2323,2366,2381-2383,2393-2394,2399,2401,2492,2500,2522,2525,2557,2601-2602,2604-2605,2607-2608,2638,2701-2702,2710,2717-2718,2725,2800,2809,2811,2869,2875,2909-2910,2920,2967-2968,2998,3000-3001,3003,3005-3006,3011,3017,3030-3031,3052,3071,3077,3128,3168,3211,3221,3260-3261,3283,3300-3301,3306,3322-3325,3333,3351,3367,3369-3372,3390,3404,3476,3493,3517,3527,3546,3551,3580,3659,3689-3690,3703,3737,3766,3784,3800-3801,3809,3814,3826-3828,3851,3869,3871,3878,3880,3889,3905,3914,3918,3920,3945,3971,3986,3995,3998,4000-4006,4045,4111,4125-4126,4129,4224,4242,4279,4321,4343,4443-4446,4449,4550,4567,4662,4848,4899-4900,4998,5000-5004,5009,5030,5033,5050-5051,5054,5060-5061,5080,5087,5100-5102,5120,5190,5200,5214,5221-5222,5225-5226,5269,5280,5298,5357,5405,5414,5431-5432,5440,5500,5510,5544,5550,5555,5560,5566,5631,5633,5666,5678-5679,5718,5730,5800-5802,5810-5811,5815,5822,5825,5850,5859,5862,5877,5900-5904,5906-5907,5910-5911,5915,5922,5925,5950,5952,5959-5963,5987-5989,5998-6007,6009,6025,6059,6100-6101,6106,6112,6123,6129,6156,6346,6389,6502,6510,6543,6547,6565-6567,6580,6646,6666-6669,6689,6692,6699,6779,6788-6789,6792,6839,6881,6901,6969,7000-7002,7004,7007,7019,7025,7070,7100,7103,7106,7200-7201,7402,7435,7443,7496,7512,7625,7627,7676,7741,7777-7778,7800,7911,7920-7921,7937-7938,7999-8002,8007-8011,8021-8022,8031,8042,8045,8080-8090,8093,8099-8100,8180-8181,8192-8194,8200,8222,8254,8290-8292,8300,8333,8383,8400,8402,8443,8500,8600,8649,8651-8652,8654,8701,8800,8873,8888,8899,8994,9000-9003,9009-9011,9040,9050,9071,9080-9081,9090-9091,9099-9103,9110-9111,9200,9207,9220,9290,9415,9418,9485,9500,9502-9503,9535,9575,9593-9595,9618,9666,9876-9878,9898,9900,9917,9929,9943-9944,9968,9998-10004,10009-10010,10012,10024-10025,10082,10180,10215,10243,10566,10616-10617,10621,10626,10628-10629,10778,11110-11111,11967,12000,12174,12265,12345,13456,13722,13782-13783,14000,14238,14441-14442,15000,15002-15004,15660,15742,16000-16001,16012,16016,16018,16080,16113,16992-16993,17877,17988,18040,18101,18988,19101,19283,19315,19350,19780,19801,19842,20000,20005,20031,20221-20222,20828,21571,22939,23502,24444,24800,25734-25735,26214,27000,27352-27353,27355-27356,27715,28201,30000,30718,30951,31038,31337,32768-32785,33354,33899,34571-34573,35500,38292,40193,40911,41511,42510,44176,44442-44443,44501,45100,48080,49152-49161,49163,49165,49167,49175-49176,49400,49999-50003,50006,50300,50389,50500,50636,50800,51103,51493,52673,52822,52848,52869,54045,54328,55055-55056,55555,55600,56737-56738,57294,57797,58080,60020,60443,61532,61900,62078,63331,64623,64680,65000,65129,65389"/>
+</extraports>
+<port protocol="tcp" portid="53"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="domain" product="Simple DNS Plus" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:jh_software:simple_dns_plus</cpe><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="http" product="Microsoft IIS httpd" version="10.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:internet_information_services:10.0</cpe><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-server-header" output="Microsoft-IIS/10.0"><elem>Microsoft-IIS/10.0</elem>
+</script><script id="http-title" output="IIS Windows Server"><elem key="title">IIS Windows Server</elem>
+</script><script id="http-methods" output="&#xa;  Potentially risky methods: TRACE"><table key="Potentially risky methods">
+<elem>TRACE</elem>
+</table>
+</script></port>
+<port protocol="tcp" portid="88"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="kerberos-sec" product="Microsoft Windows Kerberos" extrainfo="server time: 2025-03-07 12:22:09Z" ostype="Windows" method="probed" conf="10"><cpe>cpe:/a:microsoft:kerberos</cpe><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="139"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="netbios-ssn" product="Microsoft Windows netbios-ssn" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="389"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: sevenkingdoms.local0., Site: Default-First-Site-Name" hostname="KINGSLANDING" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-date" output="2025-03-07T12:22:59+00:00; 0s from scanner time."><elem key="date">2025-03-07T12:22:59+00:00</elem>
+<elem key="delta">0.0</elem>
+</script><script id="ssl-cert" output="Subject: commonName=kingslanding.sevenkingdoms.local&#xa;Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local&#xa;Not valid before: 2025-03-07T11:50:29&#xa;Not valid after:  2026-03-07T11:50:29"><table key="subject">
+<elem key="commonName">kingslanding.sevenkingdoms.local</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">SEVENKINGDOMS-CA</elem>
+<elem key="domainComponent">sevenkingdoms</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">B089F0EE36FFDCE26C44DA73691A0D08D36A68843A1246F959D629D029F79F776B27569CD16863E852A79EB3C0820535020F9FE79120EA36088928C239072F9AD7AD3E8E951FFD026C08B961FB5F47EFFE08DE64AFB3F06783ACC8D49A1315C8A1C900721146E70150D7858CCCB5BC29EAC24B5608777F7E48AB0F8B02479A85874A4CA04E6E1908CC4FFC80FE9DD475C43B1E1841D15F340039CF7EAF96D114F059270AC8DE0FF703ED86D5B6343DA8DBC6D03CC4DBFC559CBEEF74B02C7DAE529E5C6F76841C4C04554B8EDAFC28E7F7B251A8C5BC6C16EBAEFFF03CE4D9FDA30C9E7A61651A516FF9A8AA343603A781789CE5A280F3B58771FFD15B1DF091</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">1.3.6.1.4.1.311.20.2</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">S/MIME Capabilities</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">F0:6A:9C:8D:27:A0:17:36:8A:B9:22:43:F8:8B:35:35:D0:ED:55:3E</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">9E:2D:4F:2A:F6:B4:63:E2:54:B3:23:56:40:90:E8:17:1A:2E:46:12</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=SEVENKINGDOMS-CA,CN=kingslanding,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=SEVENKINGDOMS-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2025-03-07T11:50:29</elem>
+<elem key="notAfter">2026-03-07T11:50:29</elem>
+</table>
+<elem key="md5">25b891ca341f2e23d808128ba7f2794b</elem>
+<elem key="sha1">069585ec9727b1ec5abb789092532b677b13c3aa</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIGIjCCBQqgAwIBAgITewAAAAJTPx4alQGBZwAAAAAAAjANBgkqhkiG9w0BAQsF&#xa;ADBRMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxHTAbBgoJkiaJk/IsZAEZFg1zZXZl&#xa;bmtpbmdkb21zMRkwFwYDVQQDExBTRVZFTktJTkdET01TLUNBMB4XDTI1MDMwNzEx&#xa;NTAyOVoXDTI2MDMwNzExNTAyOVowKzEpMCcGA1UEAxMga2luZ3NsYW5kaW5nLnNl&#xa;dmVua2luZ2RvbXMubG9jYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB&#xa;AQCwifDuNv/c4mxE2nNpGg0I02pohDoSRvlZ1inQKfefd2snVpzRaGPoUqees8CC&#xa;BTUCD5/nkSDqNgiJKMI5By+a160+jpUf/QJsCLlh+19H7/4I3mSvs/Bng6zI1JoT&#xa;FcihyQByEUbnAVDXhYzMtbwp6sJLVgh3f35Iqw+LAkeahYdKTKBObhkIzE/8gP6d&#xa;1HXEOx4YQdFfNAA5z36vltEU8FknCsjeD/cD7YbVtjQ9qNvG0DzE2/xVnL7vdLAs&#xa;fa5SnlxvdoQcTARVS47a/Cjn97JRqMW8bBbrrv/wPOTZ/aMMnnphZRpRb/moqjQ2&#xa;A6eBeJzlooDztYdx/9FbHfCRAgMBAAGjggMXMIIDEzAvBgkrBgEEAYI3FAIEIh4g&#xa;AEQAbwBtAGEAaQBuAEMAbwBuAHQAcgBvAGwAbABlAHIwHQYDVR0lBBYwFAYIKwYB&#xa;BQUHAwIGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDB4BgkqhkiG9w0BCQ8EazBp&#xa;MA4GCCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAIAwCwYJYIZIAWUDBAEqMAsG&#xa;CWCGSAFlAwQBLTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAcGBSsOAwIHMAoG&#xa;CCqGSIb3DQMHMB0GA1UdDgQWBBTwapyNJ6AXNoq5IkP4izU10O1VPjAfBgNVHSME&#xa;GDAWgBSeLU8q9rRj4lSzI1ZAkOgXGi5GEjCB2wYDVR0fBIHTMIHQMIHNoIHKoIHH&#xa;hoHEbGRhcDovLy9DTj1TRVZFTktJTkdET01TLUNBLENOPWtpbmdzbGFuZGluZyxD&#xa;Tj1DRFAsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049&#xa;Q29uZmlndXJhdGlvbixEQz1zZXZlbmtpbmdkb21zLERDPWxvY2FsP2NlcnRpZmlj&#xa;YXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1jUkxEaXN0cmlidXRp&#xa;b25Qb2ludDCBygYIKwYBBQUHAQEEgb0wgbowgbcGCCsGAQUFBzAChoGqbGRhcDov&#xa;Ly9DTj1TRVZFTktJTkdET01TLUNBLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPXNldmVua2lu&#xa;Z2RvbXMsREM9bG9jYWw/Y0FDZXJ0aWZpY2F0ZT9iYXNlP29iamVjdENsYXNzPWNl&#xa;cnRpZmljYXRpb25BdXRob3JpdHkwTAYDVR0RBEUwQ6AfBgkrBgEEAYI3GQGgEgQQ&#xa;WQjq1TRE/USekof8dCUHF4Iga2luZ3NsYW5kaW5nLnNldmVua2luZ2RvbXMubG9j&#xa;YWwwDQYJKoZIhvcNAQELBQADggEBAHQsePllUnWFzXhO8oO8Kd0SU19bz2wtX1tu&#xa;/cX1WspNLcsq9OP7SzR9V5creienCjtGqsHSCFAyKCA8mLn3sJLmrOP/2+Xq0zCC&#xa;9eqWRh/j4kcmcjaFaiOk3sUN2FDTb7H+YjvGjjk+8fOIuAzwanYDIEN8RToTJhOP&#xa;dgC3mhoaejoLUFTMMhK/oV07/VwJ31jWl+2jxxJs/SPBs45K5HDCUIPFLWfQMlMX&#xa;CgP025PXSS3NJuwjlxmBfn5emeEOYO6mwrTTghVTUDbqszlLWr/wWyNp5rFWat5p&#xa;erhaRJBFdVqCzEGLzpn5kcSK9ejKJ6uHecW4IFVFAJn5R4mv2Io=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="464"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="kpasswd5" method="table" conf="3"/></port>
+<port protocol="tcp" portid="593"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="ncacn_http" product="Microsoft Windows RPC over HTTP" version="1.0" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="636"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: sevenkingdoms.local0., Site: Default-First-Site-Name" hostname="KINGSLANDING" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-date" output="2025-03-07T12:22:59+00:00; 0s from scanner time."><elem key="date">2025-03-07T12:22:59+00:00</elem>
+<elem key="delta">0.0</elem>
+</script><script id="ssl-cert" output="Subject: commonName=kingslanding.sevenkingdoms.local&#xa;Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local&#xa;Not valid before: 2025-03-07T11:50:29&#xa;Not valid after:  2026-03-07T11:50:29"><table key="subject">
+<elem key="commonName">kingslanding.sevenkingdoms.local</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">SEVENKINGDOMS-CA</elem>
+<elem key="domainComponent">sevenkingdoms</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">B089F0EE36FFDCE26C44DA73691A0D08D36A68843A1246F959D629D029F79F776B27569CD16863E852A79EB3C0820535020F9FE79120EA36088928C239072F9AD7AD3E8E951FFD026C08B961FB5F47EFFE08DE64AFB3F06783ACC8D49A1315C8A1C900721146E70150D7858CCCB5BC29EAC24B5608777F7E48AB0F8B02479A85874A4CA04E6E1908CC4FFC80FE9DD475C43B1E1841D15F340039CF7EAF96D114F059270AC8DE0FF703ED86D5B6343DA8DBC6D03CC4DBFC559CBEEF74B02C7DAE529E5C6F76841C4C04554B8EDAFC28E7F7B251A8C5BC6C16EBAEFFF03CE4D9FDA30C9E7A61651A516FF9A8AA343603A781789CE5A280F3B58771FFD15B1DF091</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">1.3.6.1.4.1.311.20.2</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">S/MIME Capabilities</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">F0:6A:9C:8D:27:A0:17:36:8A:B9:22:43:F8:8B:35:35:D0:ED:55:3E</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">9E:2D:4F:2A:F6:B4:63:E2:54:B3:23:56:40:90:E8:17:1A:2E:46:12</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=SEVENKINGDOMS-CA,CN=kingslanding,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=SEVENKINGDOMS-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2025-03-07T11:50:29</elem>
+<elem key="notAfter">2026-03-07T11:50:29</elem>
+</table>
+<elem key="md5">25b891ca341f2e23d808128ba7f2794b</elem>
+<elem key="sha1">069585ec9727b1ec5abb789092532b677b13c3aa</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIGIjCCBQqgAwIBAgITewAAAAJTPx4alQGBZwAAAAAAAjANBgkqhkiG9w0BAQsF&#xa;ADBRMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxHTAbBgoJkiaJk/IsZAEZFg1zZXZl&#xa;bmtpbmdkb21zMRkwFwYDVQQDExBTRVZFTktJTkdET01TLUNBMB4XDTI1MDMwNzEx&#xa;NTAyOVoXDTI2MDMwNzExNTAyOVowKzEpMCcGA1UEAxMga2luZ3NsYW5kaW5nLnNl&#xa;dmVua2luZ2RvbXMubG9jYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB&#xa;AQCwifDuNv/c4mxE2nNpGg0I02pohDoSRvlZ1inQKfefd2snVpzRaGPoUqees8CC&#xa;BTUCD5/nkSDqNgiJKMI5By+a160+jpUf/QJsCLlh+19H7/4I3mSvs/Bng6zI1JoT&#xa;FcihyQByEUbnAVDXhYzMtbwp6sJLVgh3f35Iqw+LAkeahYdKTKBObhkIzE/8gP6d&#xa;1HXEOx4YQdFfNAA5z36vltEU8FknCsjeD/cD7YbVtjQ9qNvG0DzE2/xVnL7vdLAs&#xa;fa5SnlxvdoQcTARVS47a/Cjn97JRqMW8bBbrrv/wPOTZ/aMMnnphZRpRb/moqjQ2&#xa;A6eBeJzlooDztYdx/9FbHfCRAgMBAAGjggMXMIIDEzAvBgkrBgEEAYI3FAIEIh4g&#xa;AEQAbwBtAGEAaQBuAEMAbwBuAHQAcgBvAGwAbABlAHIwHQYDVR0lBBYwFAYIKwYB&#xa;BQUHAwIGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDB4BgkqhkiG9w0BCQ8EazBp&#xa;MA4GCCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAIAwCwYJYIZIAWUDBAEqMAsG&#xa;CWCGSAFlAwQBLTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAcGBSsOAwIHMAoG&#xa;CCqGSIb3DQMHMB0GA1UdDgQWBBTwapyNJ6AXNoq5IkP4izU10O1VPjAfBgNVHSME&#xa;GDAWgBSeLU8q9rRj4lSzI1ZAkOgXGi5GEjCB2wYDVR0fBIHTMIHQMIHNoIHKoIHH&#xa;hoHEbGRhcDovLy9DTj1TRVZFTktJTkdET01TLUNBLENOPWtpbmdzbGFuZGluZyxD&#xa;Tj1DRFAsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049&#xa;Q29uZmlndXJhdGlvbixEQz1zZXZlbmtpbmdkb21zLERDPWxvY2FsP2NlcnRpZmlj&#xa;YXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1jUkxEaXN0cmlidXRp&#xa;b25Qb2ludDCBygYIKwYBBQUHAQEEgb0wgbowgbcGCCsGAQUFBzAChoGqbGRhcDov&#xa;Ly9DTj1TRVZFTktJTkdET01TLUNBLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPXNldmVua2lu&#xa;Z2RvbXMsREM9bG9jYWw/Y0FDZXJ0aWZpY2F0ZT9iYXNlP29iamVjdENsYXNzPWNl&#xa;cnRpZmljYXRpb25BdXRob3JpdHkwTAYDVR0RBEUwQ6AfBgkrBgEEAYI3GQGgEgQQ&#xa;WQjq1TRE/USekof8dCUHF4Iga2luZ3NsYW5kaW5nLnNldmVua2luZ2RvbXMubG9j&#xa;YWwwDQYJKoZIhvcNAQELBQADggEBAHQsePllUnWFzXhO8oO8Kd0SU19bz2wtX1tu&#xa;/cX1WspNLcsq9OP7SzR9V5creienCjtGqsHSCFAyKCA8mLn3sJLmrOP/2+Xq0zCC&#xa;9eqWRh/j4kcmcjaFaiOk3sUN2FDTb7H+YjvGjjk+8fOIuAzwanYDIEN8RToTJhOP&#xa;dgC3mhoaejoLUFTMMhK/oV07/VwJ31jWl+2jxxJs/SPBs45K5HDCUIPFLWfQMlMX&#xa;CgP025PXSS3NJuwjlxmBfn5emeEOYO6mwrTTghVTUDbqszlLWr/wWyNp5rFWat5p&#xa;erhaRJBFdVqCzEGLzpn5kcSK9ejKJ6uHecW4IFVFAJn5R4mv2Io=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script></port>
+<port protocol="tcp" portid="3268"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: sevenkingdoms.local0., Site: Default-First-Site-Name" hostname="KINGSLANDING" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-date" output="2025-03-07T12:22:59+00:00; 0s from scanner time."><elem key="date">2025-03-07T12:22:59+00:00</elem>
+<elem key="delta">0.0</elem>
+</script><script id="ssl-cert" output="Subject: commonName=kingslanding.sevenkingdoms.local&#xa;Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local&#xa;Not valid before: 2025-03-07T11:50:29&#xa;Not valid after:  2026-03-07T11:50:29"><table key="subject">
+<elem key="commonName">kingslanding.sevenkingdoms.local</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">SEVENKINGDOMS-CA</elem>
+<elem key="domainComponent">sevenkingdoms</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">B089F0EE36FFDCE26C44DA73691A0D08D36A68843A1246F959D629D029F79F776B27569CD16863E852A79EB3C0820535020F9FE79120EA36088928C239072F9AD7AD3E8E951FFD026C08B961FB5F47EFFE08DE64AFB3F06783ACC8D49A1315C8A1C900721146E70150D7858CCCB5BC29EAC24B5608777F7E48AB0F8B02479A85874A4CA04E6E1908CC4FFC80FE9DD475C43B1E1841D15F340039CF7EAF96D114F059270AC8DE0FF703ED86D5B6343DA8DBC6D03CC4DBFC559CBEEF74B02C7DAE529E5C6F76841C4C04554B8EDAFC28E7F7B251A8C5BC6C16EBAEFFF03CE4D9FDA30C9E7A61651A516FF9A8AA343603A781789CE5A280F3B58771FFD15B1DF091</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">1.3.6.1.4.1.311.20.2</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">S/MIME Capabilities</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">F0:6A:9C:8D:27:A0:17:36:8A:B9:22:43:F8:8B:35:35:D0:ED:55:3E</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">9E:2D:4F:2A:F6:B4:63:E2:54:B3:23:56:40:90:E8:17:1A:2E:46:12</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=SEVENKINGDOMS-CA,CN=kingslanding,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=SEVENKINGDOMS-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2025-03-07T11:50:29</elem>
+<elem key="notAfter">2026-03-07T11:50:29</elem>
+</table>
+<elem key="md5">25b891ca341f2e23d808128ba7f2794b</elem>
+<elem key="sha1">069585ec9727b1ec5abb789092532b677b13c3aa</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIGIjCCBQqgAwIBAgITewAAAAJTPx4alQGBZwAAAAAAAjANBgkqhkiG9w0BAQsF&#xa;ADBRMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxHTAbBgoJkiaJk/IsZAEZFg1zZXZl&#xa;bmtpbmdkb21zMRkwFwYDVQQDExBTRVZFTktJTkdET01TLUNBMB4XDTI1MDMwNzEx&#xa;NTAyOVoXDTI2MDMwNzExNTAyOVowKzEpMCcGA1UEAxMga2luZ3NsYW5kaW5nLnNl&#xa;dmVua2luZ2RvbXMubG9jYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB&#xa;AQCwifDuNv/c4mxE2nNpGg0I02pohDoSRvlZ1inQKfefd2snVpzRaGPoUqees8CC&#xa;BTUCD5/nkSDqNgiJKMI5By+a160+jpUf/QJsCLlh+19H7/4I3mSvs/Bng6zI1JoT&#xa;FcihyQByEUbnAVDXhYzMtbwp6sJLVgh3f35Iqw+LAkeahYdKTKBObhkIzE/8gP6d&#xa;1HXEOx4YQdFfNAA5z36vltEU8FknCsjeD/cD7YbVtjQ9qNvG0DzE2/xVnL7vdLAs&#xa;fa5SnlxvdoQcTARVS47a/Cjn97JRqMW8bBbrrv/wPOTZ/aMMnnphZRpRb/moqjQ2&#xa;A6eBeJzlooDztYdx/9FbHfCRAgMBAAGjggMXMIIDEzAvBgkrBgEEAYI3FAIEIh4g&#xa;AEQAbwBtAGEAaQBuAEMAbwBuAHQAcgBvAGwAbABlAHIwHQYDVR0lBBYwFAYIKwYB&#xa;BQUHAwIGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDB4BgkqhkiG9w0BCQ8EazBp&#xa;MA4GCCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAIAwCwYJYIZIAWUDBAEqMAsG&#xa;CWCGSAFlAwQBLTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAcGBSsOAwIHMAoG&#xa;CCqGSIb3DQMHMB0GA1UdDgQWBBTwapyNJ6AXNoq5IkP4izU10O1VPjAfBgNVHSME&#xa;GDAWgBSeLU8q9rRj4lSzI1ZAkOgXGi5GEjCB2wYDVR0fBIHTMIHQMIHNoIHKoIHH&#xa;hoHEbGRhcDovLy9DTj1TRVZFTktJTkdET01TLUNBLENOPWtpbmdzbGFuZGluZyxD&#xa;Tj1DRFAsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049&#xa;Q29uZmlndXJhdGlvbixEQz1zZXZlbmtpbmdkb21zLERDPWxvY2FsP2NlcnRpZmlj&#xa;YXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1jUkxEaXN0cmlidXRp&#xa;b25Qb2ludDCBygYIKwYBBQUHAQEEgb0wgbowgbcGCCsGAQUFBzAChoGqbGRhcDov&#xa;Ly9DTj1TRVZFTktJTkdET01TLUNBLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPXNldmVua2lu&#xa;Z2RvbXMsREM9bG9jYWw/Y0FDZXJ0aWZpY2F0ZT9iYXNlP29iamVjdENsYXNzPWNl&#xa;cnRpZmljYXRpb25BdXRob3JpdHkwTAYDVR0RBEUwQ6AfBgkrBgEEAYI3GQGgEgQQ&#xa;WQjq1TRE/USekof8dCUHF4Iga2luZ3NsYW5kaW5nLnNldmVua2luZ2RvbXMubG9j&#xa;YWwwDQYJKoZIhvcNAQELBQADggEBAHQsePllUnWFzXhO8oO8Kd0SU19bz2wtX1tu&#xa;/cX1WspNLcsq9OP7SzR9V5creienCjtGqsHSCFAyKCA8mLn3sJLmrOP/2+Xq0zCC&#xa;9eqWRh/j4kcmcjaFaiOk3sUN2FDTb7H+YjvGjjk+8fOIuAzwanYDIEN8RToTJhOP&#xa;dgC3mhoaejoLUFTMMhK/oV07/VwJ31jWl+2jxxJs/SPBs45K5HDCUIPFLWfQMlMX&#xa;CgP025PXSS3NJuwjlxmBfn5emeEOYO6mwrTTghVTUDbqszlLWr/wWyNp5rFWat5p&#xa;erhaRJBFdVqCzEGLzpn5kcSK9ejKJ6uHecW4IFVFAJn5R4mv2Io=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script></port>
+<port protocol="tcp" portid="3269"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="ldap" product="Microsoft Windows Active Directory LDAP" extrainfo="Domain: sevenkingdoms.local0., Site: Default-First-Site-Name" hostname="KINGSLANDING" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-date" output="2025-03-07T12:22:59+00:00; 0s from scanner time."><elem key="date">2025-03-07T12:22:59+00:00</elem>
+<elem key="delta">0.0</elem>
+</script><script id="ssl-cert" output="Subject: commonName=kingslanding.sevenkingdoms.local&#xa;Subject Alternative Name: othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local&#xa;Not valid before: 2025-03-07T11:50:29&#xa;Not valid after:  2026-03-07T11:50:29"><table key="subject">
+<elem key="commonName">kingslanding.sevenkingdoms.local</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">SEVENKINGDOMS-CA</elem>
+<elem key="domainComponent">sevenkingdoms</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">B089F0EE36FFDCE26C44DA73691A0D08D36A68843A1246F959D629D029F79F776B27569CD16863E852A79EB3C0820535020F9FE79120EA36088928C239072F9AD7AD3E8E951FFD026C08B961FB5F47EFFE08DE64AFB3F06783ACC8D49A1315C8A1C900721146E70150D7858CCCB5BC29EAC24B5608777F7E48AB0F8B02479A85874A4CA04E6E1908CC4FFC80FE9DD475C43B1E1841D15F340039CF7EAF96D114F059270AC8DE0FF703ED86D5B6343DA8DBC6D03CC4DBFC559CBEEF74B02C7DAE529E5C6F76841C4C04554B8EDAFC28E7F7B251A8C5BC6C16EBAEFFF03CE4D9FDA30C9E7A61651A516FF9A8AA343603A781789CE5A280F3B58771FFD15B1DF091</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">1.3.6.1.4.1.311.20.2</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Client Authentication, TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">S/MIME Capabilities</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">F0:6A:9C:8D:27:A0:17:36:8A:B9:22:43:F8:8B:35:35:D0:ED:55:3E</elem>
+</table>
+<table>
+<elem key="name">X509v3 Authority Key Identifier</elem>
+<elem key="value">9E:2D:4F:2A:F6:B4:63:E2:54:B3:23:56:40:90:E8:17:1A:2E:46:12</elem>
+</table>
+<table>
+<elem key="name">X509v3 CRL Distribution Points</elem>
+<elem key="value">Full Name:&#xa;  URI:ldap:///CN=SEVENKINGDOMS-CA,CN=kingslanding,CN=CDP,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?certificateRevocationList?base?objectClass=cRLDistributionPoint&#xa;</elem>
+</table>
+<table>
+<elem key="name">Authority Information Access</elem>
+<elem key="value">CA Issuers - URI:ldap:///CN=SEVENKINGDOMS-CA,CN=AIA,CN=Public%20Key%20Services,CN=Services,CN=Configuration,DC=sevenkingdoms,DC=local?cACertificate?base?objectClass=certificationAuthority</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">othername: 1.3.6.1.4.1.311.25.1:&lt;unsupported&gt;, DNS:kingslanding.sevenkingdoms.local</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2025-03-07T11:50:29</elem>
+<elem key="notAfter">2026-03-07T11:50:29</elem>
+</table>
+<elem key="md5">25b891ca341f2e23d808128ba7f2794b</elem>
+<elem key="sha1">069585ec9727b1ec5abb789092532b677b13c3aa</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIGIjCCBQqgAwIBAgITewAAAAJTPx4alQGBZwAAAAAAAjANBgkqhkiG9w0BAQsF&#xa;ADBRMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxHTAbBgoJkiaJk/IsZAEZFg1zZXZl&#xa;bmtpbmdkb21zMRkwFwYDVQQDExBTRVZFTktJTkdET01TLUNBMB4XDTI1MDMwNzEx&#xa;NTAyOVoXDTI2MDMwNzExNTAyOVowKzEpMCcGA1UEAxMga2luZ3NsYW5kaW5nLnNl&#xa;dmVua2luZ2RvbXMubG9jYWwwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB&#xa;AQCwifDuNv/c4mxE2nNpGg0I02pohDoSRvlZ1inQKfefd2snVpzRaGPoUqees8CC&#xa;BTUCD5/nkSDqNgiJKMI5By+a160+jpUf/QJsCLlh+19H7/4I3mSvs/Bng6zI1JoT&#xa;FcihyQByEUbnAVDXhYzMtbwp6sJLVgh3f35Iqw+LAkeahYdKTKBObhkIzE/8gP6d&#xa;1HXEOx4YQdFfNAA5z36vltEU8FknCsjeD/cD7YbVtjQ9qNvG0DzE2/xVnL7vdLAs&#xa;fa5SnlxvdoQcTARVS47a/Cjn97JRqMW8bBbrrv/wPOTZ/aMMnnphZRpRb/moqjQ2&#xa;A6eBeJzlooDztYdx/9FbHfCRAgMBAAGjggMXMIIDEzAvBgkrBgEEAYI3FAIEIh4g&#xa;AEQAbwBtAGEAaQBuAEMAbwBuAHQAcgBvAGwAbABlAHIwHQYDVR0lBBYwFAYIKwYB&#xa;BQUHAwIGCCsGAQUFBwMBMA4GA1UdDwEB/wQEAwIFoDB4BgkqhkiG9w0BCQ8EazBp&#xa;MA4GCCqGSIb3DQMCAgIAgDAOBggqhkiG9w0DBAICAIAwCwYJYIZIAWUDBAEqMAsG&#xa;CWCGSAFlAwQBLTALBglghkgBZQMEAQIwCwYJYIZIAWUDBAEFMAcGBSsOAwIHMAoG&#xa;CCqGSIb3DQMHMB0GA1UdDgQWBBTwapyNJ6AXNoq5IkP4izU10O1VPjAfBgNVHSME&#xa;GDAWgBSeLU8q9rRj4lSzI1ZAkOgXGi5GEjCB2wYDVR0fBIHTMIHQMIHNoIHKoIHH&#xa;hoHEbGRhcDovLy9DTj1TRVZFTktJTkdET01TLUNBLENOPWtpbmdzbGFuZGluZyxD&#xa;Tj1DRFAsQ049UHVibGljJTIwS2V5JTIwU2VydmljZXMsQ049U2VydmljZXMsQ049&#xa;Q29uZmlndXJhdGlvbixEQz1zZXZlbmtpbmdkb21zLERDPWxvY2FsP2NlcnRpZmlj&#xa;YXRlUmV2b2NhdGlvbkxpc3Q/YmFzZT9vYmplY3RDbGFzcz1jUkxEaXN0cmlidXRp&#xa;b25Qb2ludDCBygYIKwYBBQUHAQEEgb0wgbowgbcGCCsGAQUFBzAChoGqbGRhcDov&#xa;Ly9DTj1TRVZFTktJTkdET01TLUNBLENOPUFJQSxDTj1QdWJsaWMlMjBLZXklMjBT&#xa;ZXJ2aWNlcyxDTj1TZXJ2aWNlcyxDTj1Db25maWd1cmF0aW9uLERDPXNldmVua2lu&#xa;Z2RvbXMsREM9bG9jYWw/Y0FDZXJ0aWZpY2F0ZT9iYXNlP29iamVjdENsYXNzPWNl&#xa;cnRpZmljYXRpb25BdXRob3JpdHkwTAYDVR0RBEUwQ6AfBgkrBgEEAYI3GQGgEgQQ&#xa;WQjq1TRE/USekof8dCUHF4Iga2luZ3NsYW5kaW5nLnNldmVua2luZ2RvbXMubG9j&#xa;YWwwDQYJKoZIhvcNAQELBQADggEBAHQsePllUnWFzXhO8oO8Kd0SU19bz2wtX1tu&#xa;/cX1WspNLcsq9OP7SzR9V5creienCjtGqsHSCFAyKCA8mLn3sJLmrOP/2+Xq0zCC&#xa;9eqWRh/j4kcmcjaFaiOk3sUN2FDTb7H+YjvGjjk+8fOIuAzwanYDIEN8RToTJhOP&#xa;dgC3mhoaejoLUFTMMhK/oV07/VwJ31jWl+2jxxJs/SPBs45K5HDCUIPFLWfQMlMX&#xa;CgP025PXSS3NJuwjlxmBfn5emeEOYO6mwrTTghVTUDbqszlLWr/wWyNp5rFWat5p&#xa;erhaRJBFdVqCzEGLzpn5kcSK9ejKJ6uHecW4IFVFAJn5R4mv2Io=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script></port>
+<port protocol="tcp" portid="3389"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="ms-wbt-server" product="Microsoft Terminal Services" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="ssl-date" output="2025-03-07T12:22:59+00:00; 0s from scanner time."><elem key="date">2025-03-07T12:22:59+00:00</elem>
+<elem key="delta">0.0</elem>
+</script><script id="ssl-cert" output="Subject: commonName=kingslanding.sevenkingdoms.local&#xa;Not valid before: 2025-03-06T11:47:58&#xa;Not valid after:  2025-09-05T11:47:58"><table key="subject">
+<elem key="commonName">kingslanding.sevenkingdoms.local</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">kingslanding.sevenkingdoms.local</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">2048</elem>
+<elem key="modulus">C3B2819958C3ED97B813C2287EB1F141B6EDD4A3CF0F7B62FD9660D9DAC02D7EC220DA21E5C4211F3F7385809AEA199D2847A31E80C7E20688CD78076EEF9D41964E2EC0148532FD2F6C25BDF75528DEABA336077CB017FD745CFB8E8077E5E14DF0CC59E2084E5757384D6F2E35B6DC120ED6D18D898561D4C8D7D7ED2B1D913BBDD1B2AD86D18541DC22619A119959DEED289C987768C2799D2C948DA2072FA40A5C21898CB3E227615D87B0B23E9AFB3D23172CA9962643209BC828CF29308C13930D26514822DCC63587704F7FFA88B737F7BE2D00D0BD296C029BA5534BD37027B126EAEFE94E5E13BA84AF8C33654764864041A6D3598B745E81853A05</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Key Encipherment, Data Encipherment</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2025-03-06T11:47:58</elem>
+<elem key="notAfter">2025-09-05T11:47:58</elem>
+</table>
+<elem key="md5">cf18363cc5f26159d2261c5507ab4c5e</elem>
+<elem key="sha1">d8437619ef57a72ddb2449f8726f8cc3be9e17ef</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIDBDCCAeygAwIBAgIQdmn8XiaC/qJJn06ky/Z7TjANBgkqhkiG9w0BAQsFADAr&#xa;MSkwJwYDVQQDEyBraW5nc2xhbmRpbmcuc2V2ZW5raW5nZG9tcy5sb2NhbDAeFw0y&#xa;NTAzMDYxMTQ3NThaFw0yNTA5MDUxMTQ3NThaMCsxKTAnBgNVBAMTIGtpbmdzbGFu&#xa;ZGluZy5zZXZlbmtpbmdkb21zLmxvY2FsMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A&#xa;MIIBCgKCAQEAw7KBmVjD7Ze4E8IofrHxQbbt1KPPD3ti/ZZg2drALX7CINoh5cQh&#xa;Hz9zhYCa6hmdKEejHoDH4gaIzXgHbu+dQZZOLsAUhTL9L2wlvfdVKN6rozYHfLAX&#xa;/XRc+46Ad+XhTfDMWeIITldXOE1vLjW23BIO1tGNiYVh1MjX1+0rHZE7vdGyrYbR&#xa;hUHcImGaEZlZ3u0onJh3aMJ5nSyUjaIHL6QKXCGJjLPiJ2Fdh7CyPpr7PSMXLKmW&#xa;JkMgm8gozykwjBOTDSZRSCLcxjWHcE9/+oi3N/e+LQDQvSlsApulU0vTcCexJurv&#xa;6U5eE7qEr4wzZUdkhkBBptNZi3RegYU6BQIDAQABoyQwIjATBgNVHSUEDDAKBggr&#xa;BgEFBQcDATALBgNVHQ8EBAMCBDAwDQYJKoZIhvcNAQELBQADggEBAEbJejV+4sx4&#xa;8ktFQMBHEAmGT1q1YW7W4kU0NtVp3jwCG82lDpqpqSSu7j/u4UVEQbuUmYi5ULKw&#xa;crEq+rrE5f8XMzxQRcv/gKcQeFs8hKuJlcfFH8oRHlVy38Rgnvx7N560/X5Yq8P7&#xa;Sm0up4TAS/2nMCpIxfpfC2UZhB+G0+aDN6l6AWjfLOpPJC4W8sx0j6aMhq2AZqwC&#xa;fFFmWuo4oC/8+FoE5H1mU0gF1JNBSM8F+okeaTIpLxACpCTc6T9X3L1u7S0t62sb&#xa;xyBj9SMWKXC9sG3WexlfGbwygGOlBSxbhphKQW30A1iGD1/9leNPkNTLPZMfEvSV&#xa;1gCPdeBApi8=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script><script id="rdp-ntlm-info" output="&#xa;  Target_Name: SEVENKINGDOMS&#xa;  NetBIOS_Domain_Name: SEVENKINGDOMS&#xa;  NetBIOS_Computer_Name: KINGSLANDING&#xa;  DNS_Domain_Name: sevenkingdoms.local&#xa;  DNS_Computer_Name: kingslanding.sevenkingdoms.local&#xa;  DNS_Tree_Name: sevenkingdoms.local&#xa;  Product_Version: 10.0.17763&#xa;  System_Time: 2025-03-07T12:22:51+00:00"><elem key="Target_Name">SEVENKINGDOMS</elem>
+<elem key="NetBIOS_Domain_Name">SEVENKINGDOMS</elem>
+<elem key="NetBIOS_Computer_Name">KINGSLANDING</elem>
+<elem key="DNS_Domain_Name">sevenkingdoms.local</elem>
+<elem key="DNS_Computer_Name">kingslanding.sevenkingdoms.local</elem>
+<elem key="DNS_Tree_Name">sevenkingdoms.local</elem>
+<elem key="Product_Version">10.0.17763</elem>
+<elem key="System_Time">2025-03-07T12:22:51+00:00</elem>
+</script></port>
+<port protocol="tcp" portid="5985"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="http" product="Microsoft HTTPAPI httpd" version="2.0" extrainfo="SSDP/UPnP" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="http-title" output="Not Found"><elem key="title">Not Found</elem>
+</script><script id="http-server-header" output="Microsoft-HTTPAPI/2.0"><elem>Microsoft-HTTPAPI/2.0</elem>
+</script></port>
+<port protocol="tcp" portid="5986"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="http" product="Microsoft HTTPAPI httpd" version="2.0" extrainfo="SSDP/UPnP" ostype="Windows" tunnel="ssl" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service><script id="tls-alpn" output="&#xa;  http/1.1"><elem>http/1.1</elem>
+</script><script id="http-title" output="Not Found"><elem key="title">Not Found</elem>
+</script><script id="http-server-header" output="Microsoft-HTTPAPI/2.0"><elem>Microsoft-HTTPAPI/2.0</elem>
+</script><script id="ssl-date" output="2025-03-07T12:22:59+00:00; 0s from scanner time."><elem key="date">2025-03-07T12:22:59+00:00</elem>
+<elem key="delta">0.0</elem>
+</script><script id="ssl-cert" output="Subject: commonName=VAGRANT&#xa;Subject Alternative Name: DNS:VAGRANT, DNS:vagrant&#xa;Not valid before: 2025-03-06T03:38:39&#xa;Not valid after:  2028-03-05T03:38:39"><table key="subject">
+<elem key="commonName">VAGRANT</elem>
+</table>
+<table key="issuer">
+<elem key="commonName">VAGRANT</elem>
+</table>
+<table key="pubkey">
+<elem key="type">rsa</elem>
+<elem key="bits">4096</elem>
+<elem key="modulus">C5D3FCCAC98CF2F7875E9E69513B1AB6504BEDB065F0C1431D66CA6B34F15C05D1E450C45B67DAEAACF179C0F7FED44E6FF7D6023BC7A34506E12414656157ADC3BED682BF087E1C7BA36E3C423DF37C28E731AC5A22E614AB9B70D793ABEE03D099336342DCA5CA99425740F2FE48C321FC4E36E814D5357A42406843375EBCAB4D7170AA10A2B70BCA891CCA0108EA6F97816ED1CCB7B651585E87680EB91F585C99A5975CB494E03B6EFFEEF74A11EAFFCF5E5056922D02CD9CEEC29F227EFD78D559685282FF9F5822A3AFC31834AE1D45B58B82C40CAE1586BA78D26A8328199D00BE7E7B50A5CB73F494F34B0E9CF7F7F9C70091D927779AE2331EA3ACBC386CDF541C0427E4AAE14B83A4C1A77CCF41A37A3116E58C6AB6983000CF2F2EFDD048021CBF30E7103C9336209B48A1774B38932BA4FA81EB017CA504658333A73CBF5A31BDB9D1F58C2DD4CA7279FB89C10F438A99F335D4EE45A890EE07D945E4D1C354DBA4A821C3CDA1C75ED3DB87C5F921B2C5051BAE2EF0843D5ECA0A133F6104F271D9F7A78AEDB0C2D52A791F35B678A703AAA1B64D0265D19CBE309BE34D0DDDFFA17F188EC4FFE439C658903731DACBEB19FEA8F562AB3AB2A4C88BE5C3077AC6A6694DDBDB9AE4FF755267FDC68EC23038DA9F7BA7178A0CCF30B7ED5C826C3D570870AA9185AF36BC80FD0B192ADA9B847D6D5F8D1AE9B251</elem>
+<elem key="exponent">65537</elem>
+</table>
+<table key="extensions">
+<table>
+<elem key="name">X509v3 Key Usage</elem>
+<elem key="value">Digital Signature, Key Encipherment</elem>
+<elem key="critical">true</elem>
+</table>
+<table>
+<elem key="name">X509v3 Extended Key Usage</elem>
+<elem key="value">TLS Web Server Authentication</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Alternative Name</elem>
+<elem key="value">DNS:VAGRANT, DNS:vagrant</elem>
+</table>
+<table>
+<elem key="name">X509v3 Subject Key Identifier</elem>
+<elem key="value">EF:58:7E:99:40:75:7A:F9:82:83:6E:8A:1B:85:02:C3:0C:00:7D:E0</elem>
+</table>
+</table>
+<elem key="sig_algo">sha256WithRSAEncryption</elem>
+<table key="validity">
+<elem key="notBefore">2025-03-06T03:38:39</elem>
+<elem key="notAfter">2028-03-05T03:38:39</elem>
+</table>
+<elem key="md5">8ab85331f2c31e81432e9a5dca9af3f6</elem>
+<elem key="sha1">adc45fc2bd4bed4063eb8c33103664b68622f97d</elem>
+<elem key="pem">-&#45;&#45;&#45;&#45;BEGIN CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;MIIFETCCAvmgAwIBAgIQIzZizQiTiKpFq2XrZOF0HzANBgkqhkiG9w0BAQsFADAS&#xa;MRAwDgYDVQQDDAdWQUdSQU5UMB4XDTI1MDMwNjAzMzgzOVoXDTI4MDMwNTAzMzgz&#xa;OVowEjEQMA4GA1UEAwwHVkFHUkFOVDCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCC&#xa;AgoCggIBAMXT/MrJjPL3h16eaVE7GrZQS+2wZfDBQx1myms08VwF0eRQxFtn2uqs&#xa;8XnA9/7UTm/31gI7x6NFBuEkFGVhV63DvtaCvwh+HHujbjxCPfN8KOcxrFoi5hSr&#xa;m3DXk6vuA9CZM2NC3KXKmUJXQPL+SMMh/E426BTVNXpCQGhDN168q01xcKoQorcL&#xa;yokcygEI6m+XgW7RzLe2UVheh2gOuR9YXJmll1y0lOA7bv/u90oR6v/PXlBWki0C&#xa;zZzuwp8ifv141VloUoL/n1gio6/DGDSuHUW1i4LEDK4Vhrp40mqDKBmdAL5+e1Cl&#xa;y3P0lPNLDpz39/nHAJHZJ3ea4jMeo6y8OGzfVBwEJ+Sq4UuDpMGnfM9Bo3oxFuWM&#xa;araYMADPLy790EgCHL8w5xA8kzYgm0ihd0s4kyuk+oHrAXylBGWDM6c8v1oxvbnR&#xa;9Ywt1MpyefuJwQ9DipnzNdTuRaiQ7gfZReTRw1TbpKghw82hx17T24fF+SGyxQUb&#xa;ri7whD1eygoTP2EE8nHZ96eK7bDC1Sp5HzW2eKcDqqG2TQJl0Zy+MJvjTQ3d/6F/&#xa;GI7E/+Q5xliQNzHay+sZ/qj1Yqs6sqTIi+XDB3rGpmlN29ua5P91Umf9xo7CMDja&#xa;n3unF4oMzzC37VyCbD1XCHCqkYWvNryA/QsZKtqbhH1tX40a6bJRAgMBAAGjYzBh&#xa;MA4GA1UdDwEB/wQEAwIFoDATBgNVHSUEDDAKBggrBgEFBQcDATAbBgNVHREEFDAS&#xa;ggdWQUdSQU5Uggd2YWdyYW50MB0GA1UdDgQWBBTvWH6ZQHV6+YKDboobhQLDDAB9&#xa;4DANBgkqhkiG9w0BAQsFAAOCAgEAvOCdx121IeYWhMYONbsOccfvPO17ew+njyaL&#xa;cY1nCCpgjAZFe2dDPiOY6RkzQC6xRz/wKrgVk7pozEt+gw0W6/cPz0wec4hpfd0m&#xa;osiQxeeqEEcaupxyj03a3lkqIKhRhCjP5S2kVu2TlwP3nsOHix+8zKZvc5TlfEpn&#xa;iYyBWZQJS3A1j6eHgHahPHaOmYYtUvVDbDX7QGUT60aun52ElmoKNr0JHJCTtxa9&#xa;tuk6NT9+JIiCBLfEbIv/n8wLh/cWAxuZfcbT3Ows3fjnF6bUg5IYolKigh5eOa3C&#xa;OHlBFoIONV4nBpatZhmeHX2Sl4sVWai7G9FA03jDQR9YJyMwMT7ws8xLC3jhqL1n&#xa;7u9nWGpVBwAja8oWYxOu/rMV1uv6U+288XJg8iUMY97omL2QqOtAb8Fy42RS3mMC&#xa;3D3ti/lrCMUEFbdFMjxVvRZLUFFAJ5YUgQMK5azjR8ASUF/yN23/nVC0hhcF3B49&#xa;ufTftkkH6N/q5OMWLeFpLAz9Kld6Q6b9QOcFSihFMLqNU9g27ARmNwEhYMkiFvNu&#xa;k0O1rMYcGjPUPqT+SU+qg7YzVEdsz0JEv+6ZMHu7cHda7umHVY24NBkkgG03cExe&#xa;bpg5vtXgTR81JzX9ljLDMD9zVQMHBfSa8d/cnFAD6QpxGsgp4eKiwOgCJwmd6Jby&#xa;x7dI7RM=&#xa;-&#45;&#45;&#45;&#45;END CERTIFICATE-&#45;&#45;&#45;&#45;&#xa;</elem>
+</script></port>
+</ports>
+<os><portused state="open" proto="tcp" portid="53"/>
+<portused state="closed" proto="tcp" portid="1"/>
+<portused state="closed" proto="udp" portid="31136"/>
+<osmatch name="Microsoft Windows Server 2019" accuracy="100" line="81909">
+<osclass type="general purpose" vendor="Microsoft" osfamily="Windows" osgen="2019" accuracy="100"><cpe>cpe:/o:microsoft:windows_server_2019</cpe></osclass>
+</osmatch>
+</os>
+<distance value="1"/>
+<tcpsequence index="264" difficulty="Good luck!" values="7227E99D,A7777EB8,B68DDC0B,2E6F3F32,B1AD92AE,2A454180"/>
+<ipidsequence class="Incremental" values="4F3B,4F3C,4F3D,4F3E,4F3F,4F40"/>
+<tcptssequence class="none returned (unsupported)"/>
+<hostscript><script id="nbstat" output="NetBIOS name: KINGSLANDING, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: 08:00:27:e6:37:b2 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)"/><script id="smb2-security-mode" output="&#xa;  3:1:1: &#xa;    Message signing enabled and required"><table key="3:1:1">
+<elem>Message signing enabled and required</elem>
+</table>
+</script><script id="smb2-time" output="&#xa;  date: 2025-03-07T12:22:51&#xa;  start_date: N/A"><elem key="date">2025-03-07T12:22:51</elem>
+<elem key="start_date">N/A</elem>
+</script></hostscript><trace>
+<hop ttl="1" ipaddr="192.168.56.10" rtt="0.14"/>
+</trace>
+<times srtt="138" rttvar="23" to="100000"/>
+</host>
+<host starttime="1741350121" endtime="1741350179"><status state="up" reason="arp-response" reason_ttl="0"/>
+<address addr="192.168.56.100" addrtype="ipv4"/>
+<address addr="08:00:27:99:ED:9C" addrtype="mac" vendor="PCS Systemtechnik/Oracle VirtualBox virtual NIC"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="filtered" count="1000">
+<extrareasons reason="proto-unreach" count="1000" proto="tcp" ports="1,3-4,6-7,9,13,17,19-26,30,32-33,37,42-43,49,53,70,79-85,88-90,99-100,106,109-111,113,119,125,135,139,143-144,146,161,163,179,199,211-212,222,254-256,259,264,280,301,306,311,340,366,389,406-407,416-417,425,427,443-445,458,464-465,481,497,500,512-515,524,541,543-545,548,554-555,563,587,593,616-617,625,631,636,646,648,666-668,683,687,691,700,705,711,714,720,722,726,749,765,777,783,787,800-801,808,843,873,880,888,898,900-903,911-912,981,987,990,992-993,995,999-1002,1007,1009-1011,1021-1100,1102,1104-1108,1110-1114,1117,1119,1121-1124,1126,1130-1132,1137-1138,1141,1145,1147-1149,1151-1152,1154,1163-1166,1169,1174-1175,1183,1185-1187,1192,1198-1199,1201,1213,1216-1218,1233-1234,1236,1244,1247-1248,1259,1271-1272,1277,1287,1296,1300-1301,1309-1311,1322,1328,1334,1352,1417,1433-1434,1443,1455,1461,1494,1500-1501,1503,1521,1524,1533,1556,1580,1583,1594,1600,1641,1658,1666,1687-1688,1700,1717-1721,1723,1755,1761,1782-1783,1801,1805,1812,1839-1840,1862-1864,1875,1900,1914,1935,1947,1971-1972,1974,1984,1998-2010,2013,2020-2022,2030,2033-2035,2038,2040-2043,2045-2049,2065,2068,2099-2100,2103,2105-2107,2111,2119,2121,2126,2135,2144,2160-2161,2170,2179,2190-2191,2196,2200,2222,2251,2260,2288,2301,2323,2366,2381-2383,2393-2394,2399,2401,2492,2500,2522,2525,2557,2601-2602,2604-2605,2607-2608,2638,2701-2702,2710,2717-2718,2725,2800,2809,2811,2869,2875,2909-2910,2920,2967-2968,2998,3000-3001,3003,3005-3006,3011,3017,3030-3031,3052,3071,3077,3128,3168,3211,3221,3260-3261,3268-3269,3283,3300-3301,3306,3322-3325,3333,3351,3367,3369-3372,3389-3390,3404,3476,3493,3517,3527,3546,3551,3580,3659,3689-3690,3703,3737,3766,3784,3800-3801,3809,3814,3826-3828,3851,3869,3871,3878,3880,3889,3905,3914,3918,3920,3945,3971,3986,3995,3998,4000-4006,4045,4111,4125-4126,4129,4224,4242,4279,4321,4343,4443-4446,4449,4550,4567,4662,4848,4899-4900,4998,5000-5004,5009,5030,5033,5050-5051,5054,5060-5061,5080,5087,5100-5102,5120,5190,5200,5214,5221-5222,5225-5226,5269,5280,5298,5357,5405,5414,5431-5432,5440,5500,5510,5544,5550,5555,5560,5566,5631,5633,5666,5678-5679,5718,5730,5800-5802,5810-5811,5815,5822,5825,5850,5859,5862,5877,5900-5904,5906-5907,5910-5911,5915,5922,5925,5950,5952,5959-5963,5985-5989,5998-6007,6009,6025,6059,6100-6101,6106,6112,6123,6129,6156,6346,6389,6502,6510,6543,6547,6565-6567,6580,6646,6666-6669,6689,6692,6699,6779,6788-6789,6792,6839,6881,6901,6969,7000-7002,7004,7007,7019,7025,7070,7100,7103,7106,7200-7201,7402,7435,7443,7496,7512,7625,7627,7676,7741,7777-7778,7800,7911,7920-7921,7937-7938,7999-8002,8007-8011,8021-8022,8031,8042,8045,8080-8090,8093,8099-8100,8180-8181,8192-8194,8200,8222,8254,8290-8292,8300,8333,8383,8400,8402,8443,8500,8600,8649,8651-8652,8654,8701,8800,8873,8888,8899,8994,9000-9003,9009-9011,9040,9050,9071,9080-9081,9090-9091,9099-9103,9110-9111,9200,9207,9220,9290,9415,9418,9485,9500,9502-9503,9535,9575,9593-9595,9618,9666,9876-9878,9898,9900,9917,9929,9943-9944,9968,9998-10004,10009-10010,10012,10024-10025,10082,10180,10215,10243,10566,10616-10617,10621,10626,10628-10629,10778,11110-11111,11967,12000,12174,12265,12345,13456,13722,13782-13783,14000,14238,14441-14442,15000,15002-15004,15660,15742,16000-16001,16012,16016,16018,16080,16113,16992-16993,17877,17988,18040,18101,18988,19101,19283,19315,19350,19780,19801,19842,20000,20005,20031,20221-20222,20828,21571,22939,23502,24444,24800,25734-25735,26214,27000,27352-27353,27355-27356,27715,28201,30000,30718,30951,31038,31337,32768-32785,33354,33899,34571-34573,35500,38292,40193,40911,41511,42510,44176,44442-44443,44501,45100,48080,49152-49161,49163,49165,49167,49175-49176,49400,49999-50003,50006,50300,50389,50500,50636,50800,51103,51493,52673,52822,52848,52869,54045,54328,55055-55056,55555,55600,56737-56738,57294,57797,58080,60020,60443,61532,61900,62078,63331,64623,64680,65000,65129,65389"/>
+</extraports>
+</ports>
+<os><portused state="closed" proto="udp" portid="32222"/>
+</os>
+<distance value="1"/>
+<trace>
+<hop ttl="1" ipaddr="192.168.56.100" rtt="0.04"/>
+</trace>
+<times srtt="38" rttvar="23" to="100000"/>
+</host>
+<host starttime="1741350179" endtime="1741350182"><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="192.168.56.1" addrtype="ipv4"/>
+<hostnames>
+</hostnames>
+<ports><extraports state="closed" count="999">
+<extrareasons reason="reset" count="999" proto="tcp" ports="1,3-4,6-7,9,13,17,19-26,30,32-33,37,42-43,49,53,70,79-85,88-90,99-100,106,109-111,113,119,125,135,139,143-144,146,161,163,179,199,211-212,222,254-256,259,264,280,301,306,311,340,366,389,406-407,416-417,425,427,443-445,458,464-465,481,497,500,512-515,524,541,543-545,548,554-555,563,587,593,616-617,625,631,636,646,648,666-668,683,687,691,700,705,711,714,720,722,726,749,765,777,783,787,800-801,808,843,873,880,888,898,900-903,911-912,981,987,990,992-993,995,999-1002,1007,1009-1011,1021-1100,1102,1104-1108,1110-1114,1117,1119,1121-1124,1126,1130-1132,1137-1138,1141,1145,1147-1149,1151-1152,1154,1163-1166,1169,1174-1175,1183,1185-1187,1192,1198-1199,1201,1213,1216-1218,1233-1234,1236,1244,1247-1248,1259,1271-1272,1277,1287,1296,1300-1301,1309-1311,1322,1328,1334,1352,1417,1433-1434,1443,1455,1461,1494,1500-1501,1503,1521,1524,1533,1556,1580,1583,1594,1600,1641,1658,1666,1687-1688,1700,1717-1721,1723,1755,1761,1782-1783,1801,1805,1812,1839-1840,1862-1864,1875,1900,1914,1935,1947,1971-1972,1974,1984,1998-2010,2013,2020-2022,2030,2033-2035,2038,2040-2043,2045-2049,2065,2068,2099-2100,2103,2105-2107,2111,2119,2121,2126,2135,2144,2160-2161,2170,2179,2190-2191,2196,2200,2222,2251,2260,2288,2301,2323,2366,2381-2383,2393-2394,2399,2401,2492,2500,2522,2525,2557,2601-2602,2604-2605,2607-2608,2638,2701-2702,2710,2717-2718,2725,2800,2809,2811,2869,2875,2909-2910,2920,2967-2968,2998,3000-3001,3003,3005-3006,3011,3017,3030-3031,3052,3071,3077,3128,3168,3211,3221,3260-3261,3268-3269,3283,3300-3301,3306,3322-3325,3333,3351,3367,3369-3372,3389-3390,3404,3476,3493,3517,3527,3546,3551,3580,3659,3689-3690,3703,3737,3766,3784,3800-3801,3809,3814,3826-3828,3851,3869,3871,3878,3880,3889,3905,3914,3918,3920,3945,3971,3986,3995,3998,4000-4006,4045,4111,4125-4126,4129,4224,4242,4279,4321,4343,4443-4446,4449,4550,4567,4662,4848,4899-4900,4998,5000-5004,5009,5030,5033,5050-5051,5054,5060-5061,5080,5087,5100-5102,5120,5190,5200,5214,5221-5222,5225-5226,5269,5280,5298,5357,5405,5414,5431,5440,5500,5510,5544,5550,5555,5560,5566,5631,5633,5666,5678-5679,5718,5730,5800-5802,5810-5811,5815,5822,5825,5850,5859,5862,5877,5900-5904,5906-5907,5910-5911,5915,5922,5925,5950,5952,5959-5963,5985-5989,5998-6007,6009,6025,6059,6100-6101,6106,6112,6123,6129,6156,6346,6389,6502,6510,6543,6547,6565-6567,6580,6646,6666-6669,6689,6692,6699,6779,6788-6789,6792,6839,6881,6901,6969,7000-7002,7004,7007,7019,7025,7070,7100,7103,7106,7200-7201,7402,7435,7443,7496,7512,7625,7627,7676,7741,7777-7778,7800,7911,7920-7921,7937-7938,7999-8002,8007-8011,8021-8022,8031,8042,8045,8080-8090,8093,8099-8100,8180-8181,8192-8194,8200,8222,8254,8290-8292,8300,8333,8383,8400,8402,8443,8500,8600,8649,8651-8652,8654,8701,8800,8873,8888,8899,8994,9000-9003,9009-9011,9040,9050,9071,9080-9081,9090-9091,9099-9103,9110-9111,9200,9207,9220,9290,9415,9418,9485,9500,9502-9503,9535,9575,9593-9595,9618,9666,9876-9878,9898,9900,9917,9929,9943-9944,9968,9998-10004,10009-10010,10012,10024-10025,10082,10180,10215,10243,10566,10616-10617,10621,10626,10628-10629,10778,11110-11111,11967,12000,12174,12265,12345,13456,13722,13782-13783,14000,14238,14441-14442,15000,15002-15004,15660,15742,16000-16001,16012,16016,16018,16080,16113,16992-16993,17877,17988,18040,18101,18988,19101,19283,19315,19350,19780,19801,19842,20000,20005,20031,20221-20222,20828,21571,22939,23502,24444,24800,25734-25735,26214,27000,27352-27353,27355-27356,27715,28201,30000,30718,30951,31038,31337,32768-32785,33354,33899,34571-34573,35500,38292,40193,40911,41511,42510,44176,44442-44443,44501,45100,48080,49152-49161,49163,49165,49167,49175-49176,49400,49999-50003,50006,50300,50389,50500,50636,50800,51103,51493,52673,52822,52848,52869,54045,54328,55055-55056,55555,55600,56737-56738,57294,57797,58080,60020,60443,61532,61900,62078,63331,64623,64680,65000,65129,65389"/>
+</extraports>
+<port protocol="tcp" portid="5432"><state state="filtered" reason="no-response" reason_ttl="0"/><service name="postgresql" method="table" conf="3"/></port>
+</ports>
+<os><portused state="closed" proto="tcp" portid="1"/>
+<portused state="closed" proto="udp" portid="39920"/>
+</os>
+<distance value="0"/>
+<times srtt="25" rttvar="4" to="100000"/>
+</host>
+<runstats><finished time="1741350182" timestr="Fri Mar  7 13:23:02 2025" summary="Nmap done at Fri Mar  7 13:23:02 2025; 256 IP addresses (3 hosts up) scanned in 62.73 seconds" elapsed="62.73" exit="success"/><hosts up="3" down="253" total="256"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,319 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="192.168.56.10">
+    <hostnames>
+      <hostname>kingslanding.sevenkingdoms.local</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="53">
+        <services>
+          <service>domain</service>
+        </services>
+        <banners>
+          <banner>Simple DNS Plus</banner>
+        </banners>
+      </port>
+      <port number="80">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft IIS httpd/10.0</banner>
+        </banners>
+      </port>
+      <port number="88">
+        <services>
+          <service>kerberos-sec</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Kerberos</banner>
+        </banners>
+      </port>
+      <port number="135">
+        <services>
+          <service>msrpc</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows RPC</banner>
+        </banners>
+      </port>
+      <port number="139">
+        <services>
+          <service>netbios-ssn</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows netbios-ssn</banner>
+        </banners>
+      </port>
+      <port number="389">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="445">
+        <services>
+          <service>microsoft-ds</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="464">
+        <services>
+          <service>kpasswd5</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="593">
+        <services>
+          <service>ncacn_http</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows RPC over HTTP/1.0</banner>
+        </banners>
+      </port>
+      <port number="636">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="3268">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="3269">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="3389">
+        <services>
+          <service>ms-wbt-server</service>
+        </services>
+        <banners>
+          <banner>Microsoft Terminal Services</banner>
+        </banners>
+      </port>
+      <port number="5985">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft HTTPAPI httpd/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft HTTPAPI httpd/2.0</banner>
+        </banners>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.11">
+    <hostnames>
+      <hostname>winterfell.north.sevenkingdoms.local</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="53">
+        <services>
+          <service>domain</service>
+        </services>
+        <banners>
+          <banner>Simple DNS Plus</banner>
+        </banners>
+      </port>
+      <port number="88">
+        <services>
+          <service>kerberos-sec</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Kerberos</banner>
+        </banners>
+      </port>
+      <port number="135">
+        <services>
+          <service>msrpc</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows RPC</banner>
+        </banners>
+      </port>
+      <port number="139">
+        <services>
+          <service>netbios-ssn</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows netbios-ssn</banner>
+        </banners>
+      </port>
+      <port number="389">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="445">
+        <services>
+          <service>microsoft-ds</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="464">
+        <services>
+          <service>kpasswd5</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="593">
+        <services>
+          <service>ncacn_http</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows RPC over HTTP/1.0</banner>
+        </banners>
+      </port>
+      <port number="636">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="3268">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="3269">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows Active Directory LDAP</banner>
+        </banners>
+      </port>
+      <port number="3389">
+        <services>
+          <service>ms-wbt-server</service>
+        </services>
+        <banners>
+          <banner>Microsoft Terminal Services</banner>
+        </banners>
+      </port>
+      <port number="5985">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft HTTPAPI httpd/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft HTTPAPI httpd/2.0</banner>
+        </banners>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.22">
+    <hostnames>
+      <hostname>castelblack.north.sevenkingdoms.local</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="80">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft IIS httpd/10.0</banner>
+        </banners>
+      </port>
+      <port number="135">
+        <services>
+          <service>msrpc</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows RPC</banner>
+        </banners>
+      </port>
+      <port number="139">
+        <services>
+          <service>netbios-ssn</service>
+        </services>
+        <banners>
+          <banner>Microsoft Windows netbios-ssn</banner>
+        </banners>
+      </port>
+      <port number="445">
+        <services>
+          <service>microsoft-ds</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="1433">
+        <services>
+          <service>ms-sql-s</service>
+        </services>
+        <banners>
+          <banner>Microsoft SQL Server 2019/15.00.2000.00; RTM</banner>
+        </banners>
+      </port>
+      <port number="3389">
+        <services>
+          <service>ms-wbt-server</service>
+        </services>
+        <banners>
+          <banner>Microsoft Terminal Services</banner>
+        </banners>
+      </port>
+      <port number="5985">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft HTTPAPI httpd/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft HTTPAPI httpd/2.0</banner>
+        </banners>
+      </port>
+    </tcp_ports>
+  </host>
+</infrastructure>

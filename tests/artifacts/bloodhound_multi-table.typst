@@ -1,0 +1,15 @@
+#set page(flipped: true)
+
+#table(
+  columns: (3),
+  [**], [*castelblack.north.sevenkingdoms.local*], [*windows*],
+  
+)
+
+#pagebreak()
+
+#table(
+  columns: (3),
+  [**], [*winterfell.north.sevenkingdoms.local*], [*windows*],
+  
+)

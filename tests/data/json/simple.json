@@ -1,0 +1,15 @@
+{
+  "1.1.1.1": {
+    "hostnames": ["example.com"],
+    "tcp_ports": {
+      "22": {
+        "service_names": ["ssh"],
+        "banners": ["OpenSSH 8.2p1"]
+      },
+      "80": {
+        "service_names": ["http"],
+        "banners": ["Apache httpd 2.4.41"]
+      }
+    }
+  }
+}

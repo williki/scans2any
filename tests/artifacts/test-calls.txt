@@ -1,0 +1,208 @@
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w aquatone
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w aquatone --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w csv
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w csv --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w host
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w host --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w html
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w html --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w json
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w json --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w latex
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w latex --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w markdown
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w markdown --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w nmap
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w nmap --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w terminal
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w terminal --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w typst
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w typst --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w url
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w url --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w xml
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w xml --multi-table
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w yaml
+--aquatone tests/data/aquatone/goad-light-aquatone_session.json -w yaml --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w aquatone
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w aquatone --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w csv
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w csv --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w host
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w host --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w html
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w html --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w json
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w json --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w latex
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w latex --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w markdown
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w markdown --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w nmap
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w nmap --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w terminal
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w terminal --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w typst
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w typst --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w url
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w url --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w xml
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w xml --multi-table
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w yaml
+--bloodhound tests/data/bloodhound/goad-light-north.sevenkingdoms_computers.json -w yaml --multi-table
+--json tests/data/json/filter_test.json -w aquatone
+--json tests/data/json/filter_test.json -w aquatone --multi-table
+--json tests/data/json/filter_test.json -w csv
+--json tests/data/json/filter_test.json -w csv --multi-table
+--json tests/data/json/filter_test.json -w host
+--json tests/data/json/filter_test.json -w host --multi-table
+--json tests/data/json/filter_test.json -w html
+--json tests/data/json/filter_test.json -w html --multi-table
+--json tests/data/json/filter_test.json -w json
+--json tests/data/json/filter_test.json -w json --multi-table
+--json tests/data/json/filter_test.json -w latex
+--json tests/data/json/filter_test.json -w latex --multi-table
+--json tests/data/json/filter_test.json -w markdown
+--json tests/data/json/filter_test.json -w markdown --multi-table
+--json tests/data/json/filter_test.json -w nmap
+--json tests/data/json/filter_test.json -w nmap --multi-table
+--json tests/data/json/filter_test.json -w terminal
+--json tests/data/json/filter_test.json -w terminal --multi-table
+--json tests/data/json/filter_test.json -w typst
+--json tests/data/json/filter_test.json -w typst --multi-table
+--json tests/data/json/filter_test.json -w url
+--json tests/data/json/filter_test.json -w url --multi-table
+--json tests/data/json/filter_test.json -w xml
+--json tests/data/json/filter_test.json -w xml --multi-table
+--json tests/data/json/filter_test.json -w yaml
+--json tests/data/json/filter_test.json -w yaml --multi-table
+--masscan tests/data/masscan/goad-light.json -w aquatone
+--masscan tests/data/masscan/goad-light.json -w aquatone --multi-table
+--masscan tests/data/masscan/goad-light.json -w csv
+--masscan tests/data/masscan/goad-light.json -w csv --multi-table
+--masscan tests/data/masscan/goad-light.json -w host
+--masscan tests/data/masscan/goad-light.json -w host --multi-table
+--masscan tests/data/masscan/goad-light.json -w html
+--masscan tests/data/masscan/goad-light.json -w html --multi-table
+--masscan tests/data/masscan/goad-light.json -w json
+--masscan tests/data/masscan/goad-light.json -w json --multi-table
+--masscan tests/data/masscan/goad-light.json -w latex
+--masscan tests/data/masscan/goad-light.json -w latex --multi-table
+--masscan tests/data/masscan/goad-light.json -w markdown
+--masscan tests/data/masscan/goad-light.json -w markdown --multi-table
+--masscan tests/data/masscan/goad-light.json -w nmap
+--masscan tests/data/masscan/goad-light.json -w nmap --multi-table
+--masscan tests/data/masscan/goad-light.json -w terminal
+--masscan tests/data/masscan/goad-light.json -w terminal --multi-table
+--masscan tests/data/masscan/goad-light.json -w typst
+--masscan tests/data/masscan/goad-light.json -w typst --multi-table
+--masscan tests/data/masscan/goad-light.json -w url
+--masscan tests/data/masscan/goad-light.json -w url --multi-table
+--masscan tests/data/masscan/goad-light.json -w xml
+--masscan tests/data/masscan/goad-light.json -w xml --multi-table
+--masscan tests/data/masscan/goad-light.json -w yaml
+--masscan tests/data/masscan/goad-light.json -w yaml --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w aquatone
+--nessus tests/data/nessus/goad-light.nessus -w aquatone --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w csv
+--nessus tests/data/nessus/goad-light.nessus -w csv --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w host
+--nessus tests/data/nessus/goad-light.nessus -w host --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w html
+--nessus tests/data/nessus/goad-light.nessus -w html --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w json
+--nessus tests/data/nessus/goad-light.nessus -w json --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w latex
+--nessus tests/data/nessus/goad-light.nessus -w latex --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w markdown
+--nessus tests/data/nessus/goad-light.nessus -w markdown --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w nmap
+--nessus tests/data/nessus/goad-light.nessus -w nmap --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w terminal
+--nessus tests/data/nessus/goad-light.nessus -w terminal --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w typst
+--nessus tests/data/nessus/goad-light.nessus -w typst --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w url
+--nessus tests/data/nessus/goad-light.nessus -w url --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w xml
+--nessus tests/data/nessus/goad-light.nessus -w xml --multi-table
+--nessus tests/data/nessus/goad-light.nessus -w yaml
+--nessus tests/data/nessus/goad-light.nessus -w yaml --multi-table
+--nmap tests/data/nmap/goad-light.xml -w aquatone
+--nmap tests/data/nmap/goad-light.xml -w aquatone --multi-table
+--nmap tests/data/nmap/goad-light.xml -w csv
+--nmap tests/data/nmap/goad-light.xml -w csv --multi-table
+--nmap tests/data/nmap/goad-light.xml -w host
+--nmap tests/data/nmap/goad-light.xml -w host --multi-table
+--nmap tests/data/nmap/goad-light.xml -w html
+--nmap tests/data/nmap/goad-light.xml -w html --multi-table
+--nmap tests/data/nmap/goad-light.xml -w json
+--nmap tests/data/nmap/goad-light.xml -w json --multi-table
+--nmap tests/data/nmap/goad-light.xml -w latex
+--nmap tests/data/nmap/goad-light.xml -w latex --multi-table
+--nmap tests/data/nmap/goad-light.xml -w markdown
+--nmap tests/data/nmap/goad-light.xml -w markdown --multi-table
+--nmap tests/data/nmap/goad-light.xml -w nmap
+--nmap tests/data/nmap/goad-light.xml -w nmap --multi-table
+--nmap tests/data/nmap/goad-light.xml -w terminal
+--nmap tests/data/nmap/goad-light.xml -w terminal --multi-table
+--nmap tests/data/nmap/goad-light.xml -w typst
+--nmap tests/data/nmap/goad-light.xml -w typst --multi-table
+--nmap tests/data/nmap/goad-light.xml -w url
+--nmap tests/data/nmap/goad-light.xml -w url --multi-table
+--nmap tests/data/nmap/goad-light.xml -w xml
+--nmap tests/data/nmap/goad-light.xml -w xml --multi-table
+--nmap tests/data/nmap/goad-light.xml -w yaml
+--nmap tests/data/nmap/goad-light.xml -w yaml --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w aquatone
+--nxc tests/data/nxc/goad-light-smb.db -w aquatone --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w csv
+--nxc tests/data/nxc/goad-light-smb.db -w csv --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w host
+--nxc tests/data/nxc/goad-light-smb.db -w host --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w html
+--nxc tests/data/nxc/goad-light-smb.db -w html --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w json
+--nxc tests/data/nxc/goad-light-smb.db -w json --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w latex
+--nxc tests/data/nxc/goad-light-smb.db -w latex --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w markdown
+--nxc tests/data/nxc/goad-light-smb.db -w markdown --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w nmap
+--nxc tests/data/nxc/goad-light-smb.db -w nmap --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w terminal
+--nxc tests/data/nxc/goad-light-smb.db -w terminal --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w typst
+--nxc tests/data/nxc/goad-light-smb.db -w typst --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w url
+--nxc tests/data/nxc/goad-light-smb.db -w url --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w xml
+--nxc tests/data/nxc/goad-light-smb.db -w xml --multi-table
+--nxc tests/data/nxc/goad-light-smb.db -w yaml
+--nxc tests/data/nxc/goad-light-smb.db -w yaml --multi-table
+--txt tests/data/txt/goad-light.txt -w aquatone
+--txt tests/data/txt/goad-light.txt -w aquatone --multi-table
+--txt tests/data/txt/goad-light.txt -w csv
+--txt tests/data/txt/goad-light.txt -w csv --multi-table
+--txt tests/data/txt/goad-light.txt -w host
+--txt tests/data/txt/goad-light.txt -w host --multi-table
+--txt tests/data/txt/goad-light.txt -w html
+--txt tests/data/txt/goad-light.txt -w html --multi-table
+--txt tests/data/txt/goad-light.txt -w json
+--txt tests/data/txt/goad-light.txt -w json --multi-table
+--txt tests/data/txt/goad-light.txt -w latex
+--txt tests/data/txt/goad-light.txt -w latex --multi-table
+--txt tests/data/txt/goad-light.txt -w markdown
+--txt tests/data/txt/goad-light.txt -w markdown --multi-table
+--txt tests/data/txt/goad-light.txt -w nmap
+--txt tests/data/txt/goad-light.txt -w nmap --multi-table
+--txt tests/data/txt/goad-light.txt -w terminal
+--txt tests/data/txt/goad-light.txt -w terminal --multi-table
+--txt tests/data/txt/goad-light.txt -w typst
+--txt tests/data/txt/goad-light.txt -w typst --multi-table
+--txt tests/data/txt/goad-light.txt -w url
+--txt tests/data/txt/goad-light.txt -w url --multi-table
+--txt tests/data/txt/goad-light.txt -w xml
+--txt tests/data/txt/goad-light.txt -w xml --multi-table
+--txt tests/data/txt/goad-light.txt -w yaml
+--txt tests/data/txt/goad-light.txt -w yaml --multi-table

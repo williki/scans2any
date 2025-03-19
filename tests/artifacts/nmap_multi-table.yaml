@@ -1,0 +1,206 @@
+192.168.56.10:
+    hostnames:
+    - kingslanding.sevenkingdoms.local
+    tcp_ports:
+        53:
+            service_names:
+            - domain
+            banners:
+            - Simple DNS Plus
+        80:
+            service_names:
+            - http
+            banners:
+            - Microsoft IIS httpd/10.0
+        88:
+            service_names:
+            - kerberos-sec
+            banners:
+            - Microsoft Windows Kerberos
+        135:
+            service_names:
+            - msrpc
+            banners:
+            - Microsoft Windows RPC
+        139:
+            service_names:
+            - netbios-ssn
+            banners:
+            - Microsoft Windows netbios-ssn
+        389:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        445:
+            service_names:
+            - microsoft-ds
+            banners:
+            - ''
+        464:
+            service_names:
+            - kpasswd5
+            banners:
+            - ''
+        593:
+            service_names:
+            - ncacn_http
+            banners:
+            - Microsoft Windows RPC over HTTP/1.0
+        636:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        3268:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        3269:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        3389:
+            service_names:
+            - ms-wbt-server
+            banners:
+            - Microsoft Terminal Services
+        5985:
+            service_names:
+            - http
+            banners:
+            - Microsoft HTTPAPI httpd/2.0
+        5986:
+            service_names:
+            - http
+            banners:
+            - Microsoft HTTPAPI httpd/2.0
+    udp_ports: {}
+    os:
+    - windows
+192.168.56.11:
+    hostnames:
+    - winterfell.north.sevenkingdoms.local
+    tcp_ports:
+        53:
+            service_names:
+            - domain
+            banners:
+            - Simple DNS Plus
+        88:
+            service_names:
+            - kerberos-sec
+            banners:
+            - Microsoft Windows Kerberos
+        135:
+            service_names:
+            - msrpc
+            banners:
+            - Microsoft Windows RPC
+        139:
+            service_names:
+            - netbios-ssn
+            banners:
+            - Microsoft Windows netbios-ssn
+        389:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        445:
+            service_names:
+            - microsoft-ds
+            banners:
+            - ''
+        464:
+            service_names:
+            - kpasswd5
+            banners:
+            - ''
+        593:
+            service_names:
+            - ncacn_http
+            banners:
+            - Microsoft Windows RPC over HTTP/1.0
+        636:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        3268:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        3269:
+            service_names:
+            - ldap
+            banners:
+            - Microsoft Windows Active Directory LDAP
+        3389:
+            service_names:
+            - ms-wbt-server
+            banners:
+            - Microsoft Terminal Services
+        5985:
+            service_names:
+            - http
+            banners:
+            - Microsoft HTTPAPI httpd/2.0
+        5986:
+            service_names:
+            - http
+            banners:
+            - Microsoft HTTPAPI httpd/2.0
+    udp_ports: {}
+    os:
+    - windows
+192.168.56.22:
+    hostnames:
+    - castelblack.north.sevenkingdoms.local
+    tcp_ports:
+        80:
+            service_names:
+            - http
+            banners:
+            - Microsoft IIS httpd/10.0
+        135:
+            service_names:
+            - msrpc
+            banners:
+            - Microsoft Windows RPC
+        139:
+            service_names:
+            - netbios-ssn
+            banners:
+            - Microsoft Windows netbios-ssn
+        445:
+            service_names:
+            - microsoft-ds
+            banners:
+            - ''
+        1433:
+            service_names:
+            - ms-sql-s
+            banners:
+            - Microsoft SQL Server 2019/15.00.2000.00; RTM
+        3389:
+            service_names:
+            - ms-wbt-server
+            banners:
+            - Microsoft Terminal Services
+        5985:
+            service_names:
+            - http
+            banners:
+            - Microsoft HTTPAPI httpd/2.0
+        5986:
+            service_names:
+            - http
+            banners:
+            - Microsoft HTTPAPI httpd/2.0
+    udp_ports: {}
+    os:
+    - windows

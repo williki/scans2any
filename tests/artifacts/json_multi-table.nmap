@@ -1,0 +1,4 @@
+#!/bin/sh
+
+nmap 1.1.1.1 -sS -A -Pn -n -T4 -oA 1.1.1.1 -p 22,23
+nmap 2.2.2.2 -sS -A -Pn -n -T4 -oA 2.2.2.2 --top-ports 1000

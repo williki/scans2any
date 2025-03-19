@@ -1,0 +1,82 @@
+#compdef scans2any
+
+# Helper function to provide available output writers
+_output_writers() {
+  local writers=(
+    "aquatone:Aquatone"
+    "csv:CSV"
+    "html:HTML"
+    "json:JSON"
+    "markdown:Markdown"
+    "nmap:Nmap"
+    "terminal:Terminal"
+    "url:URL"
+    "yaml:YAML"
+    "typst:Typst"
+    "host:Host"
+  )
+  _describe -t writers 'output writer' writers
+}
+
+# Helper function to provide available filters
+_available_filters() {
+  local filters=(
+    "combine_banners:Combine similar banners"
+    "empty_hosts:Remove hosts without services"
+    "empty_services:Remove empty services"
+    "hostname_filter:Filter hostnames"
+    "hosts_ports:Filter hosts and ports"
+    "nmap_banner:Process Nmap banner information"
+    "service_allowlist:Filter services based on allowlist"
+    "trash_banners:Remove unwanted banner information"
+    "trash_hostnames:Remove unwanted hostnames"
+    "trash_service_names:Remove unwanted service names"
+    "use_first_entry:Use first entry for each host"
+  )
+  _describe -t filters 'filter' filters
+}
+
+_scans2any() {
+  local state ret=1
+
+  _arguments \
+    '--version[Displays version and exits]' \
+    '--auto[specify report(s) or folder(s) type will be infered]:filename(s)/folder(s):_files' \
+    '--nmap[specify xml nmap report(s) or folder]:filename(s)/folder:_files' \
+    '--aquatone[specify aquatone report (*.json)]:filename:_files -g "*.json"' \
+    '--bloodhound[specify bloodhound report (*.json)]:filename:_files -g "*.json"' \
+    '--nessus[specify nessus report export (*.nessus)]:filename:_files -g "*.nessus"' \
+    '--masscan[specify masscan report(s)/folder]:filename(s)/folder:_files' \
+    '--txt[specify plain text file(s)]:filename(s):_files' \
+    '--json[import infrastructure from json file]:filename(s):_files -g "*.json"' \
+    '--nxc[specify NetExec/CrackMapExec database file]:filename:_files -g "*.db"' \
+    '--merge-file[use specified file as merge file to resolve conflicts]:filename:_files' \
+    '-o[output to specified file]:filename:_files' \
+    '--out[output to specified file]:filename:_files' \
+    '--ignore-conflicts[Do not check for conflicts and do not create a merge file]' \
+    '--no-auto-merge[Do not apply automatic conflict solving using internal rules]' \
+    '-w[Specify output writer]:output_writer:_output_writers' \
+    '--writer[Specify output writer]:output_writer:_output_writers' \
+    '--multi-table[Creates one table for each host, if supported by the chosen output writer]' \
+    '-c[Specify output columns as a comma-separated list]:columns:' \
+    '--columns[Specify output columns as a comma-separated list]:columns:' \
+    '--filters+[Overwrites default filters with specified filters]:filter:_available_filters' \
+    '--enable-filters+[Enables additional filters]:filter:_available_filters' \
+    '--disable-filters+[Disables certain filters]:filter:_available_filters' \
+    '-L[List available filters]' \
+    '--list-filters[List available filters]' \
+    '-v[Increase verbosity level (use twice for debug mode)]' \
+    '--verbose[Increase verbosity level (use twice for debug mode)]' \
+    '-q[Suppress all output except errors]' \
+    '--quiet[Suppress all output except errors]' \
+    '-h[Show help message and exit]' \
+    '--help[Show help message and exit]' && ret=0
+
+  if [[ $state == list_filters ]]; then
+    _available_filters && ret=0
+  fi
+
+  return $ret
+}
+
+compdef _scans2any scans2any

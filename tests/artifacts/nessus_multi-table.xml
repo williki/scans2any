@@ -1,0 +1,550 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="192.168.56.10">
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="53">
+        <services>
+          <service>dns</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="80">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-IIS/10.0</banner>
+        </banners>
+      </port>
+      <port number="88">
+        <services>
+          <service>kerberos?</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="135">
+        <services>
+          <service>epmap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="139">
+        <services>
+          <service>smb</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="389">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="445">
+        <services>
+          <service>cifs</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="464">
+        <services>
+          <service>kpasswd?</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="593">
+        <services>
+          <service>http-rpc-epmap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="636">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="3268">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="3269">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="3389">
+        <services>
+          <service>msrdp</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="5985">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="9389">
+        <banners/>
+      </port>
+      <port number="47001">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="49664">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49665">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49666">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49667">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49669">
+        <services>
+          <service>ncacn_http</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49670">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49672">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49675">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49685">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49785">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49863">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49966">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+    </tcp_ports>
+    <udp_ports>
+      <port number="53">
+        <services>
+          <service>dns</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="123">
+        <services>
+          <service>ntp</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="137">
+        <services>
+          <service>netbios-ns</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="5355">
+        <services>
+          <service>llmnr</service>
+        </services>
+        <banners/>
+      </port>
+    </udp_ports>
+  </host>
+  <host ip="192.168.56.11">
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="53">
+        <services>
+          <service>dns</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="88">
+        <services>
+          <service>kerberos?</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="135">
+        <services>
+          <service>epmap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="139">
+        <services>
+          <service>smb</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="389">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="445">
+        <services>
+          <service>cifs</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="464">
+        <services>
+          <service>kpasswd?</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="593">
+        <services>
+          <service>http-rpc-epmap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="636">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="3268">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="3269">
+        <services>
+          <service>ldap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="3389">
+        <services>
+          <service>msrdp</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="5985">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="9389">
+        <banners/>
+      </port>
+      <port number="47001">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="49664">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49665">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49666">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49667">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49669">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49670">
+        <services>
+          <service>ncacn_http</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49673">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49676">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49722">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="65363">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="65464">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+    </tcp_ports>
+    <udp_ports>
+      <port number="53">
+        <services>
+          <service>dns</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="123">
+        <services>
+          <service>ntp</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="137">
+        <services>
+          <service>netbios-ns</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="5355">
+        <services>
+          <service>llmnr</service>
+        </services>
+        <banners/>
+      </port>
+    </udp_ports>
+  </host>
+  <host ip="192.168.56.22">
+    <os_info>
+      <os>windows</os>
+    </os_info>
+    <tcp_ports>
+      <port number="80">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-IIS/10.0</banner>
+        </banners>
+      </port>
+      <port number="135">
+        <services>
+          <service>epmap</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="139">
+        <services>
+          <service>smb</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="445">
+        <services>
+          <service>cifs</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="1433">
+        <services>
+          <service>mssql</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="3389">
+        <services>
+          <service>msrdp</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="5985">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="47001">
+        <services>
+          <service>www</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="49664">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49665">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49666">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49667">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49668">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49669">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49682">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49734">
+        <services>
+          <service>dce-rpc</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="49813">
+        <services>
+          <service>sybase</service>
+        </services>
+        <banners/>
+      </port>
+    </tcp_ports>
+    <udp_ports>
+      <port number="137">
+        <services>
+          <service>netbios-ns</service>
+        </services>
+        <banners/>
+      </port>
+      <port number="5355">
+        <services>
+          <service>llmnr</service>
+        </services>
+        <banners/>
+      </port>
+    </udp_ports>
+  </host>
+</infrastructure>

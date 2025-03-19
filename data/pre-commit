@@ -1,0 +1,33 @@
+#!/bin/bash
+
+set -eo pipefail
+
+# Find all changed files for this commit
+# Compute the diff only once to save a small amount of time.
+CHANGED_FILES=$(git diff --name-only --cached --diff-filter=ACMR)
+
+echo "Changed files: $CHANGED_FILES"
+
+# Get only changed files that match our file suffix pattern
+get_pattern_files() {
+    pattern=${*// /|}
+    echo "$CHANGED_FILES" | { grep "$pattern" || true; }
+}
+
+# Get all changed python files
+PY_FILES=$(get_pattern_files .py)
+if [ -n "$PY_FILES" ]; then
+    ruff format $PY_FILES
+    ruff check $PY_FILES
+fi
+
+# If there are whitespace errors, print the offending file names and fail.
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+    against=HEAD
+else
+    # Initial commit: diff against an empty tree object
+    against=$(git hash-object -t tree /dev/null)
+fi
+
+exec git diff-index --check --cached $against --

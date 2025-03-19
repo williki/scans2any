@@ -1,0 +1,106 @@
+.TH SCANS2ANY 1 "March 2025" "Version 0.7.2" "User Commands"
+.SH NAME
+scans2any \- Convert network scans to Markdown, JSON, Typst, HTML, CSV, ...
+.SH SYNOPSIS
+.B scans2any
+[\fIoptions\fR]
+.SH DESCRIPTION
+.B scans2any
+is a tool that takes various scan reports from different sources and converts
+them into various output formats such as Markdown tables, YAML, HTML, CSV, and
+more. It can also generate launch scripts for various other scanners.
+.SH OPTIONS
+
+.TP
+.SH
+learn more:
+.TP
+.B \-h, \-\-help
+Show help message and exit.
+.TP
+.B \-L, \-\-list\-filters
+List available filters.
+
+.TP
+.SH
+control input:
+.TP
+.B \-\-a, \-\-auto \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify scans of arbitrary type. The correct parser will be infered.
+.TP
+.B \-\-nmap \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify Nmap XML reports.
+.TP
+.B \-\-aquatone \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify Aquatone reports (TXT and/or JSON).
+.TP
+.B \-\-bloodhound \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify BloodHound JSON files.
+.TP
+.B \-\-nessus \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify Nessus reports (.nessus) export.
+.TP
+.B \-\-masscan \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify Masscan reports.
+.TP
+.B \-\-txt \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify plain text inputs.
+.TP
+.B \-\-json \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Import infrastructures from JSON.
+.TP
+.B \-\-nxc \fIFILENAME/DIRECTORY [FILENAME/DIRECTORY ...]\fR
+Specify NetExec/CrackMapExec database files.
+
+.TP
+.SH
+control output
+.TP
+.B \-w, \-\-writer \fB{aquatone,csv,excel,host,html,json,latex,markdown,nmap,terminal,typst,url,xml,yaml}\fR
+Specify output writer. Default is terminal.
+.TP
+.B \-o, \-\-out \fIFILENAME\fR
+Output to specified file.
+.TP
+.B \-\-debug
+Display output of intermediate steps.
+
+.TP
+.SH
+control behavior
+.TP
+.B \-\-merge-file \fIFILENAME\fR
+Use specified file to resolve conflicts.
+.TP
+.B \-\-multi\-table
+Break output into multiple table, one per host, if applicable for chosen writer.
+.TP
+.B \-\-ignore\-conflicts
+Do not check for conflicts and do not create a merge file.
+.TP
+.B \-\-no\-auto\-merge
+Do not apply automatic conflict solving using internal rules.
+.TP
+.B \-\-filters \fIFILTER [FILTER ...]\fR
+Overwrite default filters with specified filters.
+.TP
+.B \-\-enable\-filters \fIFILTER [FILTER ...]\fR
+Enable additional filters.
+.TP
+.B \-\-disable\-filters \fIFILTER [FILTER ...]\fR
+Disable specific filters.
+
+.SH EXAMPLES
+.TP
+.B scans2any \-\-nmap tcp_scan.xml \-\-nmap udp_scan.xml \-\-nessus filename.nessus
+.TP
+.B scans2any \-\-json file1.json \-\-json file2.json \-\-enable\-filters combine_banners trash_hostnames
+.SH AUTHOR
+softScheck Team
+.SH SEE ALSO
+.BR nmap (1), 
+.BR nessus (1), 
+.BR masscan (1), 
+.BR aquatone (1), 
+.BR bloodhound (1)
+

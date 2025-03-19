@@ -1,0 +1,23 @@
+#set page(flipped: true)
+
+#table(
+  columns: (3),
+  [*192.168.56.10*], [*kingslanding.sevenkingdoms.local*], [**],
+  
+)
+
+#pagebreak()
+
+#table(
+  columns: (3),
+  [*192.168.56.11*], [*winterfell.north.sevenkingdoms.local*], [**],
+  
+)
+
+#pagebreak()
+
+#table(
+  columns: (3),
+  [*192.168.56.22*], [*castelblack.north.sevenkingdoms.local*], [**],
+  
+)

@@ -1,0 +1,10 @@
+{
+  "1.1.1.1": {
+    "hostnames": ["host1.example.com"],
+    "tcp_ports": {
+      "22": {
+        "service_names": ["ssh"]
+      }
+    }
+  }
+}

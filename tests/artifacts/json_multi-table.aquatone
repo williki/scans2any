@@ -1,0 +1,8 @@
+http://1.1.1.1:22
+http://2.2.2.2
+http://empty-host.example.com
+http://host1.example.com:22
+https://1.1.1.1:22
+https://2.2.2.2
+https://empty-host.example.com
+https://host1.example.com:22

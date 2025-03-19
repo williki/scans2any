@@ -1,0 +1,17 @@
+1.1.1.1:
+    hostnames:
+    - host1.example.com
+    tcp_ports:
+        22:
+            service_names:
+            - ssh
+            banners:
+            - ''
+    udp_ports: {}
+    os: []
+2.2.2.2:
+    hostnames:
+    - empty-host.example.com
+    tcp_ports: {}
+    udp_ports: {}
+    os: []

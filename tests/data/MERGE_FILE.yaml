@@ -1,0 +1,75 @@
+# scans2markdown: merge file
+
+
+# Automatic merging rules.
+#
+# if any of the listed combinations of service names [and port] (e.g. `http` and
+# `www`) are found as service names for the same port, the key is used as the
+# conflict solving service name.
+auto-merge:
+#-   service-names:
+#    - http
+#    - https
+#    port: 443
+#    key:
+#    - https
+#-   service-names:
+#    - http
+#    - https
+#    port: 80
+#    key:
+#    - http
+
+
+# Manual merging rules.
+#
+# Make sure there is only one service name and bannerfor each port left
+# Then excute scans2markdown again with option `--merge-file filename`
+manual-merge:
+    192.168.1.10:
+        os:
+        - ubuntu
+        tcp_ports:
+            443:
+                banners:
+                - 'product: Apache httpd'
+    192.168.1.11:
+        os:
+        - ubuntu
+        tcp_ports:
+            443:
+                banners:
+                - File Browser
+            9999:
+                service_names:
+                - http
+    192.168.1.12:
+        tcp_ports:
+            443:
+                banners:
+                - "sAURier \u2013 acme's AUR Repository"
+
+
+# Custom entries
+#
+# Add custom entries in this way:
+custom-entries:
+    1.1.1.1:
+        ports:
+        -   port: 1111/tcp
+            banner: No service name found for this port
+    3.3.3.3:
+        ports:
+        -   port: 3333/tcp
+            service-name: service without banner
+    192.168.1.10:
+        ports:
+        -   port: 1/udp
+            service-name: whatever
+    4.4.4.4:
+        -   bla: wrong format
+#    2.2.2.2:
+#        ports:
+#        -   port: 2222/udp
+#            service-name: whaat
+#            banner: You tell me.

@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="1.1.1.1">
+    <hostnames>
+      <hostname>host1.example.com</hostname>
+    </hostnames>
+    <tcp_ports>
+      <port number="22">
+        <services>
+          <service>ssh</service>
+        </services>
+        <banners/>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="2.2.2.2">
+    <hostnames>
+      <hostname>empty-host.example.com</hostname>
+    </hostnames>
+  </host>
+</infrastructure>

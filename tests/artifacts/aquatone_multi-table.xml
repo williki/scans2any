@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="192.168.56.10">
+    <tcp_ports>
+      <port number="5985">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>https</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.11">
+    <tcp_ports>
+      <port number="5985">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>https</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.22">
+    <tcp_ports>
+      <port number="5985">
+        <services>
+          <service>http</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+      <port number="5986">
+        <services>
+          <service>https</service>
+        </services>
+        <banners>
+          <banner>Microsoft-HTTPAPI/2.0</banner>
+        </banners>
+      </port>
+    </tcp_ports>
+  </host>
+</infrastructure>

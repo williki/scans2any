@@ -1,0 +1,26 @@
+#set page(flipped: true)
+
+#table(
+  columns: (3),
+  [*192.168.56.10*], [**], [**],
+  [5985/tcp], [http], [Microsoft-HTTPAPI/2.0],
+  [5986/tcp], [https], [Microsoft-HTTPAPI/2.0]
+)
+
+#pagebreak()
+
+#table(
+  columns: (3),
+  [*192.168.56.11*], [**], [**],
+  [5985/tcp], [http], [Microsoft-HTTPAPI/2.0],
+  [5986/tcp], [https], [Microsoft-HTTPAPI/2.0]
+)
+
+#pagebreak()
+
+#table(
+  columns: (3),
+  [*192.168.56.22*], [**], [**],
+  [5985/tcp], [http], [Microsoft-HTTPAPI/2.0],
+  [5986/tcp], [https], [Microsoft-HTTPAPI/2.0]
+)

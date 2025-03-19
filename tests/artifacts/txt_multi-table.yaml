@@ -1,0 +1,18 @@
+192.168.56.10:
+    hostnames:
+    - kingslanding.sevenkingdoms.local
+    tcp_ports: {}
+    udp_ports: {}
+    os: []
+192.168.56.11:
+    hostnames:
+    - winterfell.north.sevenkingdoms.local
+    tcp_ports: {}
+    udp_ports: {}
+    os: []
+192.168.56.22:
+    hostnames:
+    - castelblack.north.sevenkingdoms.local
+    tcp_ports: {}
+    udp_ports: {}
+    os: []

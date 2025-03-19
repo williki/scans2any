@@ -1,0 +1,436 @@
+192.168.56.10:
+    hostnames: []
+    tcp_ports:
+        53:
+            service_names:
+            - dns
+            banners:
+            - ''
+        80:
+            service_names:
+            - www
+            banners:
+            - Microsoft-IIS/10.0
+        88:
+            service_names:
+            - kerberos?
+            banners:
+            - ''
+        135:
+            service_names:
+            - epmap
+            banners:
+            - ''
+        139:
+            service_names:
+            - smb
+            banners:
+            - ''
+        389:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        445:
+            service_names:
+            - cifs
+            banners:
+            - ''
+        464:
+            service_names:
+            - kpasswd?
+            banners:
+            - ''
+        593:
+            service_names:
+            - http-rpc-epmap
+            banners:
+            - ''
+        636:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        3268:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        3269:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        3389:
+            service_names:
+            - msrdp
+            banners:
+            - ''
+        5985:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        5986:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        9389:
+            service_names: []
+            banners:
+            - ''
+        47001:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        49664:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49665:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49666:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49667:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49669:
+            service_names:
+            - ncacn_http
+            banners:
+            - ''
+        49670:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49672:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49675:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49685:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49785:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49863:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49966:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+    udp_ports:
+        53:
+            service_names:
+            - dns
+            banners:
+            - ''
+        123:
+            service_names:
+            - ntp
+            banners:
+            - ''
+        137:
+            service_names:
+            - netbios-ns
+            banners:
+            - ''
+        5355:
+            service_names:
+            - llmnr
+            banners:
+            - ''
+    os:
+    - windows
+192.168.56.11:
+    hostnames: []
+    tcp_ports:
+        53:
+            service_names:
+            - dns
+            banners:
+            - ''
+        88:
+            service_names:
+            - kerberos?
+            banners:
+            - ''
+        135:
+            service_names:
+            - epmap
+            banners:
+            - ''
+        139:
+            service_names:
+            - smb
+            banners:
+            - ''
+        389:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        445:
+            service_names:
+            - cifs
+            banners:
+            - ''
+        464:
+            service_names:
+            - kpasswd?
+            banners:
+            - ''
+        593:
+            service_names:
+            - http-rpc-epmap
+            banners:
+            - ''
+        636:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        3268:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        3269:
+            service_names:
+            - ldap
+            banners:
+            - ''
+        3389:
+            service_names:
+            - msrdp
+            banners:
+            - ''
+        5985:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        5986:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        9389:
+            service_names: []
+            banners:
+            - ''
+        47001:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        49664:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49665:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49666:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49667:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49669:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49670:
+            service_names:
+            - ncacn_http
+            banners:
+            - ''
+        49673:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49676:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49722:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        65363:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        65464:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+    udp_ports:
+        53:
+            service_names:
+            - dns
+            banners:
+            - ''
+        123:
+            service_names:
+            - ntp
+            banners:
+            - ''
+        137:
+            service_names:
+            - netbios-ns
+            banners:
+            - ''
+        5355:
+            service_names:
+            - llmnr
+            banners:
+            - ''
+    os:
+    - windows
+192.168.56.22:
+    hostnames: []
+    tcp_ports:
+        80:
+            service_names:
+            - www
+            banners:
+            - Microsoft-IIS/10.0
+        135:
+            service_names:
+            - epmap
+            banners:
+            - ''
+        139:
+            service_names:
+            - smb
+            banners:
+            - ''
+        445:
+            service_names:
+            - cifs
+            banners:
+            - ''
+        1433:
+            service_names:
+            - mssql
+            banners:
+            - ''
+        3389:
+            service_names:
+            - msrdp
+            banners:
+            - ''
+        5985:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        5986:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        47001:
+            service_names:
+            - www
+            banners:
+            - Microsoft-HTTPAPI/2.0
+        49664:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49665:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49666:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49667:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49668:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49669:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49682:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49734:
+            service_names:
+            - dce-rpc
+            banners:
+            - ''
+        49813:
+            service_names:
+            - sybase
+            banners:
+            - ''
+    udp_ports:
+        137:
+            service_names:
+            - netbios-ns
+            banners:
+            - ''
+        5355:
+            service_names:
+            - llmnr
+            banners:
+            - ''
+    os:
+    - windows

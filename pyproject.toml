@@ -1,0 +1,48 @@
+[project]
+name = "scans2any"
+version = "0.7.2"
+description = "Convert infrastructure scans into various output formats such as Markdown tables, YAML, HTML, CSV, and more"
+readme = "README.md"
+requires-python = ">=3.12"
+packages = [
+    { include = "scans2any", from = "src" },
+]
+dependencies = [
+    "python-libnmap>=0.7.3",
+    "pandas>=2.2.2",
+    "pyyaml>=6.0.2",
+    "tabulate>=0.9.0",
+    "htmlgenerator>=1.2.30",
+    "sortedcontainers>=2.4.0",
+    "defusedxml>=0.7.1",
+    "partial-json-parser>=0.2.1.1.post4",
+    "tqdm",
+    "openpyxl>=3.1.5",
+    "jinja2>=3.1.5",
+    "wcwidth>=0.2.13",
+]
+
+[project.scripts]
+scans2any = "scans2any.main:main"
+
+[tool.uv]
+dev-dependencies = [
+    "mypy>=1.12.0",
+    "pandas-stubs>=2.2.3.241009",
+    "pytest>=8.3.3",
+    "types-pyyaml>=6.0.12.20240917",
+    "types-tqdm>=4.67.0.20241221",
+	"dunamai>1.0",
+	"tomli>1.0"
+]
+
+[tool.mypy]
+mypy_path = [
+    "src",
+]
+
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"

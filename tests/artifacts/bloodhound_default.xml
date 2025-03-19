@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="unknown_0">
+    <hostnames>
+      <hostname>castelblack.north.sevenkingdoms.local</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+  </host>
+  <host ip="unknown_1">
+    <hostnames>
+      <hostname>winterfell.north.sevenkingdoms.local</hostname>
+    </hostnames>
+    <os_info>
+      <os>windows</os>
+    </os_info>
+  </host>
+</infrastructure>

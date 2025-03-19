@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<infrastructure>
+  <host ip="192.168.56.10">
+    <tcp_ports>
+      <port number="53">
+        <banners/>
+      </port>
+      <port number="88">
+        <banners/>
+      </port>
+      <port number="135">
+        <banners/>
+      </port>
+      <port number="139">
+        <banners/>
+      </port>
+      <port number="389">
+        <banners/>
+      </port>
+      <port number="445">
+        <banners/>
+      </port>
+      <port number="464">
+        <banners/>
+      </port>
+      <port number="593">
+        <banners/>
+      </port>
+      <port number="636">
+        <banners/>
+      </port>
+      <port number="3268">
+        <banners/>
+      </port>
+      <port number="3269">
+        <banners/>
+      </port>
+      <port number="3389">
+        <banners/>
+      </port>
+      <port number="5985">
+        <banners/>
+      </port>
+      <port number="5986">
+        <banners/>
+      </port>
+      <port number="9389">
+        <banners/>
+      </port>
+      <port number="49666">
+        <banners/>
+      </port>
+      <port number="49667">
+        <banners/>
+      </port>
+      <port number="49675">
+        <banners/>
+      </port>
+      <port number="49676">
+        <banners/>
+      </port>
+      <port number="49678">
+        <banners/>
+      </port>
+      <port number="49693">
+        <banners/>
+      </port>
+      <port number="60064">
+        <banners/>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.11">
+    <tcp_ports>
+      <port number="53">
+        <banners/>
+      </port>
+      <port number="135">
+        <banners/>
+      </port>
+      <port number="139">
+        <banners/>
+      </port>
+      <port number="445">
+        <banners/>
+      </port>
+      <port number="3389">
+        <banners/>
+      </port>
+      <port number="5985">
+        <banners/>
+      </port>
+      <port number="5986">
+        <banners/>
+      </port>
+      <port number="49666">
+        <banners/>
+      </port>
+      <port number="49667">
+        <banners/>
+      </port>
+      <port number="49674">
+        <banners/>
+      </port>
+      <port number="49728">
+        <banners/>
+      </port>
+    </tcp_ports>
+  </host>
+  <host ip="192.168.56.22">
+    <tcp_ports>
+      <port number="3389">
+        <banners/>
+      </port>
+      <port number="5985">
+        <banners/>
+      </port>
+      <port number="5986">
+        <banners/>
+      </port>
+    </tcp_ports>
+  </host>
+</infrastructure>

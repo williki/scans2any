@@ -1,0 +1,4 @@
+| IP-Addresses   | Hostnames              | Ports   | Services   | Banners   | OS   |
+|:---------------|:-----------------------|:--------|:-----------|:----------|:-----|
+| 1.1.1.1        | host1.example.com      | 22/tcp  | ssh        |           |      |
+| 2.2.2.2        | empty-host.example.com |         |            |           |      |

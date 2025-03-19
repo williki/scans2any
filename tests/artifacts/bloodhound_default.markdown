@@ -1,0 +1,4 @@
+| IP-Addresses   | Hostnames                             | Ports   | Services   | Banners   | OS      |
+|:---------------|:--------------------------------------|:--------|:-----------|:----------|:--------|
+|                | castelblack.north.sevenkingdoms.local |         |            |           | windows |
+|                | winterfell.north.sevenkingdoms.local  |         |            |           | windows |
