@@ -1,10 +1,10 @@
-# <img height="25" src="data/logo.svg"/> scans2any
+# <img height="25" src="https://raw.githubusercontent.com/softScheck/scans2any/main/data/logo.svg"/> scans2any
 
 Convert infrastructure scans into various output formats, such as Markdown
 tables, YAML, HTML, CSV, and more. It can also be used to generate launch
 scripts and target files for various other scanners.
 
-<p align="center"> <img src="data/scans2any.gif"/> </p>
+<p align="center"> <img src="https://raw.githubusercontent.com/softScheck/scans2any/main/data/scans2any.gif"/> </p>
 
 ## Install & Run
 
