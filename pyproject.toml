@@ -1,6 +1,6 @@
 [project]
 name = "scans2any"
-version = "0.7.2"
+version = "0.8.0"
 description = "Convert infrastructure scans into various output formats such as Markdown tables, YAML, HTML, CSV, and more"
 readme = "README.md"
 requires-python = ">=3.12"

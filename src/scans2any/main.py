@@ -25,7 +25,7 @@ from scans2any.helpers.infrastructure import (
 from scans2any.internal import printer
 from scans2any.writers import avail_writers
 
-__version__ = "0.7.2.post29+826c06b"
+__version__ = "0.8.0.post0+cd5df93"
 
 executor: concurrent.futures.ThreadPoolExecutor | None = None
 
