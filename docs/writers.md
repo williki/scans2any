@@ -4,6 +4,7 @@ scans2any supports various output formats through its writer modules. This
 document describes all available writers and their specific options.
 
 ## Table of Contents
+- [Common Options](#common-options): Options available for all writers
 - [Aquatone](#aquatone): List of potential HTTP/HTTPS URLs with ports
 - [CSV](#csv): Comma-separated values format
 - [Excel](#excel): Excel spreadsheet format
@@ -18,6 +19,21 @@ document describes all available writers and their specific options.
 - [URL](#url): List of potential URLs for the infrastructure
 - [XML](#xml): XML representation
 - [YAML](#yaml): YAML representation
+
+## Common Options
+
+
+### Columns
+
+All writers support `-c, --columns`. Use it to specify which columns to include
+(IP-Addresses,Hostnames,Ports,Services,Banners,OS)
+
+### Multi Table
+
+Most writers support `--multi-table` to break the output up into individual
+tables, where each one represents a host. This output uses the headers of the
+table to show information like IP-Addresses, Hostnames, and OS where as the
+body of the table contains Ports, Services and Banners.
 
 ## Aquatone
 
@@ -91,14 +107,26 @@ browser.
 
 ## JSON
 
-The JSON writer outputs a structured representation of the infrastructure that
-preserves all details including address, hostnames, ports, services, and
-banners.
+The JSON writer is the only writer where the output can also be used as the
+input for a future call to scans2any. This can be useful to reuse the combined
+result. See the workflow below:
 
-**Example usage:**
-```sh
-scans2any --nmap scan.xml -w json -o infrastructure.json
-```
+Let's say you need to combine many scans, that are stored in a directory. This
+can take a long time, depending on how many scans you have. Instead of using
+the default terminal output let's use JSON:
+
+`scans2any -a /path/to/all/scans -w json -o combined_infra.json`
+
+Once this is done, you can use the JSON file and try different output options
+without having to read many files and combine a lot of information.
+
+`scans2any --json combined_infra.json -c IP-Addresses,Services --filters service_filter --service-regex "https"`
+
+The JSON output also is ideal if you want to create your own output format in
+whatever language you prefer.
+
+Learn more about the JSON format at [json.md](json.md).
+
 
 ## LaTeX
 
@@ -129,7 +157,7 @@ infrastructure.
 **Options:**
 - `--flattened`: Creates a flat table with one row per service (default: False)
 - `--merge-symbol`: Symbol to use when merging multiple values in a cell
-  (default: "<br>")
+  (default: "\<br>")
 
 **Example usage:**
 ```sh
@@ -171,7 +199,7 @@ table in the console.
 
 **Options:**
 - `--table-fmt`: Table format for terminal output, using formats from the
-  tabulate package (default: fancy_grid)
+  tabulate package (default: fancy\_grid)
 
 **Example usage:**
 ```sh
@@ -182,8 +210,11 @@ scans2any --nmap scan.xml
 scans2any --nmap scan.xml --table-fmt github
 ```
 
-Available table formats include: plain, simple, github, grid, fancy_grid, pipe,
+Available table formats include: plain, simple, github, grid, fancy\_grid, pipe,
 orgtbl, jira, presto, pretty, html, and more.
+
+For all formats read the tabulate documentation at
+[https://pypi.org/project/tabulate](https://pypi.org/project/tabulate/).
 
 ## Typst
 
@@ -233,12 +264,3 @@ The YAML writer outputs a structured YAML representation of the infrastructure.
 ```sh
 scans2any --nmap scan.xml -w yaml -o infrastructure.yml
 ```
-
-## Common Options
-
-All writers support these common options:
-
-- `-c, --columns`: Specify which columns to include
-  (IP-Addresses,Hostnames,Ports,Services,Banners,OS)
-- `--multi-table`: Creates one table per host when supported by the output
-  format
