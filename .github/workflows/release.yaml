@@ -1,12 +1,10 @@
 name: release
 
-on: push
-
-#on:
-#  push:
-#    tags:
-#      # Publish on any tag starting with a `v`, e.g. v1.2.3
-#      - v*
+on:
+  push:
+    tags:
+      # Publish on any tag starting with a `v`, e.g. v1.2.3
+      - v*
 
 jobs:
   pypi:
