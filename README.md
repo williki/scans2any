@@ -124,7 +124,7 @@ Examples: scans2any --nmap tcp_scan.xml --nmap udp_scan.xml --nessus scan.nessus
 ```
 
 You can learn more about how to use scans2any in the
-[tutorial](docs/tutorial.md).
+[tutorial](https://github.com/softScheck/scans2any/blob/main/docs/tutorial.md).
 
 ### Output
 
@@ -471,7 +471,7 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
 ## Contributing
 
 If you want to contribute, there is useful information at
-[contributing](docs/contributing.md).
+[contributing](https://github.com/softScheck/scans2any/blob/main/docs/contributing.md).
 
 ## Wish to learn more about scans2any or us?
 

@@ -1,49 +1,24 @@
 name: release
 
-on:
-  workflow_call:
-    inputs:
-      plan:
-        required: true
-        type: string
+on: push
 
+#on:
+#  push:
+#    tags:
+#      # Publish on any tag starting with a `v`, e.g. v1.2.3
+#      - v*
 
 jobs:
-  release-build:
+  pypi:
+    name: Publish to PyPI
     runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-        # not really needed, but upgrades python to latest 3.x
-        # instead of using ubuntus older versions.
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-      - name: "Install uv"
-        uses: astral-sh/setup-uv@v5
-      - name: build release distributions
-        run: |
-          uv build
-      - name: upload windows dists
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-dists
-          path: dist/
-
-  pypi-publish:
-    runs-on: ubuntu-latest
-    needs:
-      - release-build
+    # Environment and permissions trusted publishing.
+    environment:
+      name: release
     permissions:
       id-token: write
-
     steps:
-      - name: Retrieve release distributions
-        uses: actions/download-artifact@v4
-        with:
-          name: release-dists
-          path: dist/
-
-      - name: Publish release distributions to PyPI
-        uses: pypa/gh-action-pypi-publish@3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v5
+      - run: uv build
+      - run: uv publish --trusted-publishing always
