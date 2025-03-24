@@ -23,7 +23,10 @@ or directly with `uv tool install .` or `pipx install .`
 It is also possible to simply run it with uv `uv run scans2any`
 
 ### PyPI
+<img alt="PyPI - Version" src="https://img.shields.io/pypi/v/scans2any">
+
 Using PyPi it is possible to install with any of these options:
+
 `uv tool install scans2any`
 `pip install scans2any`
 `pipx install scans2any`
@@ -39,7 +42,9 @@ docker run -v $(pwd):/data scans2any
 ```
 
 ### Arch Linux AUR
-If you are on Arch Linux, you can use the provided AUR package with your favorite `pacman` wrapper (https://aur.archlinux.org/packages/scans2any-git).
+<img alt="AUR Version" src="https://img.shields.io/aur/version/scans2any-git"> <img alt="AUR Version" src="https://img.shields.io/aur/version/scans2any">
+
+If you are on Arch Linux, you can use the provided AUR packages with your favorite `pacman` wrapper (https://aur.archlinux.org/packages/scans2any-git or https://aur.archlinux.org/packages/scans2any).
 
 ## Usage
 
