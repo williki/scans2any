@@ -7,6 +7,16 @@ authors = [
     { name = "softScheck", email = "info@softscheck.com"},
 ]
 readme = "README.md"
+keywords = ["security", "pentesting", "report", "infrastructure"]
+classifiers = [
+    "Environment :: Console",
+    "Framework :: Pytest",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Topic :: Security",
+    "Topic :: Text Processing",
+]
 requires-python = ">=3.12"
 packages = [
     { include = "scans2any", from = "src" },
@@ -29,8 +39,8 @@ dependencies = [
 scans2any = "scans2any.main:main"
 
 [project.urls]
-homepage = "https://www.softscheck.com"
-repository = "https://github.com/softScheck/scans2any"
+Homepage = "https://www.softscheck.com"
+Repository = "https://github.com/softScheck/scans2any"
 
 [tool.uv]
 dev-dependencies = [
