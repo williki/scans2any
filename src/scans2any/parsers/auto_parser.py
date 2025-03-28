@@ -37,9 +37,14 @@ def parse(filename: str) -> Infrastructure:
         # attempt to parse with the selected parser
         try:
             infra = parser.parse(filename)
-            return infra
         except Exception:
-            pass
+            continue
+
+        # if the infrastructure is not empty we use it. Otherwise let's try the
+        # next parser.
+        if infra.__repr__() != Infrastructure().__repr__():
+            return infra
+
     printer.debug(f"The correct parser for {filename} could not be identified.")
     # return empty infrastructure. None would lead to error messages, that are
     # not wanted
