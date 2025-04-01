@@ -4,16 +4,14 @@ Infrastructure processing utilities for scans2any.
 
 from scans2any.helpers.file_processing import create_progress_bar
 from scans2any.internal import Infrastructure, printer
-from scans2any.parsers import avail_parsers
+from scans2any.parsers import merge_file_parser
 from scans2any.writers import avail_writers
 
 
 def handle_merge_file(merge_file) -> tuple[Infrastructure | None, list[dict] | None]:
     """Parse merge file if provided."""
     if merge_file:
-        merge_infra, auto_merge_ruleset = avail_parsers["merge_file_parser"].parse(
-            merge_file
-        )
+        merge_infra, auto_merge_ruleset = merge_file_parser.parse(merge_file)
         printer.debug(merge_infra)
         printer.debug("\nAuto merge ruleset:")
         printer.debug(auto_merge_ruleset)
