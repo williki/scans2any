@@ -50,8 +50,8 @@ def parse(filename: str) -> Infrastructure:
             os_result = find_os(os) if os else None
             host = Host(
                 address=ip,
-                hostnames=SortedSet([hostname.lower()]) if hostname else SortedSet(),
-                os=SortedSet([(os_result, "NetExec")]) if os_result else SortedSet(),
+                hostnames=set([hostname.lower()]) if hostname else set(),
+                os=set([(os_result, "NetExec")]) if os_result else set(),
             )
 
             host.services.append(service)

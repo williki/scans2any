@@ -28,7 +28,6 @@ def write(infra: Infrastructure, args) -> str:
 
     url_set = set()  # avoid duplicate entries
 
-    infra.sort()
     protocols = ["http", "https"]
 
     for host in infra.hosts:

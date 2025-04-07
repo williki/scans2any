@@ -1,5 +1,4 @@
-from scans2any.internal import Service
-from scans2any.internal.sorted_set import SortedSet
+from scans2any.internal import Service, SortedSet
 
 PRIORITY = 3
 

@@ -160,17 +160,17 @@ def __parse_report_item(host: list) -> Host | None:
     if address is not None and is_ipv4(address):
         if hostname is not None and not is_ipv4(hostname):
             new_host = Host(
-                address=address, hostnames=SortedSet([hostname.lower()]), os=SortedSet()
+                address=address, hostnames=set([hostname.lower()]), os=set()
             )
         else:
-            new_host = Host(address=address, hostnames=SortedSet(), os=SortedSet())
+            new_host = Host(address=address, hostnames=set(), os=set())
     elif hostname is not None:
-        new_host = Host(hostnames=SortedSet([hostname.lower()]), os=SortedSet())
+        new_host = Host(hostnames=set([hostname.lower()]), os=set())
     else:
         return None
 
     # Add OS detection results
-    new_host.os = SortedSet((osvalue, "Nessus") for osvalue in detected_os)
+    new_host.os = set((osvalue, "Nessus") for osvalue in detected_os)
 
     # Service information loop
     for item in host[1:]:

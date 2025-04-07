@@ -54,7 +54,7 @@ def _create_multi_tables(
     for host in infra.hosts:
         ip = host.address or ""
         hostnames = merge_symbol.join(h for h in host.hostnames if h)
-        os_info = host.os[0] if host.os else ""
+        os_info = str(next(iter(host.os))) if host.os else ""
 
         ports = []
         services = []
@@ -110,7 +110,7 @@ def _create_single_table(
     for host in infra.hosts:
         ip = host.address or ""
         hostnames = merge_symbol.join(h for h in host.hostnames if h)
-        os_info = host.os[0] if host.os else ""
+        os_info = str(next(iter(host.os))) if host.os else ""
 
         ports = merge_symbol.join(f"{s.port}/{s.protocol}" for s in host.services)
         services = merge_symbol.join(
@@ -159,7 +159,7 @@ def create_flat_dataframe(
     for host in infra.hosts:
         address = host.address or ""
         hostnames = merge_symbol.join(h for h in host.hostnames if h)
-        os_info = host.os[0] if host.os else ""
+        os_info = str(next(iter(host.os))) if host.os else ""
 
         if host.services:
             for service in host.services:

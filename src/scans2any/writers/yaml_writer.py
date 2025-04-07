@@ -17,7 +17,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into the yaml format.
     """
-    infra.sort()
     infra.cleanup_names('"\\')
 
     host_dict = create_data_unmerged(infra, columns=args.columns)

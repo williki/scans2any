@@ -78,7 +78,7 @@ def __parse_json(filename: str) -> list[Host]:
 
     for obj in scan_data:
         try:
-            new_host = Host(address=obj["ip"], hostnames=SortedSet(), os=SortedSet())
+            new_host = Host(address=obj["ip"], hostnames=set(), os=set())
             service = obj["ports"][0]
             new_service = Service(
                 port=service["port"],

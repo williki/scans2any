@@ -17,7 +17,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into HTML format.
     """
-    infra.sort()
     infra.cleanup_names("&<>\"'")
 
     # Create DataFrames

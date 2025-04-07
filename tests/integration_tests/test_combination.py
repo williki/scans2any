@@ -1,6 +1,5 @@
 from scans2any.helpers.infrastructure import combine_infrastructure_scans
 from scans2any.internal import Infrastructure
-from scans2any.internal.sorted_set import SortedSet
 from scans2any.parsers import json_parser
 
 
@@ -314,7 +313,7 @@ def test_merge_address_name():
     }
 }
 """)
-    infra_combi_not_goal.hosts[1].hostnames = SortedSet("host_A")
+    infra_combi_not_goal.hosts[1].hostnames = set("host_A")
     assert len(infra_combi_not_goal.hosts) == 2
     assert infra_combi.__str__() != infra_combi_not_goal.__str__()
     infra_combi_goal = json_parser.parse_string("""{
@@ -337,9 +336,9 @@ def test_merge_address_name():
 def change_os_identifier(infra: Infrastructure, identifier: str) -> Infrastructure:
     for host_index, host in enumerate(infra.hosts):
         host_os = list(host.os)
-        for index, _ in enumerate(host_os):
-            host_os[index] = (host.os[index][0], identifier)
-        host.os = SortedSet(host_os)
+        for index, item in enumerate(host_os):
+            host_os[index] = (item[0], identifier)
+        host.os = set(host_os)
         infra.hosts[host_index] = host
     return infra
 

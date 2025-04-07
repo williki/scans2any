@@ -118,7 +118,8 @@ def main():
     ):
         return
 
-    # Generate output
+    # Sort and generate output
+    combined_infra.sort()
     output = generate_output(combined_infra, args)
 
     # Write output to file or print to stdout

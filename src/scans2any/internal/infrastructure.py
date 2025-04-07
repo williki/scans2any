@@ -25,9 +25,9 @@ class Infrastructure:
         Additional information, like `Nmap scan infrastructure`
     """
 
-    def __init__(self, hosts: list[Host] | None = None, identifier: str | None = None):
+    def __init__(self, hosts: list[Host] | None = None, identifier: str = ""):
         self.hosts: list[Host] = []
-        self.identifier = identifier
+        self.identifier: str = identifier
 
         if hosts is not None:
             self.add_hosts(hosts)
@@ -368,7 +368,7 @@ class Infrastructure:
         only_hostname_hosts = [host for host in self.hosts if host.address is None]
         for host in only_hostname_hosts:
             assert host.hostnames, "Host with no ip and no hostnames detected!!!"
-        only_hostname_hosts.sort(key=lambda x: x.hostnames[0])
+        only_hostname_hosts.sort(key=lambda x: min(x.hostnames))
         # sort remaining hosts by IP
         address_hosts = [host for host in self.hosts if host.address is not None]
         address_hosts.sort(key=lambda x: ipaddress.IPv4Address(x.address))

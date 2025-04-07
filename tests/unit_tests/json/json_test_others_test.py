@@ -62,6 +62,7 @@ def data_ok(filename: str, parser):
     # use provided parser to read the file into an infrastructure
     mas_infra = parser(filename)
     mas_infra.merge_os_sources()
+    mas_infra.sort()
 
     args = argparse.Namespace(
         columns=("IP-Addresses", "Hostnames", "Ports", "Services", "Banners", "OS")
@@ -72,6 +73,7 @@ def data_ok(filename: str, parser):
 
     json_infra = json_parser.parse_string(json_string)
     json_infra.merge_os_sources()
+    json_infra.sort()
 
     # after another transformation back to json, we should arrive at the same
     # output as the first json string

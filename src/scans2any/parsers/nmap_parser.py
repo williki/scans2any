@@ -56,11 +56,11 @@ def parse(filename: str) -> Infrastructure:
     infra = Infrastructure(identifier="Nmap")
 
     for nmap_host in nmap_report.hosts:
-        nmap_os: SortedSet[tuple[str, str]] = SortedSet(
+        nmap_os: set[tuple[str, str]] = set(
             (osvalue, infra.identifier) for osvalue in __detect_os(nmap_host)
         )
 
-        lower_hostnames: SortedSet[str] = SortedSet(
+        lower_hostnames: set[str] = set(
             hostname.lower() for hostname in nmap_host.hostnames
         )
 

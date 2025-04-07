@@ -31,7 +31,6 @@ def write(infra: Infrastructure, args) -> str:
     str
         The LaTeX representation of the infrastructure
     """
-    infra.sort()
     infra.cleanup_names('{}\\_$%"')
 
     # Create DataFrames

@@ -94,13 +94,11 @@ def __make_host(page: dict) -> Host:
     addrs = page["addrs"]
 
     if is_ipv4(hostname):
-        new_host = Host(address=hostname, hostnames=SortedSet(), os=SortedSet())
+        new_host = Host(address=hostname, hostnames=set(), os=set())
     elif addrs is not None:
-        new_host = Host(
-            address=addrs[0], hostnames=SortedSet([hostname]), os=SortedSet()
-        )
+        new_host = Host(address=addrs[0], hostnames=set([hostname]), os=set())
     else:
-        new_host = Host(address=None, hostnames=SortedSet([hostname]), os=SortedSet())
+        new_host = Host(address=None, hostnames=set([hostname]), os=set())
 
     return new_host
 

@@ -47,7 +47,6 @@ def write(infra: Infrastructure, args) -> str | bytes:
     bytes
         The Excel file as bytes
     """
-    infra.sort()
     # infra.cleanup_names("")
 
     output = io.BytesIO()

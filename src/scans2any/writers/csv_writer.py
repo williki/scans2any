@@ -27,7 +27,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into the csv format.
     """
-    infra.sort()
     infra.cleanup_names(",-")  # Comma as separator, minus for multiple items
 
     # Create a flattened DataFrame (one row per service)

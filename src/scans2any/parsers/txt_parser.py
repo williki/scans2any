@@ -7,7 +7,7 @@ Parses formatted txt input to gather information.
 from collections import defaultdict
 
 from scans2any.helpers.utils import is_ipv4, match_dns
-from scans2any.internal import Host, Infrastructure, SortedSet
+from scans2any.internal import Host, Infrastructure
 
 CONFIG = {
     "extensions": [".txt"],
@@ -70,7 +70,7 @@ def __parse_url_ip_format(filename: str) -> list[Host]:
     # Assemble Host objects
     hosts = []
     for ip, hostnames in ips.items():
-        new_host = Host(address=ip, hostnames=SortedSet(hostnames), os=SortedSet())
+        new_host = Host(address=ip, hostnames=set(hostnames), os=set())
         hosts.append(new_host)
 
     return hosts

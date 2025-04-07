@@ -15,7 +15,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into the JSON format.
     """
-    infra.sort()
 
     df = create_dataframe_unmerged(infra, columns=args.columns)
 

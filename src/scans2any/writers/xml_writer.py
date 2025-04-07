@@ -48,7 +48,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into the XML format.
     """
-    infra.sort()
     infra.cleanup_names("\"'<>&")
 
     data_dict = create_data_unmerged(infra, columns=args.columns)

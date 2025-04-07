@@ -31,7 +31,6 @@ def write(infra: Infrastructure, args) -> str:
     into a nice Terminal table format with fancy_grid format
     using pandas df.to_markdown function.
     """
-    infra.sort()
 
     # For pandoc, we use newline character (\n) as merge symbol
     # with zero-width space to maintain proper alignment

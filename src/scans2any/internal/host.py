@@ -26,11 +26,11 @@ class Host:
     ----------
     address : str | None
         IPv4 Address
-    hostnames : SortedSet[str]
+    hostnames : set[str] | SortedSet[str]
         List of corresponding hostnames
     services : list[Service]
         A list of available services
-    os : SortedSet[tuple]
+    os : set[tuple] | SortedSet[str]
         Operating system, if available
 
     Methods
@@ -43,23 +43,23 @@ class Host:
         self,
         address: str | None = None,
         *,
-        hostnames: SortedSet[str],
-        os: SortedSet[tuple[str, str]] | SortedSet[str],
+        hostnames: set[str] | SortedSet[str],
+        os: set[tuple[str, str]] | SortedSet[str],
     ):
         """
         Parameters
         ----------
         address : str
             IPv4 address of the host
-        hostnames : SortedSet[str], optional
+        hostnames : set[str], optional
             A list of corresponding hostnames
-        os : SortedSet[tuple], optional
+        os : set[tuple], optional
             Operating system, if available
         """
 
-        assert type(address) is str or address is None
-        assert type(hostnames) is SortedSet
-        assert type(os) is SortedSet
+        assert isinstance(address, str | None)
+        assert isinstance(hostnames, set | SortedSet)
+        assert isinstance(os, set | SortedSet)
 
         self.address = address
         self.hostnames = hostnames
@@ -209,7 +209,7 @@ class Host:
             printer.warning(
                 f"Using first hostname but several available: {self.hostnames}"
             )
-        return self.hostnames[0]
+        return next(iter(self.hostnames))
 
     def get_collisions(self) -> dict:
         """
@@ -244,9 +244,10 @@ class Host:
 
     def sort(self):
         """
-        Sort services by port.
+        Sort services by port and hostnames and os alphabetically.
         """
-
+        self.hostnames = SortedSet(self.hostnames)
+        self.os = SortedSet(self.os)
         self.services.sort(key=lambda s: s.port)
 
     def __repr__(self) -> str:

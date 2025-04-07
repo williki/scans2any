@@ -33,7 +33,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into a Markdown table.
     """
-    infra.sort()
     infra.cleanup_names("~#_{}*`\\|")
 
     # Create DataFrames from the internal infrastructure object

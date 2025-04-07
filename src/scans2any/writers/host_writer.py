@@ -19,8 +19,6 @@ def write(infra: Infrastructure, args) -> str:
     address_set = set()
     dns_set: set[str] = set()
 
-    infra.sort()
-
     for host in infra.hosts:
         # Collect all potential addresses: address and hostnames
         if host.address:

@@ -5,7 +5,7 @@ Does not extract any services, ports or IP-Adresses!
 """
 
 from scans2any.helpers.utils import find_os, read_json
-from scans2any.internal import Host, Infrastructure, SortedSet
+from scans2any.internal import Host, Infrastructure
 
 CONFIG = {
     "extensions": [".json"],
@@ -54,7 +54,7 @@ def __parse_json(filename: str) -> list[Host]:
 
     for host in data.get("data", []):
         try:
-            hostos: SortedSet[tuple[str, str]] = SortedSet()
+            hostos: set[tuple[str, str]] = set()
             properties = host.get("Properties", {})
             name = properties.get("name")
             operatingsystem = properties.get("operatingsystem")
@@ -66,7 +66,7 @@ def __parse_json(filename: str) -> list[Host]:
             hosts.append(
                 Host(
                     address=None,
-                    hostnames=SortedSet([name.lower()]),
+                    hostnames=set([name.lower()]),
                     os=hostos,
                 )
             )

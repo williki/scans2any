@@ -54,13 +54,13 @@ def parse(
         if is_ipv4(hostname):
             new_host = Host(
                 address=hostname,
-                hostnames=SortedSet(),
-                os=SortedSet(info["os"]) if "os" in info else SortedSet(),
+                hostnames=set(),
+                os=set(info["os"]) if "os" in info else set(),
             )
         else:
             new_host = Host(
-                hostnames=SortedSet([hostname]),
-                os=SortedSet(info["os"]) if "os" in info else SortedSet(),
+                hostnames=set([hostname]),
+                os=set(info["os"]) if "os" in info else set(),
             )
 
         # Fill with tcp services

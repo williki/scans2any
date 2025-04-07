@@ -15,7 +15,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into Typst table format.
     """
-    infra.sort()
     infra.cleanup_names("@#{}\\^_$")
 
     # Create DataFrames

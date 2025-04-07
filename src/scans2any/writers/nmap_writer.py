@@ -33,7 +33,6 @@ def write(infra: Infrastructure, args) -> str:
     Convert the internal representation of the infrastructure
     into an nmap scan script.
     """
-    infra.sort()
     nmap = []
     nmap.append("#!/bin/sh\n")
 
@@ -42,7 +41,7 @@ def write(infra: Infrastructure, args) -> str:
         address = (
             host.address if "IP-Addresses" in args.columns and host.address else None
         ) or (
-            host.hostnames[0]
+            next(iter(host.hostnames))
             if "Hostnames" in args.columns and host.hostnames
             else None
         )

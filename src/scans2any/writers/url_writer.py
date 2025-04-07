@@ -21,8 +21,6 @@ def write(infra: Infrastructure, args) -> str:
     """
     url_set = set()  # To avoid duplicate entries
 
-    infra.sort()
-
     for host in infra.hosts:
         # Collect all potential addresses: address and hostnames
         addresses = []
