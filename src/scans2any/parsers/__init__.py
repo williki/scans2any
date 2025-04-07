@@ -17,7 +17,10 @@ avail_parsers: dict[str, Any] = {}
 
 for mod_file in module_files:
     mod_name = mod_file.stem
-    if re.match(r"^[a-zA-Z]+_parser$", mod_name):
+    # merge_file_parser ist not a parser for normal parsing tasks
+    if mod_name == "merge_file_parser":
+        continue
+    if re.match(r"^[a-zA-Z_]+_parser$", mod_name):
         pkg_name = f"{__package__}.{mod_name}"
         try:
             mod = import_module(pkg_name)

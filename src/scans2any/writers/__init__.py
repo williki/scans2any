@@ -17,7 +17,7 @@ avail_writers: list[Any] = []
 
 for mod_file in module_files:
     mod_name = mod_file.stem
-    if re.match(r"^[a-zA-Z]+_writer$", mod_name):
+    if re.match(r"^[a-zA-Z_]+_writer$", mod_name):
         pkg_name = f"{__package__}.{mod_name}"
         try:
             mod = import_module(pkg_name)
