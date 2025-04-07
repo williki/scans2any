@@ -7,6 +7,7 @@ import os
 
 from tqdm import tqdm
 
+from scans2any.helpers.utils import is_special_fd
 from scans2any.internal import Infrastructure, printer
 from scans2any.parsers import avail_parsers
 
@@ -129,6 +130,8 @@ def parse_input_files(
                     if path.endswith(extension):
                         return [path]
                 return []
+            elif is_special_fd(path):
+                return [path]
             output = []
             if os.path.isdir(path):
                 for f in os.listdir(path):
