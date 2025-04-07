@@ -43,8 +43,9 @@ def test_artifact(call: str):
     assert input_type, f"Could not determine input type for command: {call}"
 
     # Expected output file path
+    ipv4_prefix = "ipv6_" if "ipv6" in call else ""
     expected_output_path = Path(
-        f"{ARTIFACTS_DIR}/{input_type}_{option_str}.{writer_format}"
+        f"{ARTIFACTS_DIR}/{ipv4_prefix}{input_type}_{option_str}.{writer_format}"
     )
     assert expected_output_path.exists(), (
         f"Expected output file not found: {expected_output_path}"

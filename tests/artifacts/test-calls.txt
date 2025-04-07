@@ -206,3 +206,10 @@
 --txt tests/data/txt/goad-light.txt -w xml --multi-table
 --txt tests/data/txt/goad-light.txt -w yaml
 --txt tests/data/txt/goad-light.txt -w yaml --multi-table
+--aquatone tests/data/ipv6/aquatone/aquatone_session.json -w terminal
+--json tests/data/ipv6/json/infra.json -w terminal
+--nessus tests/data/ipv6/nessus/google_ipv6_tp0mpn.nessus -w terminal
+--nxc tests/data/ipv6/nxc/smb.db -w terminal
+--txt tests/data/ipv6/txt/txt.txt -w terminal
+--nmap tests/data/ipv6/nmap/google.xml -w terminal
+--masscan tests/data/ipv6/masscan/masscan.json -w terminal

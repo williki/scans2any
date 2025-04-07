@@ -35,7 +35,8 @@ def write(infra: Infrastructure, args) -> str:
         addresses = []
 
         if host.address and "IP-Addresses" in args.columns:
-            addresses.append(host.address)
+            for address in host.address:
+                addresses.append(address)
 
         if "Hostnames" in args.columns:
             addresses.extend(host.hostnames)  # Add all hostnames if any

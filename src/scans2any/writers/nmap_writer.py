@@ -1,5 +1,6 @@
 """Prints a Nmap scan script for all TCP/UDP ports of the infrastructure."""
 
+from scans2any.helpers.utils import is_valid_ipv6
 from scans2any.internal import Infrastructure
 
 NAME = "nmap"
@@ -39,7 +40,9 @@ def write(infra: Infrastructure, args) -> str:
     for host in infra.hosts:
         # Determine the address (either IP or hostname)
         address = (
-            host.address if "IP-Addresses" in args.columns and host.address else None
+            next(iter(host.address))
+            if "IP-Addresses" in args.columns and host.address
+            else None
         ) or (
             next(iter(host.hostnames))
             if "Hostnames" in args.columns and host.hostnames
@@ -66,11 +69,17 @@ def write(infra: Infrastructure, args) -> str:
         if ports_tcp:
             # Empty host are already filtered, but there might be the case that
             # we found a host with udp port and don't have tcp ports for it
-            ports_tcp.append(str(int(ports_tcp[-1]) + 1))
+
             # Add an extra (closed) port for OS detection
-            nmap.append(
-                f"nmap {address} {args.options_tcp} {address} -p {','.join(ports_tcp)}"
-            )
+            ports_tcp.append(str(int(ports_tcp[-1]) + 1))
+            if is_valid_ipv6(address):
+                nmap.append(
+                    f"nmap {address} {args.options_tcp} {address} -p {','.join(ports_tcp)} -6"
+                )
+            else:
+                nmap.append(
+                    f"nmap {address} {args.options_tcp} {address} -p {','.join(ports_tcp)}"
+                )
         else:
             nmap.append(f"nmap {address} {args.options_tcp} {address} --top-ports 1000")
         if ports_udp:

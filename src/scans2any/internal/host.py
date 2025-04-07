@@ -24,8 +24,8 @@ class Host:
 
     Attributes
     ----------
-    address : str | None
-        IPv4 Address
+    address : set[str] | SortedSet[str]
+        IP Addresses
     hostnames : set[str] | SortedSet[str]
         List of corresponding hostnames
     services : list[Service]
@@ -41,23 +41,23 @@ class Host:
 
     def __init__(
         self,
-        address: str | None = None,
         *,
+        address: set[str] | SortedSet[str],
         hostnames: set[str] | SortedSet[str],
         os: set[tuple[str, str]] | SortedSet[str],
     ):
         """
         Parameters
         ----------
-        address : str
-            IPv4 address of the host
-        hostnames : set[str], optional
+        address : set[str] | SortedSet[str]
+            IP addresses of the host
+        hostnames : set[str] | SortedSet[str], optional
             A list of corresponding hostnames
-        os : set[tuple], optional
+        os : set[tuple] | SortedSet[str], optional
             Operating system, if available
         """
 
-        assert isinstance(address, str | None)
+        assert isinstance(address, set | SortedSet)
         assert isinstance(hostnames, set | SortedSet)
         assert isinstance(os, set | SortedSet)
 
@@ -67,7 +67,7 @@ class Host:
         self.os = os
 
         # A host must always have at least one of address or hostname
-        assert self.address is not None or self.hostnames
+        assert self.address or self.hostnames
 
     def add_service(self, new_service: Service, *, prioritize_self: bool = False):
         """
@@ -160,8 +160,10 @@ class Host:
             Host to be merged with self
         """
 
-        if self.address is None:
+        if not self.address:
             self.address = other.address
+        else:
+            self.address.update(other.address)
 
         # Union hostnames and merge services
         self.hostnames.update(other.hostnames)
@@ -181,8 +183,10 @@ class Host:
             Host to be combined with this one.
         """
 
-        if self.address is None:
+        if not self.address:
             self.address = other.address
+        else:
+            self.address.update(other.address)
 
         # Union hostnames and services
         self.hostnames.update(other.hostnames)
@@ -203,8 +207,8 @@ class Host:
             IP address or else hostname of the host
         """
 
-        if self.address is not None:
-            return self.address
+        if self.address:
+            return next(iter(self.address))  # Use first address
         if len(self.hostnames) > 1:
             printer.warning(
                 f"Using first hostname but several available: {self.hostnames}"
@@ -244,8 +248,9 @@ class Host:
 
     def sort(self):
         """
-        Sort services by port and hostnames and os alphabetically.
+        Sorts the host attributes.
         """
+        self.address = SortedSet(self.address)
         self.hostnames = SortedSet(self.hostnames)
         self.os = SortedSet(self.os)
         self.services.sort(key=lambda s: s.port)
@@ -256,7 +261,7 @@ class Host:
         """
 
         s = "\n"
-        s += f"{self.address}\n"
+        s += " ".join(self.address) + "\n"
         s += "~ Hostnames:\n" + f"    {self.hostnames}\n"
         s += "~ OS:\n" + f"    {self.os}\n"
         s += "~ Services:\n"

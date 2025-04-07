@@ -61,10 +61,11 @@ def __parse_json(infra: dict) -> list[Host]:
         for os in infra[ip].get("os", []):
             os_origin_construct.append((os, "json"))
         host = Host(
-            address=None if re.match(pattern="^unknown_.*$", string=ip) else ip,
+            address=set() if re.match(pattern="^unknown_.*$", string=ip) else set([ip]),
             hostnames=set(infra[ip].get("hostnames", [])),
             os=set(os_origin_construct),
         )
+        host.address.update(infra[ip].get("ip-addresses", []))
         services = []
         for port in infra[ip].get("tcp_ports", []):
             services.append(

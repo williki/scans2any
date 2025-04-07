@@ -1,5 +1,4 @@
-import ipaddress
-from ipaddress import IPv4Address
+from ipaddress import ip_address, summarize_address_range
 
 from scans2any.internal import Infrastructure, printer
 
@@ -45,8 +44,8 @@ def apply_filter(infra: Infrastructure, args):
         for address_range in args.ip_allowlist:
             try:
                 start_ip, end_ip = address_range.split("-")
-                networks = ipaddress.summarize_address_range(
-                    IPv4Address(start_ip), IPv4Address(end_ip)
+                networks = summarize_address_range(
+                    ip_address(start_ip), ip_address(end_ip)
                 )
             except ValueError:
                 printer.error(
@@ -64,8 +63,8 @@ def apply_filter(infra: Infrastructure, args):
         for address_range in args.ip_blocklist:
             try:
                 start_ip, end_ip = address_range.split("-")
-                networks = ipaddress.summarize_address_range(
-                    IPv4Address(start_ip), IPv4Address(end_ip)
+                networks = summarize_address_range(
+                    ip_address(start_ip), ip_address(end_ip)
                 )
             except ValueError:
                 printer.error(

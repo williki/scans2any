@@ -6,7 +6,7 @@ Parses formatted txt input to gather information.
 
 from collections import defaultdict
 
-from scans2any.helpers.utils import is_ipv4, match_dns
+from scans2any.helpers.utils import is_valid_ip, match_dns
 from scans2any.internal import Host, Infrastructure
 
 CONFIG = {
@@ -54,14 +54,14 @@ def __parse_url_ip_format(filename: str) -> list[Host]:
             parts = line.strip().split()
             if len(parts) >= 2:
                 # Check if first part is an IP address
-                if is_ipv4(parts[0]):
+                if is_valid_ip(parts[0]):
                     ip = parts[0]
                     # Add all hostnames after the IP
                     for hostname in parts[1:]:
                         if match_dns(hostname):
                             ips[ip].append(hostname.lower())
                 # Check if second part is an IP address (original format)
-                elif len(parts) == 2 and is_ipv4(parts[1]):
+                elif len(parts) == 2 and is_valid_ip(parts[1]):
                     ip = parts[1]
                     hostname = parts[0]
                     if match_dns(hostname):
@@ -70,7 +70,7 @@ def __parse_url_ip_format(filename: str) -> list[Host]:
     # Assemble Host objects
     hosts = []
     for ip, hostnames in ips.items():
-        new_host = Host(address=ip, hostnames=set(hostnames), os=set())
+        new_host = Host(address=set([ip]), hostnames=set(hostnames), os=set())
         hosts.append(new_host)
 
     return hosts

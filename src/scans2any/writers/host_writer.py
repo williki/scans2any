@@ -22,7 +22,8 @@ def write(infra: Infrastructure, args) -> str:
     for host in infra.hosts:
         # Collect all potential addresses: address and hostnames
         if host.address:
-            address_set.add(host.address)
+            for address in host.address:
+                address_set.add(address)
         dns_set.update(host.hostnames)
 
     # Log the number of unique hosts generated

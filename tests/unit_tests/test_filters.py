@@ -6,7 +6,11 @@ from scans2any.internal import Host, Infrastructure, Service, SortedSet
 
 #  Test Infrastructure
 
-host = Host("127.0.0.1", hostnames=SortedSet(["localhost"]), os=SortedSet(["linux"]))
+host = Host(
+    address=SortedSet(["127.0.0.1"]),
+    hostnames=SortedSet(["localhost"]),
+    os=SortedSet(["linux"]),
+)
 
 service_1 = Service(
     22, "tcp", service_names=SortedSet(["ssh"]), banners=SortedSet(["OpenSSH 1.0"])

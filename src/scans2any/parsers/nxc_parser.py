@@ -49,7 +49,7 @@ def parse(filename: str) -> Infrastructure:
 
             os_result = find_os(os) if os else None
             host = Host(
-                address=ip,
+                address=set([ip]),
                 hostnames=set([hostname.lower()]) if hostname else set(),
                 os=set([(os_result, "NetExec")]) if os_result else set(),
             )

@@ -6,7 +6,7 @@ import ast
 
 from defusedxml.ElementTree import iterparse  # type: ignore
 
-from scans2any.helpers.utils import find_os, is_ipv4
+from scans2any.helpers.utils import find_os, is_valid_ip
 from scans2any.internal import Host, Infrastructure, Service, SortedSet
 
 CONFIG = {
@@ -157,15 +157,15 @@ def __parse_report_item(host: list) -> Host | None:
     detected_os = __detect_os(host[0])
 
     # Create host
-    if address is not None and is_ipv4(address):
-        if hostname is not None and not is_ipv4(hostname):
+    if address and is_valid_ip(address):
+        if hostname and not is_valid_ip(hostname):
             new_host = Host(
-                address=address, hostnames=set([hostname.lower()]), os=set()
+                address=set([address]), hostnames=set([hostname.lower()]), os=set()
             )
         else:
-            new_host = Host(address=address, hostnames=set(), os=set())
+            new_host = Host(address=set([address]), hostnames=set(), os=set())
     elif hostname is not None:
-        new_host = Host(hostnames=set([hostname.lower()]), os=set())
+        new_host = Host(address=set(), hostnames=set([hostname.lower()]), os=set())
     else:
         return None
 

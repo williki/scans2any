@@ -64,9 +64,25 @@ def joinit(lst, delimiter):
     return joined_list
 
 
-def is_ipv4(address: str) -> bool:
+def is_valid_ip(address: str) -> bool:
     try:
         ipaddress.ip_address(address)
+        return True
+    except ValueError:
+        return False
+
+
+def is_valid_ipv4(address: str | None) -> bool:
+    try:
+        ipaddress.IPv4Address(address)
+        return True
+    except ValueError:
+        return False
+
+
+def is_valid_ipv6(address: str | None) -> bool:
+    try:
+        ipaddress.IPv6Address(address)
         return True
     except ValueError:
         return False

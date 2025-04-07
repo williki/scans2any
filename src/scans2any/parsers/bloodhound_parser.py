@@ -65,7 +65,7 @@ def __parse_json(filename: str) -> list[Host]:
 
             hosts.append(
                 Host(
-                    address=None,
+                    address=set(),
                     hostnames=set([name.lower()]),
                     os=hostos,
                 )

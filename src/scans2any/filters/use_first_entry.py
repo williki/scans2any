@@ -13,4 +13,4 @@ def apply_filter(host: Host, args):
             service.service_names = SortedSet([service.service_names[0]])
 
     if host.os:
-        host.os = set([next(iter(host.os))])
+        host.os = SortedSet([next(iter(host.os))])

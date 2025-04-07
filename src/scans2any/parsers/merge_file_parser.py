@@ -10,7 +10,7 @@ from typing import Any
 
 import yaml
 
-from scans2any.helpers.utils import is_ipv4
+from scans2any.helpers.utils import is_valid_ip
 from scans2any.internal import Host, Infrastructure, Service, SortedSet, printer
 
 
@@ -51,14 +51,15 @@ def parse(
 
     for hostname, info in merge_data.items():
         # Create new host
-        if is_ipv4(hostname):
+        if is_valid_ip(hostname):
             new_host = Host(
-                address=hostname,
+                address=set([hostname]),
                 hostnames=set(),
                 os=set(info["os"]) if "os" in info else set(),
             )
         else:
             new_host = Host(
+                address=set(),
                 hostnames=set([hostname]),
                 os=set(info["os"]) if "os" in info else set(),
             )
@@ -100,7 +101,7 @@ def parse(
             printer.warning(f"Custom entries for {host} in wrong format! Skipping..")
             continue
         new_host = Host(
-            address=host,
+            address=set([host]),
             hostnames=SortedSet(entries.get("hostnames", [])),
             os=SortedSet([os] if (os := entries.get("os")) else []),
         )

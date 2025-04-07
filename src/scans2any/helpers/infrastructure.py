@@ -30,28 +30,28 @@ def combine_infrastructure_scans(infras: list[Infrastructure], *, quiet=False):
     if len(infras) == 1:
         combined_infra = infras[0]
         printer.status(f"One input given: {combined_infra.identifier}")
-        return combined_infra
+    else:
+        combined_infra = infras[0]
+        pbar = create_progress_bar(quiet=quiet)
+        pbar.total = len(infras)
+        pbar.set_description("Combining infrastructures")
 
-    combined_infra = infras[0]
-    pbar = create_progress_bar(quiet=quiet)
-    pbar.total = len(infras)
-    pbar.set_description("Combining infrastructures")
-
-    pbar.update(1)
-    for next_infra in infras[1:]:
-        combined_infra.union_with_infrastructure(next_infra)
         pbar.update(1)
-    pbar.close()
+        for next_infra in infras[1:]:
+            combined_infra.union_with_infrastructure(next_infra)
+            pbar.update(1)
+        pbar.close()
 
-    #  Make sure hosts without hostname or IP get a second merge
-    hosts_complete = [
-        host for host in combined_infra.hosts if host.hostnames and host.address
-    ]
-    hosts_incomplete = [
-        host for host in combined_infra.hosts if not (host.hostnames and host.address)
-    ]
-    combined_infra.hosts = hosts_complete
-    combined_infra.add_hosts(hosts_incomplete)
+    # Iteratively re-run the merge process on all hosts until no further merges occur.
+    prev_count = -1
+    while prev_count != len(combined_infra.hosts):
+        prev_count = len(combined_infra.hosts)
+        # Copy current hosts to re-run merging
+        hosts = combined_infra.hosts[:]
+        # Reset the hosts list before re-adding them
+        combined_infra.hosts = []
+        combined_infra.add_hosts(hosts)
+
     combined_infra.identifier = "Combined"
 
     return combined_infra

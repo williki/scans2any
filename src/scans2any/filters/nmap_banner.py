@@ -1,7 +1,7 @@
 import re
 from typing import Any, TypedDict
 
-from scans2any.internal import Service
+from scans2any.internal import Service, SortedSet
 
 PRIORITY = 1
 
@@ -21,8 +21,8 @@ def apply_filter(service: Service, args: Any) -> None:
     # Banners keys are filtered by these rules
     key_filter = ("product", "version", "devicetype")
 
-    filtered_banners = set()
-    to_remove = set()
+    filtered_banners: SortedSet = SortedSet()
+    to_remove: SortedSet = SortedSet()
 
     for banner in service.banners:
         if _is_nmap_banner(banner):

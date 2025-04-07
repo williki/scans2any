@@ -35,12 +35,8 @@ class Infrastructure:
     def add_host(self, new_host: Host, *, prioritize_self: bool = False):
         """
         Adds a new host to the infrastructure OR integrates it to an existing
-        host with the same ip address or (if both have no ip address*) with the
-        same hostname or if one of them has no services and hostnames match.
-
-        *If one of the hosts has an ip address, we cannot be sure that the
-        services found for the hostname correspond to the same ip address and
-        not some other ip address for the same hostname (e.g. load balancing).
+        host with the same ip address or at most one ip address and matching
+        hostnames.
 
         Optionally, we can use this infrastructure as priority, to avoid
         collisions, i. e. multiple service names and/or banners.
@@ -61,14 +57,9 @@ class Infrastructure:
             return
 
         for host in self.hosts:
-            if (
-                # Same ip addresses
-                host.address is not None and host.address == new_host.address
-            ) or (
-                # At most one ip address
-                (host.address is None or new_host.address is None)
-                # and has common hostname
-                and len(host.hostnames.intersection(new_host.hostnames)) > 0
+            # Same IP address or common hostname
+            if (host.address & new_host.address) or (
+                host.hostnames & new_host.hostnames
             ):
                 try:
                     if prioritize_self:
@@ -104,15 +95,25 @@ class Infrastructure:
 
     def remove_host(self, hostip: str):
         """
-        Remove host with given ip from the infrastructure.
+        Remove host with given ip from the infrastructure if it has only one
+        address. If it has multiple addresses, remove the specific address from
+        the host.
 
         Parameters
         ----------
         hostip : str
-            IPv4 address
+            IP addresses
         """
 
-        self.hosts = [host for host in self.hosts if host.address != hostip]
+        new_hosts = []
+        for host in self.hosts:
+            if hostip in host.address:
+                if len(host.address) == 1:
+                    continue
+                else:
+                    host.address.remove(hostip)
+            new_hosts.append(host)
+        self.hosts = new_hosts
 
     def get_host_by_address(self, hostip: str):
         """
@@ -121,11 +122,11 @@ class Infrastructure:
         Parameters
         ----------
         hostip : str
-            IPv4 address
+            IP addresses
         """
 
         for host in self.hosts:
-            if host.address == hostip:
+            if hostip in host.address:
                 return host
 
         return None
@@ -360,18 +361,28 @@ class Infrastructure:
         Sort hosts, i.e. sort services for each host and sort hosts by IP.
         """
 
-        # sort services by port
+        # Sorts the host attributes.
         for host in self.hosts:
             host.sort()
         # There might be hosts with only hostnames, they have to be sorted
         # separately. Sort by first hostname.
-        only_hostname_hosts = [host for host in self.hosts if host.address is None]
+        only_hostname_hosts = [host for host in self.hosts if not host.address]
         for host in only_hostname_hosts:
             assert host.hostnames, "Host with no ip and no hostnames detected!!!"
         only_hostname_hosts.sort(key=lambda x: min(x.hostnames))
-        # sort remaining hosts by IP
-        address_hosts = [host for host in self.hosts if host.address is not None]
-        address_hosts.sort(key=lambda x: ipaddress.IPv4Address(x.address))
+        # Sort remaining hosts by IP
+        address_hosts = [host for host in self.hosts if host.address]
+        address_hosts.sort(
+            key=lambda x: min(
+                map(
+                    lambda addr: (
+                        ipaddress.ip_address(addr).version,
+                        int(ipaddress.ip_address(addr)),
+                    ),
+                    x.address,
+                )
+            )
+        )
         # re-combine hosts
         self.hosts = address_hosts + only_hostname_hosts
 

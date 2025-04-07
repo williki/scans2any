@@ -1,0 +1,5 @@
+[
+{   "ip": "2a00:1450:4001:800::200e",   "timestamp": "1743422730", "ports": [ {"port": 80, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 0} ] }
+,
+{   "ip": "2a00:1450:4001:800::200e",   "timestamp": "1743422744", "ports": [ {"port": 443, "proto": "tcp", "status": "open", "reason": "syn-ack", "ttl": 0} ] }
+]

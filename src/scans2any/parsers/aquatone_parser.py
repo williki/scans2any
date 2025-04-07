@@ -8,7 +8,7 @@ Tested with output from [aquatone-git](https://github.com/shelld3v/aquatone)
 
 from urllib.parse import urlparse
 
-from scans2any.helpers.utils import is_ipv4, read_json
+from scans2any.helpers.utils import is_valid_ip, read_json
 from scans2any.internal import Host, Infrastructure, Service, SortedSet
 from scans2any.internal.service import get_port_by_service
 
@@ -91,16 +91,18 @@ def __make_host(page: dict) -> Host:
     """
 
     hostname = page["hostname"].lower()
-    addrs = page["addrs"]
+    addrs = page.get("addrs") or []
+    addresses: set[str] = set()
 
-    if is_ipv4(hostname):
-        new_host = Host(address=hostname, hostnames=set(), os=set())
-    elif addrs is not None:
-        new_host = Host(address=addrs[0], hostnames=set([hostname]), os=set())
-    else:
-        new_host = Host(address=None, hostnames=set([hostname]), os=set())
+    # Return immediately if hostname is already a valid IP
+    if is_valid_ip(hostname):
+        return Host(address=set([hostname]), hostnames=set(), os=set())
 
-    return new_host
+    for ip in addrs:
+        if is_valid_ip(ip):
+            addresses.add(ip)
+
+    return Host(address=addresses, hostnames=set([hostname]), os=set())
 
 
 def __make_service(page: dict) -> Service:

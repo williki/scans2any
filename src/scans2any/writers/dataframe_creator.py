@@ -52,7 +52,7 @@ def _create_multi_tables(
     row_keys = {"Ports", "Services", "Banners"}
 
     for host in infra.hosts:
-        ip = host.address or ""
+        ip = merge_symbol.join(host.address) or ""
         hostnames = merge_symbol.join(h for h in host.hostnames if h)
         os_info = str(next(iter(host.os))) if host.os else ""
 
@@ -108,7 +108,7 @@ def _create_single_table(
     rows = []
 
     for host in infra.hosts:
-        ip = host.address or ""
+        ip = merge_symbol.join(host.address) or ""
         hostnames = merge_symbol.join(h for h in host.hostnames if h)
         os_info = str(next(iter(host.os))) if host.os else ""
 
@@ -157,7 +157,7 @@ def create_flat_dataframe(
     rows = []
 
     for host in infra.hosts:
-        address = host.address or ""
+        address = merge_symbol.join(host.address) or ""
         hostnames = merge_symbol.join(h for h in host.hostnames if h)
         os_info = str(next(iter(host.os))) if host.os else ""
 
@@ -205,7 +205,7 @@ def create_data_unmerged(
     host_dict = {}
     unknown_counter = 0
     for host in infra.hosts:
-        ip = host.address or f"unknown_{unknown_counter}"
+        ip = next(iter(host.address)) if host.address else f"unknown_{unknown_counter}"
         if not host.address:
             unknown_counter += 1
 
@@ -213,6 +213,8 @@ def create_data_unmerged(
         host_dict[ip] = ip_infos
 
         for col in columns:
+            if col == "IP-Addresses" and len(host.address) > 1:
+                ip_infos[col.lower()] = list(host.address)
             if col == "Hostnames":
                 ip_infos[col.lower()] = list(host.hostnames)
             if col == "OS":

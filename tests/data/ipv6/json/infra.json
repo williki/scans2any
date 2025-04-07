@@ -1,0 +1,27 @@
+{
+  "2a00:1450:4001:828::200e": {
+    "hostnames": [
+      "host1"
+    ],
+    "tcp_ports": {
+      "81": {
+        "service_names": [
+          "http"
+        ]
+      }
+    }
+  },
+  "192.168.56.22": {
+    "hostnames": [
+      "host2"
+    ],
+    "tcp_ports": {
+      "80": {
+        "service_names": [
+          "http"
+        ]
+      }
+    }
+  }
+}
+

@@ -98,7 +98,7 @@ def parse(filename: str) -> Infrastructure:
                 lower_hostnames.add(hostname.lower().strip(" "))
 
         new_host = Host(
-            address=nmap_host.address, hostnames=lower_hostnames, os=nmap_os
+            address=set([nmap_host.address]), hostnames=lower_hostnames, os=nmap_os
         )
 
         for nmap_service in nmap_host.services:
