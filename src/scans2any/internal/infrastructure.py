@@ -289,7 +289,7 @@ class Infrastructure:
         """
 
         file_name = "MERGE_FILE.yaml"
-        temp_merge_file = os.path.join(tempfile.gettempdir(), "MERGE_FILE.yaml")
+        temp_merge_file = os.path.join(tempfile.gettempdir(), file_name)
 
         collisions = {}
 
@@ -310,9 +310,9 @@ class Infrastructure:
             # completely or leave it as it is.
             if not passed_merge_file:
                 file_name = temp_merge_file
-                printer.warning("Existing 'MERGE_FILE.yaml, writing to temporary file.")
+                printer.warning(f"Existing '{file_name}', writing to temporary file.")
             else:
-                printer.warning("Existing 'MERGE_FILE.yaml' with conflicts. Exiting.")
+                printer.warning(f"Existing '{file_name}' with conflicts. Exiting.")
                 exit(1)
 
         target_dir = os.path.dirname(os.path.abspath(file_name)) or "."

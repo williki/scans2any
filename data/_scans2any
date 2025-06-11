@@ -6,14 +6,17 @@ _output_writers() {
     "aquatone:Aquatone"
     "csv:CSV"
     "html:HTML"
+    "excel:Excel"
+    "host:Host"
+    "html:HTML"
     "json:JSON"
+    "latex:Latex"
     "markdown:Markdown"
     "nmap:Nmap"
     "terminal:Terminal"
+    "typst:Typst"
     "url:URL"
     "yaml:YAML"
-    "typst:Typst"
-    "host:Host"
   )
   _describe -t writers 'output writer' writers
 }
