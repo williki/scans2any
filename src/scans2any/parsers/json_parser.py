@@ -1,7 +1,7 @@
 import json
 import re
 
-from scans2any.helpers.utils import read_json
+from scans2any.helpers.utils import is_valid_ip, read_json
 from scans2any.internal import Host, Infrastructure, Service, SortedSet
 
 CONFIG = {
@@ -60,12 +60,24 @@ def __parse_json(infra: dict) -> list[Host]:
         os_origin_construct = []
         for os in infra[ip].get("os", []):
             os_origin_construct.append((os, "json"))
+
+        # Build a list of valid ip addresses from the key and from
+        # "ip-addresses".
+        addresses = []
+        for entry in [ip, *(infra[ip].get("ip-addresses") or [])]:
+            if re.match(pattern="^unknown_.*$", string=entry):
+                continue
+            elif is_valid_ip(entry):
+                addresses.append(entry)
+            else:
+                # The address is neither unknown nor valid.
+                # To avoid accepting invalid hosts, we discard the entire host.
+                raise
         host = Host(
-            address=set() if re.match(pattern="^unknown_.*$", string=ip) else set([ip]),
+            address=set(addresses),
             hostnames=set(infra[ip].get("hostnames", [])),
             os=set(os_origin_construct),
         )
-        host.address.update(infra[ip].get("ip-addresses", []))
         services = []
         for port in infra[ip].get("tcp_ports", []):
             services.append(
