@@ -253,3 +253,6 @@ tests/data/nessus/report_item
 project_config.py
 goal.txt
 scan.txt
+
+# Buffer file is created in case of conflicts to speed up the subsequent execution
+BUFFER_FILE.json

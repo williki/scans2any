@@ -23,7 +23,7 @@ from scans2any.helpers.infrastructure import (
     resolve_infrastructure_conflicts,
 )
 from scans2any.internal import printer
-from scans2any.writers import avail_writers
+from scans2any.writers import avail_writers, json_writer
 
 __version__ = "0.8.1.post18+a464b9f"
 
@@ -114,8 +114,12 @@ def main():
 
     # Check for remaining conflicts if not ignored
     if not args.ignore_conflicts and check_for_remaining_conflicts(
-        combined_infra, passed_merge_file=bool(args.merge_file)
+        combined_infra,
+        passed_merge_file=bool(args.merge_file),
+        buffer_file_path=args.buffer_file,
     ):
+        with open(args.buffer_file, "w") as f:
+            f.write(json_writer.write(combined_infra, args))
         return
 
     # Sort and generate output

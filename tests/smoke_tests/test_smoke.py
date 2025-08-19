@@ -1,9 +1,11 @@
+import os
 from pathlib import Path
 from subprocess import run
 from sys import executable
 from tempfile import NamedTemporaryFile
 
 import pytest
+import yaml
 
 
 @pytest.fixture
@@ -68,6 +70,61 @@ def test_output_formats(test_env, fmt):
         # Check that output file exists and is not empty
         assert Path(tmp.name).exists()
         assert Path(tmp.name).stat().st_size > 0
+
+
+def test_buffer(test_env):
+    # ensure MERGE_FILE.yaml exists, so we always write to /tmp/MERGE_FILE.yaml.
+    # If it does not exist, create it and remove it later.
+    default_mergefile = "MERGE_FILE.yaml"
+    cleanup_merge_file = False
+    if not os.path.isfile(default_mergefile):
+        cleanup_merge_file = True
+        Path(default_mergefile).touch()
+
+    # create the input files
+    with (
+        NamedTemporaryFile(mode="w") as f1,
+        NamedTemporaryFile(mode="w") as f2,
+        NamedTemporaryFile(mode="w", delete=False) as buffer,
+    ):
+        f1.write('{ "1.1.1.1":{ "tcp_ports":{ "22":{ "service_names":[ "ssh" ] } } } }')
+        f2.write(
+            '{ "1.1.1.1":{ "tcp_ports":{ "22":{ "service_names":[ "openssh" ] } } } }'
+        )
+        f1.flush()
+        f2.flush()
+
+        # run command with conflict
+        test_env.run_scans2any(
+            ["--json", f1.name, f2.name, "--buffer", buffer.name],
+        )
+        buffer_name = buffer.name
+
+    # edit mergefile
+    with open("/tmp/MERGE_FILE.yaml") as f:
+        data = yaml.safe_load(f)
+
+    data["manual-merge"][next(iter(data["manual-merge"].keys()))]["tcp_ports"][22][
+        "service_names"
+    ] = data["manual-merge"][next(iter(data["manual-merge"].keys()))]["tcp_ports"][22][
+        "service_names"
+    ][0]
+
+    with open("/tmp/MERGE_FILE.yaml", "w") as f:
+        yaml.dump(data, f, default_flow_style=False)
+
+    # run command without conflict
+    test_env.run_scans2any(
+        ["--merge-file", "/tmp/MERGE_FILE.yaml", "--json", buffer_name],
+    )
+
+    # the temporary MERGE_FILE.yaml and the BUFFER_FILE.json is removed after
+    # the test. Also remove the default MERGE_FILE.yaml, if we created it at the
+    # start of the test.
+    os.remove("/tmp/MERGE_FILE.yaml")
+    os.remove(buffer_name)
+    if cleanup_merge_file:
+        os.remove(default_mergefile)
 
 
 def test_filter_application(test_env):

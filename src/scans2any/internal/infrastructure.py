@@ -265,7 +265,9 @@ class Infrastructure:
         else:
             printer.warning("No merge rules were applied.")
 
-    def make_merge_file(self, *, passed_merge_file: bool):
+    def make_merge_file(
+        self, *, passed_merge_file: bool, buffer_file: str = "BUFFER_FILE.json"
+    ):
         """
         Create merge file if necessary.
 
@@ -309,10 +311,15 @@ class Infrastructure:
             # many solved conflicts in it and the user may either override it
             # completely or leave it as it is.
             if not passed_merge_file:
+                printer.warning(
+                    f"Mergefile '{file_name}' already exists, "
+                    + " writing to temporary file {temp_merge_file} instead."
+                )
                 file_name = temp_merge_file
-                printer.warning(f"Existing '{file_name}', writing to temporary file.")
             else:
-                printer.warning(f"Existing '{file_name}' with conflicts. Exiting.")
+                printer.warning(
+                    f"Mergefile '{file_name}' has remaining conflicts. Exiting."
+                )
                 exit(1)
 
         target_dir = os.path.dirname(os.path.abspath(file_name)) or "."
@@ -353,7 +360,15 @@ class Infrastructure:
             manual_merge_rules["preserved_rules"],
             file_name,
         )
-
+        printer.warning(
+            "One or multiple unresolvable conflicts have been identified. "
+            f"A Mergefile has been written to '{file_name}' and a "
+            f"JSON Bufferfile has been written to '{buffer_file}'.\n"
+            "Please edit the Mergefile to resolve the issues and then continue "
+            f"with: scans2any --merge-file {file_name} --json {buffer_file}."
+            "\nFor further documentation refer to: "
+            "https://github.com/softScheck/scans2any/blob/main/docs/tutorial.md#merge-file"
+        )
         return True
 
     def sort(self):
@@ -516,8 +531,6 @@ class Infrastructure:
                 + "#               service-name: test\n"
                 + "#               banner: Test description 3"
             )
-
-            printer.warning(f"Merge file written for manual edit: {file_name}")
 
     def merge_os_sources(self):
         from scans2any.helpers.utils import (

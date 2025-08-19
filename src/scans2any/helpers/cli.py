@@ -182,6 +182,12 @@ def _add_basic_arguments(parser):
         help="Use file as merge file to resolve conflicts",
     )
     parser.add_argument(
+        "--buffer-file",
+        metavar="buffer",
+        help="Choose this file to store intermediary results in case the program cannot resolve all conflicts automatically.",
+        default="BUFFER_FILE.json",
+    )
+    parser.add_argument(
         "-o", "--out", metavar="filename", help="output to specified file"
     )
     parser.add_argument(

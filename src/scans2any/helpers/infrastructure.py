@@ -83,17 +83,21 @@ def resolve_infrastructure_conflicts(
 
 
 def check_for_remaining_conflicts(
-    infra: Infrastructure, *, passed_merge_file: bool
+    infra: Infrastructure,
+    *,
+    passed_merge_file: bool,
+    buffer_file_path: str = "BUFFER_FILE.json",
 ) -> bool:
     """Check for remaining conflicts and create a merge file if needed."""
     printer.section("Checking for Remaining Conflicts")
 
-    conflict_found = infra.make_merge_file(passed_merge_file=passed_merge_file)
+    conflict_found = infra.make_merge_file(
+        passed_merge_file=passed_merge_file, buffer_file=buffer_file_path
+    )
     if not conflict_found:
         printer.success("No conflicts detected in infrastructure data")
         return False
 
-    printer.warning("Use merge file with '--merge-file filename' to resolve conflicts")
     return True
 
 
