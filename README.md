@@ -50,23 +50,20 @@ If you are on Arch Linux, you can use the provided AUR packages with your favori
 
 ```text
 
-usage: scans2any [-h] [--version] [--merge-file filename] [-o filename]
-                 [--ignore-conflicts] [--no-auto-merge]
-                 [-a filename/directory [filename/directory ...]]
-                 [--nmap filename/directory [filename/directory ...]]
-                 [--aquatone filename/directory [filename/directory ...]]
-                 [--bloodhound filename/directory [filename/directory ...]]
-                 [--nessus filename/directory [filename/directory ...]]
+usage: scans2any [-h] [--version] [--merge-file filename] [--buffer-file buffer] [-o filename]
+                 [--ignore-conflicts] [--no-auto-merge] [-a filename/directory [filename/directory ...]]
                  [--masscan filename/directory [filename/directory ...]]
+                 [--nessus filename/directory [filename/directory ...]]
+                 [--aquatone filename/directory [filename/directory ...]]
                  [--txt filename/directory [filename/directory ...]]
+                 [--bloodhound filename/directory [filename/directory ...]]
                  [--json filename/directory [filename/directory ...]]
                  [--nxc filename/directory [filename/directory ...]]
+                 [--nmap filename/directory [filename/directory ...]]
                  [-w {aquatone,csv,excel,host,html,json,latex,markdown,nmap,terminal,typst,url,xml,yaml}]
-                 [--multi-table] [-c COLUMNS] [-W] [-v | -q]
-                 [--filters FILTERS [FILTERS ...]]
+                 [--multi-table] [-c COLUMNS] [-W] [-v | -q] [--filters FILTERS [FILTERS ...]]
                  [--enable-filters ENABLE_FILTERS [ENABLE_FILTERS ...]]
-                 [--disable-filters DISABLE_FILTERS [DISABLE_FILTERS ...]]
-                 [-L] [--table-fmt TABLE_FMT]
+                 [--disable-filters DISABLE_FILTERS [DISABLE_FILTERS ...]] [-L] [--table-fmt TABLE_FMT]
 
 Merge infrastructure scans and convert them to various formats.
 
@@ -75,41 +72,39 @@ options:
   --version             Displays version and exits
   --merge-file filename
                         Use file as merge file to resolve conflicts
+  --buffer-file buffer  Choose this file to store intermediary results in case the program cannot
+                        resolve all conflicts automatically. (default: BUFFER_FILE.json)
   -o, --out filename    output to specified file
-  --ignore-conflicts    Do not check for conflicts and do not create a merge
-                        file
-  --no-auto-merge       Do not apply automatic conflict solving using internal
-                        rules
+  --ignore-conflicts    Do not check for conflicts and do not create a merge file
+  --no-auto-merge       Do not apply automatic conflict solving using internal rules
 
 input files (at least one required unless):
   -a, --auto filename/directory [filename/directory ...]
-                        auto-detect scans types
-  --nmap filename/directory [filename/directory ...]
-                        xml nmap report(s)
-  --aquatone filename/directory [filename/directory ...]
-                        aquatone report as txt and/or json
-  --bloodhound filename/directory [filename/directory ...]
-                        bloodhound json
-  --nessus filename/directory [filename/directory ...]
-                        nessus report (.nessus) export
+                        Auto-detect and import scans in a directory
   --masscan filename/directory [filename/directory ...]
-                        masscan report(s)
+                        Masscan JSON port scan files/directory
+  --nessus filename/directory [filename/directory ...]
+                        Nessus report (.nessus) file/directory
+  --aquatone filename/directory [filename/directory ...]
+                        Aquatone session file (aquatone_session.json) or directory
   --txt filename/directory [filename/directory ...]
-                        plain text formats
+                        Plain text formats for addional IP and hostname mapping
+  --bloodhound filename/directory [filename/directory ...]
+                        Bloodhound computer JSON file/directory
   --json filename/directory [filename/directory ...]
-                        json files
+                        JSON files/directory
   --nxc filename/directory [filename/directory ...]
-                        NetExec/CrackMapExec SMB.db sqlite database
+                        NetExec/CrackMapExec SMB.db sqlite database/directory
+  --nmap filename/directory [filename/directory ...]
+                        XML nmap scan files/directory
 
 output writer:
   -w, --writer {aquatone,csv,excel,host,html,json,latex,markdown,nmap,terminal,typst,url,xml,yaml}
                         Specify output writer. (default: terminal)
-  --multi-table         Creates one table for each host, if supported by
-                        output format
+  --multi-table         Creates one table for each host, if supported by output format
   -c, --columns COLUMNS
-                        Specify output columns as a comma-separated list.
-                        (default: ('IP-Addresses', 'Hostnames', 'Ports',
-                        'Services', 'Banners', 'OS'))
+                        Specify output columns as a comma-separated list. (default: ('IP-Addresses',
+                        'Hostnames', 'Ports', 'Services', 'Banners', 'OS'))
   -W, --list-writers    List writers with descriptions and options
 
 verbosity options:
@@ -118,20 +113,18 @@ verbosity options:
 
 filter options:
   --filters FILTERS [FILTERS ...]
-                        Overwrites default filters with specified filters
-                        (default: ['trash_banner', 'trash_service_name',
-                        'trash_hostname', 'combine_banner', 'nmap_banner'])
+                        Overwrites default filters with specified filters (default: ['trash_banner',
+                        'trash_service_name', 'trash_hostname', 'combine_banner', 'nmap_banner'])
   --enable-filters ENABLE_FILTERS [ENABLE_FILTERS ...]
                         Enables additional filters (applied after --filters)
   --disable-filters DISABLE_FILTERS [DISABLE_FILTERS ...]
-                        Disables certain filters (will be applied after
-                        --enable-filters)
+                        Disables certain filters (will be applied after --enable-filters)
   -L, --list-filters    List filters with descriptions and options
 
 writer arguments:
   --table-fmt TABLE_FMT
-                        Table format for terminal output, see tabulate python
-                        package (default: fancy_grid)
+                        Table format for terminal output, see tabulate python package (default:
+                        fancy_grid)
 
 Examples: scans2any --nmap tcp_scan.xml --nmap udp_scan.xml --nessus scan.nessus
 
@@ -145,7 +138,8 @@ You can learn more about how to use scans2any in the
 There are many possible output formats. A simple example for each of them
 follows:
 
-- `csv`
+<details>
+<summary>csv</summary>
 
 ```csv
 IP-Addresses,Hostnames,Ports,Services,Banners,OS
@@ -158,7 +152,10 @@ IP-Addresses,Hostnames,Ports,Services,Banners,OS
 
 ```
 
-- `html`
+</details>
+
+<details>
+<summary>html</summary>
 
 ```html
 <!DOCTYPE html>
@@ -204,7 +201,10 @@ IP-Addresses,Hostnames,Ports,Services,Banners,OS
 
 ```
 
-- `host`
+</details>
+
+<details>
+<summary>host</summary>
 
 ```text
 188.68.47.54
@@ -212,7 +212,10 @@ a2f36.netcup.net
 softscheck.com
 ```
 
-- `json`
+</details>
+
+<details>
+<summary>json</summary>
 
 ```json
 {
@@ -279,7 +282,10 @@ softscheck.com
 }
 ```
 
-- `latex`
+</details>
+
+<details>
+<summary>latex</summary>
 
 ```tex
 \documentclass{article}
@@ -321,7 +327,10 @@ softscheck.com
 \end{document}
 ```
 
-- `markdown`
+</details>
+
+<details>
+<summary>markdown</summary>
 
 ```markdown
 | 188.68.47.54   | a2f36.netcup.net<br>softscheck.com   | linux                          |
@@ -334,7 +343,10 @@ softscheck.com
 | 8443/tcp       | https-alt                            | sw-cp-server                   |
 ```
 
-- `nmap`
+</details>
+
+<details>
+<summary>nmap</summary>
 
 ```bash
 #!/bin/bash
@@ -345,8 +357,10 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
 > The nmap output includes a port, that is not part of the infrastructure. This
 > is done because scanning closed ports with nmap can help with OS detection.
 
+</details>
 
-- `terminal (default)`
+<details>
+<summary>terminal (default)</summary>
 
 ```text
 ╒════════════════╤══════════════════╤══════════╤════════════╤════════════════════════════════╤═══════╕
@@ -361,7 +375,10 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
 ╘════════════════╧══════════════════╧══════════╧════════════╧════════════════════════════════╧═══════╛
 ```
 
-- `typst`
+</details>
+
+<details>
+<summary>typst</summary>
 
 ```typst
 #set page(flipped: true)
@@ -373,7 +390,10 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
 )
 ```
 
-- `yaml`
+</details>
+
+<details>
+<summary>yaml</summary>
 
 ```yaml
 188.68.47.54:
@@ -417,7 +437,10 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
 
 ```
 
-- `xml`
+</details>
+
+<details>
+<summary>xml</summary>
 
 ```xml
 <?xml version="1.0" ?>
@@ -481,6 +504,8 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
   </host>
 </infrastructure>
 ```
+
+</details>
 
 ## Contributing
 
