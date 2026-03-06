@@ -1,11 +1,13 @@
 import os
+from io import StringIO
 from pathlib import Path
-from subprocess import run
-from sys import executable
 from tempfile import NamedTemporaryFile
+from unittest.mock import patch
 
 import pytest
 import yaml
+
+from scans2any.main import main
 
 
 @pytest.fixture
@@ -17,14 +19,34 @@ def test_env():
         project_root = test_dir.parent.parent
         data_dir = project_root / "tests/data"
 
-        def get_scans2any_command(self):
-            """Get the command to run scans2any from the development directory"""
-            return [executable, "-m", "scans2any.main"]
-
         def run_scans2any(self, args, **kwargs):
             """Run scans2any with the given arguments using the development version"""
-            cmd = self.get_scans2any_command() + args
-            return run(cmd, **kwargs)
+            stdout = StringIO()
+            stderr = StringIO()
+            stderr.fileno = lambda: 2  # type: ignore[method-assign]  # Mock fileno for os.write
+
+            class Result:
+                def __init__(self, returncode, stdout, stderr):
+                    self.returncode = returncode
+                    self.stdout = stdout
+                    self.stderr = stderr
+
+            try:
+                with (
+                    patch("sys.argv", ["scans2any", *args]),
+                    patch("sys.stdout", stdout),
+                    patch("sys.stderr", stderr),
+                    patch("os.write"),
+                ):
+                    try:
+                        main()
+                        return Result(0, stdout.getvalue(), stderr.getvalue())
+                    except SystemExit as e:
+                        return Result(e.code, stdout.getvalue(), stderr.getvalue())
+            except Exception as e:
+                return Result(
+                    1, stdout.getvalue(), stderr.getvalue() + f"\nException: {e}"
+                )
 
     return TestEnv()
 
