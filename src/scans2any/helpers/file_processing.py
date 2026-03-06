@@ -21,6 +21,7 @@ from scans2any.helpers.utils import is_special_fd
 from scans2any.internal import Infrastructure, printer
 from scans2any.internal.printer import _stderr_console, logger
 from scans2any.parsers import avail_parsers
+from scans2any.parsers import database_parser as _database_parser
 
 
 def _worker_init(log_level: int) -> None:
@@ -166,7 +167,31 @@ def parse_input_files(args, parser) -> list[Infrastructure]:
                 provided = True
 
     if not provided:
-        parser.error("At least one input file argument must be provided.")
+        # If no input files provided but --project is set, load from database
+        project = getattr(args, "project", None)
+        if project:
+            quiet = getattr(args, "quiet", False)
+            verbose = getattr(args, "verbose", 0) > 0
+            if "database_parser" in avail_parsers:
+                with printer.status_section(
+                    "Loading from Database", quiet=quiet, verbose=verbose
+                ):
+                    try:
+                        infra = _database_parser.parse(project or "default", args)
+                        return [infra]
+                    except Exception as e:
+                        printer.error(f"Failed to load database: {e}")
+                        parser.error(
+                            f"Failed to load project '{project}' from database. "
+                            "Provide at least one input file argument or ensure the database exists."
+                        )
+            else:
+                parser.error(
+                    "Database parser not available. "
+                    "Provide at least one input file argument."
+                )
+
+        parser.error("At least one input file argument or --project must be provided.")
 
     def find_all_files(
         paths: list | str | Path, fileextensions: list[str]
@@ -218,6 +243,28 @@ def parse_input_files(args, parser) -> list[Infrastructure]:
         parser_name = f"{input_type}_parser"
         if parser_name not in avail_parsers:
             printer.warning(f"No parser available for {input_type} reports. Skipping.")
+            continue
+
+        # Special handling for database parser - it needs project argument, not files
+        if input_type == "database":
+            # Database flag is just True/False, not a file list
+            if not files:  # files would be False if flag not set
+                continue
+            project = getattr(args, "project", "default")
+            with printer.status_section(
+                f"Loading {input_type.capitalize()} Project '{project}'",
+                quiet=args.quiet,
+                verbose=getattr(args, "verbose", 0) > 0,
+            ):
+                try:
+                    # Pass args to enable database-level filtering
+                    infra = _database_parser.parse(project, args)
+                    all_infras.append(infra)
+                    printer.success(
+                        f"Successfully parsed database with {len(infra.hosts)} hosts."
+                    )
+                except Exception as e:
+                    printer.error(f"Failed to parse database: {e}")
             continue
 
         config = avail_parsers[parser_name].CONFIG

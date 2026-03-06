@@ -110,6 +110,50 @@ def main():
     printer.debug(f"Enabled filters: {filters}")
     apply_filters(combined_infra, filters, args, quiet=args.quiet, verbose=verbose)
 
+    # Auto-save to database if --project is explicitly set and we parsed input files (not from database)
+    project = getattr(args, "project", None)
+    if project and all_infras:
+        # Check if any actual scan input files were provided (not just loading from database)
+        input_file_types = [
+            "nmap",
+            "aquatone",
+            "bloodhound",
+            "nuclei",
+            "masscan",
+            "nessus",
+            "nxc",
+            "txt",
+            "json",
+        ]
+        has_input_files = any(getattr(args, attr, None) for attr in input_file_types)
+
+        # Only auto-save if we loaded from input files, not from database
+        if has_input_files:
+            from scans2any.internal.database import Database
+
+            verbose = hasattr(args, "verbose") and args.verbose > 0
+            db_path = f"{project}.db"
+
+            if verbose:
+                printer.section("Auto-saving to Database")
+                printer.info(f"Saving project '{project}' to {db_path}")
+                printer.info(f"Hosts: {len(combined_infra.hosts)}")
+                service_count = sum(len(h.services) for h in combined_infra.hosts)
+                printer.info(f"Services: {service_count}")
+
+            try:
+                with Database(db_path, project) as db:
+                    # Merge with existing data (clear=False to preserve and merge)
+                    db.write_infrastructure(combined_infra, clear=False)
+                    if verbose:
+                        stats = db.get_statistics()
+                        printer.success(
+                            f"Database updated: {stats['hosts']} hosts, "
+                            f"{stats['services']} services"
+                        )
+            except Exception as e:
+                printer.warning(f"Failed to auto-save to database: {e}")
+
     # Handle merging and conflicts
     try:
         combined_infra = resolve_infrastructure_conflicts(
