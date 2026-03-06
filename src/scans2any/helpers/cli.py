@@ -189,7 +189,7 @@ def _add_basic_arguments(parser):
         default="BUFFER_FILE.json",
     )
     parser.add_argument(
-        "-o", "--out", metavar="filename", help="Output to specified file"
+        "-o", "--out", metavar="filename", help="output to specified file"
     )
     parser.add_argument(
         "--ignore-conflicts",
@@ -293,6 +293,52 @@ def _add_filter_arguments(parser):
         type=lambda s: filter_list(s.split(",")),
     )
     filter_group.add_argument(
+        "-C",
+        "--col",
+        nargs="+",
+        default=None,
+        metavar="col:regex",
+        help=(
+            "Shorthand for --enable-filters column_filter --column-regex. "
+            "Filter hosts/services by column regex. "
+            "Syntax: col:regex (match), col:!regex (negate), regex (all columns). "
+            "Multiple specs are ANDed. Use (?i) prefix for case-insensitive matching. "
+            "Example: -C Services:(?i)http Banners:!N/A"
+        ),
+    )
+    filter_group.add_argument(
+        "-Cv",
+        "--col-value",
+        nargs="*",
+        default=None,
+        metavar="col:regex",
+        help=(
+            "Like -C but enables value-level mode: every service must satisfy each "
+            "global pattern on its own service-level fields to be kept. "
+            "Multi-value fields (Banners, Services, etc.) are trimmed to exact matches. "
+            "Specs are optional — '-Cv Services:ssh' is equivalent to "
+            "'-C Services:ssh --col-value'."
+        ),
+    )
+    filter_group.add_argument(
+        "-Ch",
+        "--col-host",
+        nargs="*",
+        default=None,
+        metavar="col:regex",
+        help=(
+            "Like -C but enables host-level mode: if the host (or any of its services) "
+            "satisfies the patterns, the entire host is kept with all its services intact. "
+            "Specs are optional."
+        ),
+    )
+    filter_group.add_argument(
+        "--hosts-file",
+        metavar="filename",
+        help="Filter output by a list of IPs or hostnames from a file (one per line)",
+        default=None,
+    )
+    filter_group.add_argument(
         "-L",
         "--list-filters",
         action="store_true",
@@ -324,4 +370,40 @@ def parse_args_with_custom_options(
         if isinstance(obj, HasAddArguments) and known_args.writer == obj.NAME:
             obj.add_arguments(writer_args)
 
-    return parser, parser.parse_args(remaining, namespace=known_args)
+    final_args = parser.parse_args(remaining, namespace=known_args)
+
+    # Handle --col shorthand: enable column_filter and set column_regex
+    if final_args.col is not None:
+        if "column_filter" not in final_args.enable_filters:
+            final_args.enable_filters.append("column_filter")
+        # Set column_regex to the provided values
+        final_args.column_regex = final_args.col
+
+    # Handle --col-value: accepts optional specs like -C and enables value mode.
+    if getattr(final_args, "col_value", None) is not None:
+        final_args.col_value_mode = True
+        if final_args.col_value:  # non-empty specs given directly to -Cv
+            final_args.column_regex = (
+                getattr(final_args, "column_regex", []) or []
+            ) + final_args.col_value
+        if "column_filter" not in final_args.enable_filters:
+            final_args.enable_filters.append("column_filter")
+
+    # Handle --col-host: accepts optional specs like -C and enables host mode.
+    if getattr(final_args, "col_host", None) is not None:
+        final_args.col_host_mode = True
+        if final_args.col_host:  # non-empty specs given directly to -Ch
+            final_args.column_regex = (
+                getattr(final_args, "column_regex", []) or []
+            ) + final_args.col_host
+        if "column_filter" not in final_args.enable_filters:
+            final_args.enable_filters.append("column_filter")
+
+    # Handle --hosts-file shorthand: enable hosts_file_filter
+    if (
+        final_args.hosts_file is not None
+        and "hosts_file_filter" not in final_args.enable_filters
+    ):
+        final_args.enable_filters.append("hosts_file_filter")
+
+    return parser, final_args
