@@ -1,7 +1,7 @@
 ## scans2any JSON Format
 
-The JSON writer creates a JSON representation of an infrastructure
-See below an example, showing the structure of the resulting JSON
+The JSON writer creates a JSON representation of an infrastructure.
+See below for an example showing the structure of the resulting JSON.
 
 ```json
 {

@@ -5,7 +5,7 @@ _output_writers() {
   local writers=(
     "aquatone:Aquatone"
     "csv:CSV"
-    "html:HTML"
+    "database:Database"
     "excel:Excel"
     "host:Host"
     "html:HTML"
@@ -16,6 +16,7 @@ _output_writers() {
     "terminal:Terminal"
     "typst:Typst"
     "url:URL"
+    "xml:XML"
     "yaml:YAML"
   )
   _describe -t writers 'output writer' writers
@@ -24,19 +25,45 @@ _output_writers() {
 # Helper function to provide available filters
 _available_filters() {
   local filters=(
-    "combine_banners:Combine similar banners"
-    "empty_hosts:Remove hosts without services"
-    "empty_services:Remove empty services"
-    "hostname_filter:Filter hostnames"
-    "hosts_ports:Filter hosts and ports"
+    "column_filter:Filter by column regex"
+    "combine_banner:Combine similar banners"
+    "empty_host:Remove hosts without services"
+    "empty_service:Remove empty services"
+    "hosts_file_filter:Filter hosts by IP/hostname file"
+    "ip_port:Filter hosts and ports"
     "nmap_banner:Process Nmap banner information"
-    "service_allowlist:Filter services based on allowlist"
-    "trash_banners:Remove unwanted banner information"
-    "trash_hostnames:Remove unwanted hostnames"
-    "trash_service_names:Remove unwanted service names"
+    "trash_banner:Remove unwanted banner information"
+    "trash_hostname:Remove unwanted hostnames"
+    "trash_service_name:Remove unwanted service names"
     "use_first_entry:Use first entry for each host"
   )
   _describe -t filters 'filter' filters
+}
+
+# Helper function to provide column names for column filtering
+_column_names() {
+  local columns=(
+    "IP-Addresses:IP addresses"
+    "Hostnames:Hostnames"
+    "OS:Operating systems"
+    "Ports:Port numbers"
+    "Services:Service names"
+    "Banners:Service banners"
+    "http_status:HTTP status codes"
+  )
+  _describe -t columns 'column' columns
+}
+
+# Helper function to complete comma-separated column lists for -c/--columns
+_columns_list() {
+  _values -s , 'columns' \
+    'IP-Addresses[IP address column]' \
+    'Hostnames[Hostnames column]' \
+    'OS[Operating systems column]' \
+    'Ports[Port numbers column]' \
+    'Services[Service names column]' \
+    'Banners[Service banners column]' \
+    'http_status[HTTP status codes column]'
 }
 
 _scans2any() {
@@ -53,7 +80,10 @@ _scans2any() {
     '--txt[specify plain text file(s)]:filename(s):_files' \
     '--json[import infrastructure from json file]:filename(s):_files -g "*.json"' \
     '--nxc[specify NetExec/CrackMapExec database file]:filename:_files -g "*.db"' \
+    '-p[Load/save from/into project database]:project:_files -g "*.db"' \
+    '--project[Load/save from/into project database]:project:_files -g "*.db"' \
     '--merge-file[use specified file as merge file to resolve conflicts]:filename:_files' \
+    '--buffer-file[choose file to store intermediary results]:filename:_files' \
     '-o[output to specified file]:filename:_files' \
     '--out[output to specified file]:filename:_files' \
     '--ignore-conflicts[Do not check for conflicts and do not create a merge file]' \
@@ -61,11 +91,22 @@ _scans2any() {
     '-w[Specify output writer]:output_writer:_output_writers' \
     '--writer[Specify output writer]:output_writer:_output_writers' \
     '--multi-table[Creates one table for each host, if supported by the chosen output writer]' \
-    '-c[Specify output columns as a comma-separated list]:columns:' \
-    '--columns[Specify output columns as a comma-separated list]:columns:' \
+    '-c[Specify output columns as a comma-separated list]:columns:_columns_list' \
+    '--columns[Specify output columns as a comma-separated list]:columns:_columns_list' \
+    '-W[List writers with descriptions and options]' \
+    '--list-writers[List writers with descriptions and options]' \
     '--filters+[Overwrites default filters with specified filters]:filter:_available_filters' \
+    '-F+[Enables additional filters]:filter:_available_filters' \
     '--enable-filters+[Enables additional filters]:filter:_available_filters' \
     '--disable-filters+[Disables certain filters]:filter:_available_filters' \
+    '-C+[Filter hosts/services by column regex (shorthand for column_filter)]:col\:regex:' \
+    '--col+[Filter hosts/services by column regex (shorthand for column_filter)]:col\:regex:' \
+    '--column-regex+[Filter hosts/services by column regex]:col\:regex:' \
+    '-Cv*[Like -C but with value-level mode (trims multi-value fields)]:col\:regex:' \
+    '--col-value*[Like -C but with value-level mode]:col\:regex:' \
+    '-Ch*[Like -C but with host-level mode (keeps entire host if match)]:col\:regex:' \
+    '--col-host*[Like -C but with host-level mode]:col\:regex:' \
+    '--hosts-file[Filter output by IPs/hostnames from a file]:filename:_files' \
     '-L[List available filters]' \
     '--list-filters[List available filters]' \
     '-v[Increase verbosity level (use twice for debug mode)]' \
