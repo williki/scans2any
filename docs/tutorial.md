@@ -115,14 +115,14 @@ Available columns are: IP-Addresses, Hostnames, Ports, Services, Banners, OS.
 ## Merge-file
 
 scans2any combines different scans into one infrastructure, which can then be
-written to an output format. To achieve this the tool detects and resolves
-conflicting information automatically. Sometimes however conflicts arise that
+written to an output format. To achieve this, the tool detects and resolves
+conflicting information automatically. Sometimes, however, conflicts arise that
 cannot be resolved automatically. In this case, scans2any creates a file called
 `MERGE_FILE.yaml`. This file contains all the conflicting elements of the
 infrastructure. You can edit the merge-file to resolve the conflicts manually,
 and in a second call, use the merge-file to create a conflict-free result.
 
-In case of an unresolved conflicts scans2any also creates a buffer file called
+In case of unresolved conflicts, scans2any also creates a buffer file called
 `BUFFER_FILE.json`. This file contains intermediary results up until the
 conflict. After resolving the issues inside the merge-file, you can use the
 buffer-file as input to speed up operation. Details are explained in the
@@ -184,28 +184,28 @@ scans2any --json one.json two.json --merge-file MERGE_FILE.yaml
 
 ### Benefits and downsides of the buffer-file
 
-When scans2any realizes, that there are conflicts it can not resolve
-automatically it has already done a lot of work reading, parsing and combining
+When scans2any realizes that there are conflicts it cannot resolve
+automatically, it has already done a lot of work reading, parsing and combining
 scan results. The buffer-file stores all those results, making them usable on
-subsequent execution. So the buffer-file makes the subsequent execution faster.
+subsequent execution. So, the buffer-file makes the subsequent execution faster.
 
 However, there are scenarios where not using the buffer-file might be
 preferable:
 
-Let's imagine, you want to explain to someone else how a specific result has
-been created. If they have the scans, you just need to give them the call, that
-does not use the buffer-file and give them the used merge-file. Then they cannot
-only recreate the result, they can also see what scan files were used. The
-buffer-file only contains the information contained in the scans, it does not
+Let's imagine you want to explain to someone else how a specific result has
+been created. If they have the scans, you just need to give them the call that
+does not use the buffer-file and give them the used merge-file. Then they can
+not only recreate the result, but they can also see what scan files were used. The
+buffer-file only contains the information contained in the scans; it does not
 store its origins.
 
-Or imagine a scenario, where your scan files are constantly changing. Having one
-call, that always takes in the current state of affairs while also resolving
-known conflicts is useful. The buffer-file can only contain information, that
+Or imagine a scenario where your scan files are constantly changing. Having one
+call that always takes in the current state of affairs while also resolving
+known conflicts is useful. The buffer-file can only contain information that
 was present when it was created.
 
-In short. Using the buffer file leads to faster results, not using the buffer
-file is more verbose. However, the results are the same given the same input.
+In short: Using the buffer-file leads to faster results; not using the buffer-file
+is more verbose. However, the results are the same given the same input.
 
 ## Filters
 

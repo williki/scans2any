@@ -1,4 +1,4 @@
-.TH SCANS2ANY 1 "March 2025" "Version 0.8.1" "User Commands"
+.TH SCANS2ANY 1 "March 2025" "Version 1.0.0" "User Commands"
 .SH NAME
 scans2any \- Convert network scans to Markdown, JSON, Typst, HTML, CSV, ...
 .SH SYNOPSIS
@@ -71,6 +71,9 @@ control behavior
 .TP
 .B \-\-merge-file \fIFILENAME\fR
 Use specified file to resolve conflicts.
+.TP
+.B \-\-merge-rules \fIFILENAME\fR
+Use specified file as custom merge rules to resolve conflicts automatically.
 .TP
 .B \-\-multi\-table
 Break output into multiple table, one per host, if applicable for chosen writer.

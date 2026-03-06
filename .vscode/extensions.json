@@ -1,6 +1,6 @@
 {
     "recommendations": [
         "charliermarsh.ruff",
-        "matangover.mypy"
+        "astral-sh.ty"
     ]
 }

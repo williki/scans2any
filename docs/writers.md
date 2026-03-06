@@ -32,7 +32,7 @@ All writers support `-c, --columns`. Use it to specify which columns to include
 
 Most writers support `--multi-table` to break the output up into individual
 tables, where each one represents a host. This output uses the headers of the
-table to show information like IP-Addresses, Hostnames, and OS where as the
+table to show information like IP-Addresses, Hostnames, and OS whereas the
 body of the table contains Ports, Services and Banners.
 
 ## Aquatone
@@ -111,7 +111,7 @@ The JSON writer is the only writer where the output can also be used as the
 input for a future call to scans2any. This can be useful to reuse the combined
 result. See the workflow below:
 
-Let's say you need to combine many scans, that are stored in a directory. This
+Let's say you need to combine many scans that are stored in a directory. This
 can take a long time, depending on how many scans you have. Instead of using
 the default terminal output let's use JSON:
 
@@ -120,9 +120,9 @@ the default terminal output let's use JSON:
 Once this is done, you can use the JSON file and try different output options
 without having to read many files and combine a lot of information.
 
-`scans2any --json combined_infra.json -c IP-Addresses,Services --filters service_filter --service-regex "https"`
+`scans2any --json combined_infra.json -c IP-Addresses,Services -C Services:https`
 
-The JSON output also is ideal if you want to create your own output format in
+The JSON output is also ideal if you want to create your own output format in
 whatever language you prefer.
 
 Learn more about the JSON format at [json.md](json.md).
@@ -191,6 +191,8 @@ scans2any --nmap scan.xml -w nmap --options-tcp "-sT -sV -O" -o custom_scan.sh
 
 The generated script will include one line per host, with appropriate ports
 included.
+
+```
 
 ## Terminal
 

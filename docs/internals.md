@@ -38,11 +38,30 @@ Input files are parsed using their respective parser, resulting in an
 unioned, meaning they are combined without any merging or data loss. This
 results in one single combined `Infrastructure`.
 
+#### Optimized Combination (since v0.8.x)
+
+Earlier versions combined infrastructures by iteratively calling
+`Infrastructure.add_host` which performed a linear search for every host to
+find merge candidates (O(n^2) worst case). The current implementation performs
+an optimized union-find (disjoint set) clustering across all hosts based on
+shared IP addresses OR hostnames. Any hosts linked transitively through these
+tokens are merged exactly once. Complexity is effectively near-linear in the
+number of hosts.
+
+Highlights:
+
+* Single pass clustering (no iterative fix-up loop required)
+* Optional parallel token indexing for large inputs (`parallel=True`)
+* Deterministic merges (stable ordering of hosts inside each cluster)
+
+This improves performance markedly for large scans (thousands of hosts) while
+preserving previous semantics of unioning data without conflict resolution.
+
 ### *MERGE & FILTER*
 
-In this step, collisions in the combined infrastructure are tried to resolve and
-filters are applied that further compress the information, e.g., filtering certain
-blacklisted IPs or filter banner information from Nmap scans.
+In this step, collisions in the combined infrastructure are resolved, and
+filters are applied to further compress the information, e.g., filtering certain
+blacklisted IPs or filtering banner information from Nmap scans.
 
 By collisions, we mean multiple detected service names or banners for the same
 port. Collisions are resolved using the following steps (increasing in
@@ -52,13 +71,13 @@ priority):
 2. user-defined auto-merge rules (in merge-file)
 3. user-defined manual merge rules (in merge-file)
 
-This ordering is flipped in the chart because higher priority rules, have to be
+This ordering is flipped in the chart because higher priority rules have to be
 applied first in the code. (Resolved conflicts will not be resolved again)
 
 ### *CHECK & OUTPUT*
 
-If there are still any unresolved collisions at this point, a merge-file,
-listing the collisions, is created and the user is prompted to resolve them
+If there are still any unresolved collisions at this point, a merge-file
+listing the collisions is created, and the user is prompted to resolve them
 manually (and run again afterward, providing the merge-file to the program).
 
 Otherwise, the output is generated in the chosen output format.

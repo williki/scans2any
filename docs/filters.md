@@ -42,6 +42,73 @@ properly when multiple filters are enabled.
 
 ## Available Filters
 
+### column_filter
+
+**Priority:** 1
+
+Filters hosts and services based on regex patterns matched against specific
+columns (or all columns at once).
+
+**When to use:** When you want to keep only hosts or services where a particular
+field contains (or deliberately does not contain) a given pattern.
+
+**Syntax:** Each spec follows one of these forms, and multiple specs are
+**ANDed** together:
+
+| Spec | Meaning |
+|---|---|
+| `col:regex` | Keep if column `col` matches `regex` |
+| `col:!regex` | Keep if column `col` does **not** match `regex` (negation) |
+| `regex` | Keep if **any** column matches `regex` (global) |
+| `!regex` | Keep if **no** column matches `regex` (global negation) |
+
+For case-insensitive matching use Python's inline flag, e.g. `(?i)http`.
+
+**Valid column names:**
+- Host-level: `IP-Addresses`, `Hostnames`, `OS`
+- Service-level: `Ports`, `Services`, `Banners` (plus any parser-specific columns such as `http_status`)
+
+**Default behaviour (normal mode):** For global specs (no `col:` prefix) a
+service is kept when its own fields satisfy the pattern **or** the host-level
+fields do. This means all services of a matching host survive as long as the
+host matches.
+
+**Value mode (`-Cv` / `--col-value`):** Each service must satisfy every
+global pattern on its own service-level fields. Services whose fields do not
+match are dropped even if the host matched. Additionally, multi-value fields
+such as `Vulnerability-Type`, `Banners`, and `Services` are **trimmed** to only
+the values that satisfied the pattern, so each output row shows exactly the
+entries the user asked for.
+
+**Host mode (`-Ch` / `--col-host`):** If the host (or any of its services)
+satisfies the patterns, the entire host is kept **with all its services intact**.
+For service-level specs (e.g. `Services:ssh`), the host is kept when at least
+one service matches.
+
+**Example:**
+
+```sh
+# Keep only services named "http" or "https"
+scans2any --nmap scan.xml -C Services:(?i)http
+
+# Keep hosts/services that mention "192.168.1" somewhere
+scans2any --nmap scan.xml -C 192\.168\.1
+
+# Drop services whose banner contains "N/A"
+scans2any --nmap scan.xml -C Banners:!N/A
+
+# Show only web services AND exclude any with N/A banners (chaining)
+scans2any --nmap scan.xml -C Services:(?i)http Banners:!N/A
+
+# Value mode: keep only the specific services whose port/service/banner matched
+# (equivalent forms)
+scans2any --nmap scan.xml -Cv 192\.168\.1
+scans2any --nmap scan.xml -C 192\.168\.1 -Cv
+
+# Host mode: keep the entire host if it has port 22 open
+scans2any --nmap scan.xml -Ch Ports:22
+```
+
 ### empty_host
 
 **Priority:** 4
@@ -113,26 +180,26 @@ Host: 192.168.1.1
   - Port 22: ssh
 ```
 
-### hostname_filter
+### hosts_file_filter
 
 **Priority:** 3
 
-Filters hosts based on regex patterns matching their hostnames.
+Filters hosts by a list of IPs or hostnames read from a file.
 
-**When to use:** When you only want to see hosts with specific hostname
-patterns.
+**When to use:** When you have a file containing the IPs or hostnames you want
+to keep (one per line).
 
-**How it works:** The filter accepts regex patterns via the `--hosts-regex`
-argument and keeps only hosts with hostnames matching at least one pattern.
+**How it works:** The filter reads a file specified via `--hosts-file` and keeps
+only hosts whose IP address or hostname appears in that file. Lines starting
+with `#` and blank lines are ignored.
 
 **Example:**
 
 ```sh
-scans2any --nmap scan.xml --hosts-regex ".*\.example\.com" "dev.*"
+scans2any --nmap scan.xml --hosts-file targets.txt
 ```
 
-This will keep only hosts with hostnames that either end with `.example.com` or
-start with `dev`.
+Where `targets.txt` contains one IP or hostname per line.
 
 ### ip_port
 
@@ -195,26 +262,7 @@ Host: 192.168.1.1
     - Banner: "Apache/2.4.46"
 ```
 
-### service_filter
 
-**Priority:** 1
-
-Filters services based on regex patterns matching their service names.
-
-**When to use:** When you only want to see specific types of services, e.g.,
-only web services.
-
-**How it works:** The filter accepts regex patterns via the `--service-regex`
-argument and keeps only services with names matching at least one pattern.
-
-**Example:**
-
-```sh
-scans2any --nmap scan.xml --enable-filters service_filter --service-regex "http.*" "ftp"
-```
-
-This will keep only services with names containing "http" (like "http", "https",
-"http-proxy") or exactly "ftp".
 
 ### trash_banner
 
@@ -373,7 +421,7 @@ scans2any --nmap scan.xml --filters empty_host trash_service_name trash_banner
 Keep only web-related services:
 
 ```sh
-scans2any --nmap scan.xml --service-regex "http.*" "https.*"
+scans2any --nmap scan.xml -C Services:(?i)http
 ```
 
 ### Clean Output for a Specific Network
@@ -381,7 +429,7 @@ scans2any --nmap scan.xml --service-regex "http.*" "https.*"
 Clean output for a specific network:
 
 ```sh
-scans2any --nmap scan.xml --filters trash_banner trash_hostname trash_service_name nmap_banner --ip-allowlist 192.168.1.0-192.168.1.255
+scans2any --nmap scan.xml --filters trash_banner trash_hostname trash_service_name nmap_banner --enable-filters ip_port --ip-allowlist 192.168.1.0-192.168.1.255
 ```
 
 ## Creating Custom Filters

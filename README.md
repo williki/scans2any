@@ -1,10 +1,10 @@
-# <img height="25" src="https://raw.githubusercontent.com/softScheck/scans2any/main/data/logo.svg"/> scans2any
+# <img height="25" src="data/logo.svg"/> scans2any
 
 Convert infrastructure scans into various output formats, such as Markdown
 tables, YAML, HTML, CSV, and more. It can also be used to generate launch
 scripts and target files for various other scanners.
 
-<p align="center"> <img src="https://raw.githubusercontent.com/softScheck/scans2any/main/data/scans2any.gif"/> </p>
+<p align="center"> <img src="data/scans2any.gif"/> </p>
 
 ## Install & Run
 
@@ -20,16 +20,7 @@ scans2any
 
 or directly with `uv tool install .` or `pipx install .`
 
-It is also possible to simply run it with uv `uv run scans2any`
-
-### PyPI
-<img alt="PyPI - Version" src="https://img.shields.io/pypi/v/scans2any">
-
-Using PyPi it is possible to install with any of these options:
-
-`uv tool install scans2any`
-`pip install scans2any`
-`pipx install scans2any`
+It is also possible to simply run it with uv: `uv run scans2any`
 
 ### Docker
 
@@ -41,70 +32,79 @@ docker build -t scans2any .
 docker run -v $(pwd):/data scans2any
 ```
 
-### Arch Linux AUR
-<img alt="AUR Version" src="https://img.shields.io/aur/version/scans2any-git"> <img alt="AUR Version" src="https://img.shields.io/aur/version/scans2any">
-
-If you are on Arch Linux, you can use the provided AUR packages with your favorite `pacman` wrapper (https://aur.archlinux.org/packages/scans2any-git or https://aur.archlinux.org/packages/scans2any).
-
 ## Usage
 
 ```text
 
-usage: scans2any [-h] [--version] [--merge-file filename] [--buffer-file buffer] [-o filename]
-                 [--ignore-conflicts] [--no-auto-merge] [-a filename/directory [filename/directory ...]]
-                 [--masscan filename/directory [filename/directory ...]]
-                 [--nessus filename/directory [filename/directory ...]]
+usage: scans2any [-h] [--version] [-p name] [--merge-file filename]
+                 [--buffer-file buffer] [-o filename] [--ignore-conflicts]
+                 [--no-auto-merge]
+                 [-a filename/directory [filename/directory ...]]
                  [--aquatone filename/directory [filename/directory ...]]
-                 [--txt filename/directory [filename/directory ...]]
                  [--bloodhound filename/directory [filename/directory ...]]
                  [--json filename/directory [filename/directory ...]]
-                 [--nxc filename/directory [filename/directory ...]]
+                 [--masscan filename/directory [filename/directory ...]]
+                 [--nessus filename/directory [filename/directory ...]]
                  [--nmap filename/directory [filename/directory ...]]
-                 [-w {aquatone,csv,excel,host,html,json,latex,markdown,nmap,terminal,typst,url,xml,yaml}]
-                 [--multi-table] [-c COLUMNS] [-W] [-v | -q] [--filters FILTERS [FILTERS ...]]
-                 [--enable-filters ENABLE_FILTERS [ENABLE_FILTERS ...]]
-                 [--disable-filters DISABLE_FILTERS [DISABLE_FILTERS ...]] [-L] [--table-fmt TABLE_FMT]
+                 [--nxc filename/directory [filename/directory ...]]
+                 [--txt filename/directory [filename/directory ...]]
+                 [-w {aquatone,csv,database,excel,host,html,json,latex,markdown,nmap,terminal,typst,url,xml,yaml}]
+                 [--multi-table] [-c COLUMNS] [-W] [-v | -q]
+                 [--filters FILTERS [FILTERS ...]]
+                 [-F ENABLE_FILTERS [ENABLE_FILTERS ...]]
+                 [--disable-filters DISABLE_FILTERS [DISABLE_FILTERS ...]]
+                 [-C col:regex [col:regex ...]] [-Cv [col:regex ...]]
+                 [-Ch [col:regex ...]] [--hosts-file filename] [-L]
+                 [--table-fmt TABLE_FMT]
 
 Merge infrastructure scans and convert them to various formats.
 
 options:
   -h, --help            Show this help message and exit
   --version             Displays version and exits
+  -p, --project name    Load/save from/into <project-name>.db database
   --merge-file filename
                         Use file as merge file to resolve conflicts
-  --buffer-file buffer  Choose this file to store intermediary results in case the program cannot
-                        resolve all conflicts automatically. (default: BUFFER_FILE.json)
-  -o, --out filename    output to specified file
-  --ignore-conflicts    Do not check for conflicts and do not create a merge file
-  --no-auto-merge       Do not apply automatic conflict solving using internal rules
+  --buffer-file buffer  Choose this file to store intermediary results in case
+                        the program cannot resolve all conflicts
+                        automatically. (default: BUFFER_FILE.json)
+  -o, --out filename    Output to specified file
+  --ignore-conflicts    Do not check for conflicts and do not create a merge
+                        file
+  --no-auto-merge       Do not apply automatic conflict solving using internal
+                        rules
 
-input files (at least one required unless):
+input files (at least one required):
   -a, --auto filename/directory [filename/directory ...]
                         Auto-detect and import scans in a directory
-  --masscan filename/directory [filename/directory ...]
-                        Masscan JSON port scan files/directory
-  --nessus filename/directory [filename/directory ...]
-                        Nessus report (.nessus) file/directory
   --aquatone filename/directory [filename/directory ...]
-                        Aquatone session file (aquatone_session.json) or directory
-  --txt filename/directory [filename/directory ...]
-                        Plain text formats for addional IP and hostname mapping
+                        Aquatone session file (aquatone_session.json) or
+                        directory
   --bloodhound filename/directory [filename/directory ...]
                         Bloodhound computer JSON file/directory
   --json filename/directory [filename/directory ...]
                         JSON files/directory
-  --nxc filename/directory [filename/directory ...]
-                        NetExec/CrackMapExec SMB.db sqlite database/directory
+  --masscan filename/directory [filename/directory ...]
+                        Masscan JSON port scan files/directory
+  --nessus filename/directory [filename/directory ...]
+                        Nessus report (.nessus) file/directory
   --nmap filename/directory [filename/directory ...]
                         XML nmap scan files/directory
+  --nxc filename/directory [filename/directory ...]
+                        NetExec/CrackMapExec SMB.db sqlite database/directory
+  --txt filename/directory [filename/directory ...]
+                        Plain text formats for additional IP and hostname
+                        mapping
 
 output writer:
-  -w, --writer {aquatone,csv,excel,host,html,json,latex,markdown,nmap,terminal,typst,url,xml,yaml}
+  -w, --writer {aquatone,csv,database,excel,host,html,json,latex,markdown,nmap,terminal,typst,url,xml,yaml}
                         Specify output writer. (default: terminal)
-  --multi-table         Creates one table for each host, if supported by output format
+  --multi-table         Creates one table for each host, if supported by
+                        output format
   -c, --columns COLUMNS
-                        Specify output columns as a comma-separated list. (default: ('IP-Addresses',
-                        'Hostnames', 'Ports', 'Services', 'Banners', 'OS'))
+                        Specify output columns as a comma-separated list.
+                        (default: ('IP-Addresses', 'Hostnames', 'Ports',
+                        'Services', 'Banners', 'OS'))
   -W, --list-writers    List writers with descriptions and options
 
 verbosity options:
@@ -113,25 +113,48 @@ verbosity options:
 
 filter options:
   --filters FILTERS [FILTERS ...]
-                        Overwrites default filters with specified filters (default: ['trash_banner',
-                        'trash_service_name', 'trash_hostname', 'combine_banner', 'nmap_banner'])
-  --enable-filters ENABLE_FILTERS [ENABLE_FILTERS ...]
+                        Overwrites default filters with specified filters
+                        (default: ['trash_banner', 'trash_service_name',
+                        'trash_hostname', 'combine_banner', 'nmap_banner'])
+  -F, --enable-filters ENABLE_FILTERS [ENABLE_FILTERS ...]
                         Enables additional filters (applied after --filters)
   --disable-filters DISABLE_FILTERS [DISABLE_FILTERS ...]
-                        Disables certain filters (will be applied after --enable-filters)
+                        Disables certain filters (will be applied after
+                        --enable-filters)
+  -C, --col col:regex [col:regex ...]
+                        Shorthand for --enable-filters column_filter
+                        --column-regex. Filter hosts/services by column regex.
+                        Syntax: col:regex (match), col:!regex (negate), regex
+                        (all columns). Multiple specs are ANDed. Use (?i)
+                        prefix for case-insensitive matching. Example: -C
+                        Services:(?i)http Banners:!N/A
+  -Cv, --col-value [col:regex ...]
+                        Like -C but enables value-level mode: every service
+                        must satisfy each global pattern on its own
+                        service-level fields to be kept. Multi-value fields
+                        (Banners, Services, etc.) are trimmed to exact
+                        matches.
+  -Ch, --col-host [col:regex ...]
+                        Like -C but enables host-level mode: if the host (or
+                        any of its services) satisfies the patterns, the
+                        entire host is kept with all its services intact.
+  --hosts-file filename
+                        Filter output by a list of IPs or hostnames from a
+                        file (one per line)
   -L, --list-filters    List filters with descriptions and options
 
 writer arguments:
   --table-fmt TABLE_FMT
-                        Table format for terminal output, see tabulate python package (default:
-                        fancy_grid)
+                        Table format for terminal output, see tabulate python
+                        package (default: fancy_grid)
 
-Examples: scans2any --nmap tcp_scan.xml --nmap udp_scan.xml --nessus scan.nessus
+Examples: scans2any --nmap tcp_scan.xml --nmap udp_scan.xml --nessus
+scan.nessus
 
 ```
 
 You can learn more about how to use scans2any in the
-[tutorial](https://github.com/softScheck/scans2any/blob/main/docs/tutorial.md).
+[tutorial](docs/tutorial.md).
 
 ### Output
 
@@ -354,7 +377,7 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
 ```
 
 > [!NOTE]
-> The nmap output includes a port, that is not part of the infrastructure. This
+> The nmap output includes a port that is not part of the infrastructure. This
 > is done because scanning closed ports with nmap can help with OS detection.
 
 </details>
@@ -510,7 +533,7 @@ nmap 188.68.47.54 -sS -A -Pn -n -T4 -oA 188.68.47.54 -p 21,22,53,80,443,8443,844
 ## Contributing
 
 If you want to contribute, there is useful information at
-[contributing](https://github.com/softScheck/scans2any/blob/main/docs/contributing.md).
+[contributing](docs/contributing.md).
 
 ## Wish to learn more about scans2any or us?
 
