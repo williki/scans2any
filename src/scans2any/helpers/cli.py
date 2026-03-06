@@ -206,6 +206,13 @@ def _add_basic_arguments(parser):
         default=False,
         help="Do not apply automatic conflict solving using internal rules",
     )
+    parser.add_argument(
+        "-p",
+        "--project",
+        metavar="name",
+        default=None,
+        help="Load/save from/into <project-name>.db database",
+    )
 
 
 def _add_scan_arguments(parser):
