@@ -12,7 +12,10 @@ from scans2any.filters import avail_filters
 from scans2any.helpers.utils import validate_columns
 from scans2any.internal import printer
 from scans2any.internal.protocols import HasAddArguments
-from scans2any.parsers import avail_parsers
+from scans2any.parsers import (
+    avail_parsers,
+    parser_custom_columns,
+)
 from scans2any.writers import avail_writers
 
 
@@ -228,12 +231,17 @@ def _add_writer_arguments(parser):
         default=False,
         help="Creates one table for each host, if supported by output format",
     )
+    default_cols = ("IP-Addresses", "Hostnames", "Ports", "Services", "Banners", "OS")
     writer_group.add_argument(
         "-c",
         "--columns",
-        type=lambda s: validate_columns(tuple(s.split(","))),
-        default=("IP-Addresses", "Hostnames", "Ports", "Services", "Banners", "OS"),
-        help="Specify output columns as a comma-separated list. (default: ('IP-Addresses', 'Hostnames', 'Ports', 'Services', 'Banners', 'OS'))",
+        type=lambda s: validate_columns(
+            tuple(s.split(",")),
+            extra_columns=parser_custom_columns,
+            default_columns=default_cols,
+        ),
+        default=default_cols,
+        help="Specify output columns as a comma-separated list. Use + or - to add or remove columns (e.g. +CVE,-OS).",
     )
     writer_group.add_argument(
         "-W",
