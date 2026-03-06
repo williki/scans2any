@@ -79,6 +79,16 @@ def main():
     # Parse merge file if provided
     merge_infra, auto_merge_ruleset = handle_merge_file(args.merge_file)
 
+    # Parse custom merge rules if provided
+    custom_merge_ruleset = None
+    if args.merge_rules:
+        import yaml
+        from yaml import SafeLoader
+
+        with open(args.merge_rules) as file:
+            config = yaml.load(file, Loader=SafeLoader)
+            custom_merge_ruleset = config.get("auto-merge", [])
+
     # Setup signal handler
     signal.signal(signal.SIGINT, signal_handler)
     global executor
@@ -170,7 +180,9 @@ def main():
 
     # Apply automatic merging if not disabled
     if not args.no_auto_merge:
-        combined_infra.auto_merge(quiet=args.quiet, verbose=verbose)
+        combined_infra.auto_merge(
+            ruleset=custom_merge_ruleset, quiet=args.quiet, verbose=verbose
+        )
         printer.debug(combined_infra)
 
     # Check for remaining conflicts if not ignored

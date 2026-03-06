@@ -213,6 +213,11 @@ def _add_basic_arguments(parser):
         default=None,
         help="Load/save from/into <project-name>.db database",
     )
+    parser.add_argument(
+        "--merge-rules",
+        metavar="filename",
+        help="Use file as custom merge rules to resolve conflicts automatically",
+    )
 
 
 def _add_scan_arguments(parser):
