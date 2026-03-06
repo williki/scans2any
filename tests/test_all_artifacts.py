@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 
+import os
+from io import StringIO
 from pathlib import Path
-from subprocess import run
-from sys import executable
+from unittest.mock import patch
 
 import pytest
+
+from scans2any.main import main
 
 # Define repository paths
 REPO_ROOT = Path(__file__).parent.parent
@@ -51,31 +54,52 @@ def test_artifact(call: str):
         f"Expected output file not found: {expected_output_path}"
     )
 
-    # Build the command
-    cmd = [
-        executable,
-        "-m",
-        "scans2any.main",
+    # Build the command arguments
+    cmd_args = [
         f"--{input_type}",
         args[1],
         "-w",
         writer_format,
     ]
     if multi_table:
-        cmd.append("--multi-table")
+        cmd_args.append("--multi-table")
     # Include any additional arguments (e.g. -c for columns) (not used in this test)
     for i, arg in enumerate(args):
         if arg == "-c" and i + 1 < len(args):
-            cmd.extend(["-c", args[i + 1]])
+            cmd_args.extend(["-c", args[i + 1]])
 
-    result = run(cmd, capture_output=True, text=True)
-    assert result.returncode == 0, (
-        f"Command failed: {cmd} {call}\nError: {result.stderr}"
+    stdout = StringIO()
+    stderr = StringIO()
+    stderr.fileno = lambda: 2  # type: ignore[method-assign]  # Mock fileno for os.write
+
+    old_cwd = os.getcwd()
+    os.chdir(REPO_ROOT)
+
+    returncode = 0
+    try:
+        with (
+            patch("sys.argv", ["scans2any", *cmd_args]),
+            patch("sys.stdout", stdout),
+            patch("sys.stderr", stderr),
+            patch("os.write"),
+        ):
+            try:
+                main()
+            except SystemExit as e:
+                returncode = e.code
+    except Exception as e:
+        returncode = 1
+        stderr.write(f"\nException: {e}")
+    finally:
+        os.chdir(old_cwd)
+
+    assert returncode == 0, (
+        f"Command failed: {cmd_args} {call}\nError: {stderr.getvalue()}"
     )
 
     with open(expected_output_path) as f:
         expected_output = f.read()
 
-    assert result.stdout.strip() == expected_output.strip(), (
-        f"Output for '{' '.join(cmd)}' doesn't match expected artifact: {expected_output_path}"
+    assert stdout.getvalue().strip() == expected_output.strip(), (
+        f"Output for '{' '.join(cmd_args)}' doesn't match expected artifact: {expected_output_path}"
     )
